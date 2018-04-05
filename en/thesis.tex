@@ -57,33 +57,33 @@
 \def\ThesisTitle{Thesis title: Simulation of processes in cellular membranes}
 
 % Author of the thesis
-\def\ThesisAuthor{Name Surname}
+\def\ThesisAuthor{Josef Melcr}
 
 % Year when the thesis is submitted
-\def\YearSubmitted{YEAR}
+\def\YearSubmitted{2018}
 
 % Name of the department or institute, where the work was officially assigned
 % (according to the Organizational Structure of MFF UK in English,
 % or a full name of a department outside MFF)
-\def\Department{Name of the department}
+\def\Department{Institute of Organic Chemistry and Biochemistry v.v.i., AS CR}
 
 % Is it a department (katedra), or an institute (ústav)?
-\def\DeptType{Department}
+\def\DeptType{Institute}
 
 % Thesis supervisor: name, surname and titles
-\def\Supervisor{Supervisor's Name}
+\def\Supervisor{prof. Pavel Jungwirth}
 
 % Supervisor's department (again according to Organizational structure of MFF)
-\def\SupervisorsDepartment{department}
+\def\SupervisorsDepartment{Department of physical and macromolecular chemistry}
 
 % Study programme and specialization
-\def\StudyProgramme{study programme}
-\def\StudyBranch{study branch}
+\def\StudyProgramme{Physics}
+\def\StudyBranch{Biophysics, chemical and macromolecular physics}
 
 % An optional dedication: you can thank whomever you wish (your supervisor,
 % consultant, a person who lent the software, etc.)
 \def\Dedication{%
-Dedication.
+% TODO: Dedication.
 }
 
 % Abstract (recommended length around 80-200 words; this is not a copy of your thesis assignment!)
@@ -93,7 +93,7 @@ Abstract.
 
 % 3 to 5 keywords (recommended), each enclosed in curly braces
 \def\Keywords{%
-{key} {words}
+ {molecular dynamics} {simulations} {biological membranes} {molecular modeling} 
 }
 
 %% The hyperref package for clickable links in PDF and also for storing
@@ -134,6 +134,15 @@ Abstract.
 %%% In mathematical theses, it could be better to move the list of abbreviations to the beginning of the thesis.
 \chapwithtoc{List of Abbreviations}
 
+\begin{description}   %[align=right]  ,labelwidth=3cm]
+\item [MD] Molecular dynamics
+\item [ECC] Electronic continuum correction
+\item [POPC] Palmitoyloleoylphosphatidylcholine
+\item [DPPC] Dipalmitoylphosphatidylcholine
+\item [POPS] Palmitoyloleoylphosphatidylserine
+\item [POPE] Palmitoyloleoylphosphatidylethanolamine
+\end{description}
+
 %%% Doctoral theses must contain a list of author's publications
 \chapwithtoc{List of publications}
 
@@ -152,6 +161,15 @@ Abstract.
 \chapter{Attachments}
 
 \section{First Attachment}
+ paper Transmembrane potential modeling, JCTC 2017
+\section{Second Attachment}
+ paper NMRLipids II project -- lipid-ion interaction PCCP 2017
+\section{Third Attachment}
+ paper ECC-POPC model, JPC B 2018
+\section{Fourth Attachment}
+ working manuscript: EC correction to POPE and POPS  (JCTC?)
+\section{Fifth Attachment}
+ working manuscript: PS/PC/PE -- ion interactions on flat vs. curved membranes
 
 \openright
 \end{document}
