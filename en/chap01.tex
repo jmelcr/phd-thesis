@@ -1,7 +1,7 @@
 \chapter{Biological membranes}
 
  Introduction to the field. 
- \cite{Student08}
+ \citep{Student08}
 
  Phospholipids. 
 
@@ -21,9 +21,9 @@ Experimental studies.
 \subsection{Electrometer concept} \label{section:electrometer} 
 
 Comparing MD simulation to NMR experiments, we can validate the ion 
-binding affinity in lipid bilayer simulations using the 'electrometer concept'~ \cite{seelig87, catte16}. 
-This method is based on the experimental observation that the C-H bond order parameters of $\alpha$ and $\beta$ carbons in a PC lipid head group (Fig.~\ref{simVSexpNOions}) are proportional to the amount of charge bound per lipid~\cite{seelig87}. 
-The order parameters for all C-H bonds in lipid molecules can be accurately measured using $^2$H NMR or $^{13}$C NMR techniques \cite{ollila16}. 
+binding affinity in lipid bilayer simulations using the 'electrometer concept'~ \citep{seelig87, catte16}. 
+This method is based on the experimental observation that the C-H bond order parameters of $\alpha$ and $\beta$ carbons in a PC lipid head group (Fig.~\ref{simVSexpNOions}) are proportional to the amount of charge bound per lipid~\citep{seelig87}. 
+The order parameters for all C-H bonds in lipid molecules can be accurately measured using $^2$H NMR or $^{13}$C NMR techniques \citep{ollila16}. 
 From MD simulations the order parameters can be calculated using the relation 
 \begin{equation}\label{OP} 
 S_{\rm CH}=\frac{1}{2}\langle 3\cos^2\theta -1 \rangle, 
@@ -31,7 +31,7 @@ S_{\rm CH}=\frac{1}{2}\langle 3\cos^2\theta -1 \rangle,
 where $\theta$ is the angle between the C-H bond and the membrane normal. 
 Angular brackets point to the average over all sampled configurations. 
  
-The relation between the amount of the bound charge per lipid, $X^\pm$, and the head group order parameter change, $\Delta S_{\rm{CH}}^{i}$, is empirically quantified as~\cite{seelig87,ferreira16} 
+The relation between the amount of the bound charge per lipid, $X^\pm$, and the head group order parameter change, $\Delta S_{\rm{CH}}^{i}$, is empirically quantified as~\citep{seelig87,ferreira16} 
 \begin{equation}\label{OPchangeEQ} 
 \Delta S_{\rm{CH}}^{i}= S_{\rm{CH}}^{i}(X^\pm)-S_{\rm{CH}}^{i}(0) \approx m_i \frac{4 }{3\chi}X^\pm, 
 \end{equation} 
@@ -40,13 +40,13 @@ where $i$ refers to either the $\alpha$ or $\beta$ carbons, $S_{\rm{CH}}^{i}(0)$
  
 The measured change of the order parameter depends on the head group response to the bound charge and on the amount of the bound charge (\textit{i.e.,} $m_i$ and $X^\pm$ in Eq.~\ref{OPchangeEQ}, respectively).  
 The empirical factor $m_i$ has to be adequately quantified before the electrometer concept can be used to analyze the binding affinities. 
-This calibration has been done experimentally for a wide range of systems~\cite{seelig87, beschiasvili91}. 
-To calibrate the response of the head group order parameters to the bound charge in simulations, we use experimental data for a strong cationic surfactant dihexadecyldimethylammonium bromide  (DHAB) mixed with a POPC bilayer~\cite{scherer89}. DHAB\\[0.5cm] 
+This calibration has been done experimentally for a wide range of systems~\citep{seelig87, beschiasvili91}. 
+To calibrate the response of the head group order parameters to the bound charge in simulations, we use experimental data for a strong cationic surfactant dihexadecyldimethylammonium bromide  (DHAB) mixed with a POPC bilayer~\citep{scherer89}. DHAB\\[0.5cm] 
 %\vspace{0.5cm} 
 %\chemfig{ -[:0,3.5,,,draw=none]\chemabove{N}{\scriptstyle\oplus} (-[:150]H_3C)(-[:210]H_3C)(-[:330]{(}CH_2{)}_{15}-CH_3)(-[:30]{(}CH_2{)}_{15}-CH_3) }   
 %\vspace{0.5cm} \\ 
 is a cationic surfactant having two acyl chains and bearing a unit charge at the hydrophilic end. 
-Due to its structure it is expected to locate in the bilayer similarly to the phospholipids and its molar ratio then gives directly the amount of bound unit charge per lipid $X^\pm$ in these systems~\cite{scherer89}. 
+Due to its structure it is expected to locate in the bilayer similarly to the phospholipids and its molar ratio then gives directly the amount of bound unit charge per lipid $X^\pm$ in these systems~\citep{scherer89}. 
  
 \section{SAXS? + other techniques (just to make the lit. research complete) -- probably not.}
 
