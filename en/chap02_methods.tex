@@ -1,11 +1,62 @@
 \chapter{Molecular modeling of biological membranes}
 \label{chap:methods}
 
-  Intro.
+Biological membranes are of a great interest in biology and biophysics. 
+The tools and methods that enable their research have greatly evolved over the last decades. 
+Nowadays, there is a plethora of membrane models and experimental methods, 
+each having its benefits and drawbacks \citep{REF} \todoi{1-2 chosen reviews, everything else in prev chapter}
+(see section~\ref{sec:modelmemb} in chapter~\ref{chap:intro} for a detailed overview). 
+
+Molecular simulation can be considered as one of the newer approaches in this field. 
+Starting with simple membrane models \citep{REF} \todoi{REF: few old/new simulation works},
+simulation of membranes has evolved into a field of computational biophysics
+that is capable of answering fundamental questions.
+The recent progress in computational resources and algorithms
+has allowed the simulations to grow in spatial scales and composition complexity
+bringing more relevance for applications in biology. \citep{REF: CECAM workshop} \todoi{REF to CECAM workshop 2018 Lugano}
+
+Molecular dynamics simulations of biological membranes employ classical particle-based models of molecules. 
+Vast majority of the models are built using classical non-polarizable particles, 
+each representing an individual atom (atomistic models), 
+or a group of atoms (united-atom or coarse grained models). 
+The following classical models belong among the most succesful:
+\begin{itemize}
+ \item Atomistic
+ \begin{itemize}
+   \item CHARMM \citep{klauda10}
+   \item Slipids \citep{jambeck12, jambeck12b}
+   \item OPLS lipids by \citet{maciejewski14}
+   \item Lipid14 \citep{dickson14}
+  \end{itemize}
+
+ \item Coarse grained
+ \begin{itemize}
+   \item MARTINI \citep{marrink07}
+   \item Berger \citep{Berger97}
+   \item CHARMM-UA \citep{lee14}
+  \end{itemize}
+\end{itemize}
+
+Despite all successes and valuable insights simulations have provided, 
+there is still a large room for possible improvements of the current simulation models. 
+For example, recent studies by \citet{botan15, catte16} has shown 
+that both structure and interaction of phospholipid models require further optimization 
+in order to become capable of interpreting solid state NMR experiments. 
+In particular, we have discovered that 
+the lack of polarizability is a major issue in any of the models 
+from the above mentioned works \citep{botan15, catte16}
+when interactions with charged moieties become important. 
+Several possible ways for embedding polarizability into simulations, both explicit and implicit, 
+will be introduced in the following sections. 
+
+
+
+
 
 \section{Classical molecular dynamics simulations}
 
- Very simple and brief intro into classical MD. 
+Classical molecular dynamics simulation is used to provide insight into the dynamics and structure of the particles. 
+It relies on \ldots
 
 \section{Including polarizability}
 
