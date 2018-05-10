@@ -1,11 +1,142 @@
 \chapter{Molecular modeling of biological membranes}
 \label{chap:methods}
 
-  Intro.
+Biological membranes are of a great interest in biology and biophysics. 
+The tools and methods that enable their research have greatly evolved over the last decades. 
+Nowadays, there is a plethora of membrane models and experimental methods, 
+each having its benefits and drawbacks \citep{REF} \todoi{1-2 chosen reviews, everything else in prev chapter}
+(see section~\ref{sec:modelmemb} in chapter~\ref{chap:intro} for a detailed overview). 
+
+Molecular simulation can be considered as one of the newer approaches in this field. 
+Starting with simple membrane models \citep{REF} \todoi{REF: few old/new simulation works},
+simulation of membranes has evolved into a field of computational biophysics
+that is capable of answering fundamental questions.
+The recent progress in computational resources and algorithms
+has allowed the simulations to grow in spatial scales and composition complexity
+bringing more relevance for applications in biology. \citep{REF: CECAM workshop} \todoi{REF to CECAM workshop 2018 Lugano}
+
+Molecular dynamics simulations of biological membranes employ classical particle-based models of molecules. 
+Vast majority of the models are built using classical non-polarizable particles, 
+each representing an individual atom (atomistic models), 
+or a group of atoms (united-atom or coarse grained models). 
+The following classical models belong among the most succesful:
+\begin{itemize}
+ \item Atomistic
+ \begin{itemize}
+   \item CHARMM \citep{klauda10}
+   \item Slipids \citep{jambeck12, jambeck12b}
+   \item OPLS lipids by \citet{maciejewski14}
+   \item Lipid14 \citep{dickson14}
+  \end{itemize}
+
+ \item Coarse grained
+ \begin{itemize}
+   \item MARTINI \citep{marrink07}
+   \item Berger \citep{Berger97}
+   \item CHARMM-UA \citep{lee14}
+  \end{itemize}
+\end{itemize}
+
+Despite all successes and valuable insights simulations have provided, 
+there is still a large room for possible improvements of the current simulation models. 
+For example, recent studies by \citet{botan15, catte16} has shown 
+that both structure and interaction of phospholipid models require further optimization 
+in order to become capable of interpreting solid state NMR experiments. 
+In particular, we have discovered that 
+the lack of polarizability is a major issue in any of the models 
+from the above mentioned works \citep{botan15, catte16}
+when interactions with charged moieties become important. 
+Several possible ways for embedding polarizability into simulations, both explicit and implicit, 
+will be introduced in the following sections. 
+
+
+
+
 
 \section{Classical molecular dynamics simulations}
 
- Very simple and brief intro into classical MD. 
+Classical molecular dynamics simulation is used to provide insight into the dynamics and structure of the particles. 
+\todo{Following taken from my diploma thesis directly -- to be modified!}
+% Intro, Usage, boundaries (volume, time)
+  Molecular dynamics simulations (MD) represent a branch of computational methodologies that can be desribed as theoretical experiments. 
+  Their usage lays usually in desctiption of equilibrium states or in an assassement of evolution of non-equilibrium states.
+  By running a computer simulation with subsequent application of statistical analysis, distributions of physical properties are usually obtained. 
+  These methods were tradationally used in conjunction with experiments to help their interpretation and to test the theories behind both studies. After many years of development, molecular simulations are even used for prediction nowadays.
+
+% I challenge you to a duel through time and space. 
+  There are apparent advantages over experiments. Simulations can be used in cases when the experiment would be hard to accomplish; the resolution in time and space is easily reached. An evident disadvantage is, however, that the performed simulation is always only a theoretical model of a reality. 
+
+ % Few words about propagators and how they should behave
+
+In classical MD simulations, though, Newton equations of motion are used instead since the studied system are represented classicaly -- atoms are embodied by point masses with point partial charges; the exerting forces are defined by an approximate interaction potential (see section \ref{inter-pot}). 
+
+
+   Interaction of atoms was generally described in the previous sections using an interaction potential $V$. Force fields represent one of its types.
+
+     Force field is an empirical potential. It can be obtained by fitting a particular mathematical formula to an experiment or ab-initio calculations. It is the fastest method yet the most inaccurate. Chemistry can be made only in very special forms of it (for example EVB, empirical valence bond). It allows us to study large systems conatining tens or even hunderds of thousands atoms. More information will be given in the following sections.
+
+
+  Classical force fields are pairwise additive. Amber, Charmm, OPLS, UFF and many others belong to this group. 
+
+  Amber may serve as an example of a simple classical force field potential form:
+ % Amber potential energy form:
+\begin{eqnarray}  \label{amber}
+  V = & \displaystyle \sum _{bonds} K_b (r-r_{eq})^2 + \sum _{angles} K_\Theta (\Theta-\Theta_{eq})^2 + \\ \nonumber
+      & \displaystyle \sum _{dihedrals} \frac{1}{2} V_n (1+\cos(n\phi -\delta)) + \sum _{i<j} \left [ s_{ij} ^{VdW} \left( \frac{A_{ij}}{r_{ij} ^{12}} - \frac{B_{ij}}{r_{ij} ^6} \right ) + s_{ij}^q \frac{q_i q_j}{\epsilon \, r_{ij}} \right ]
+\end{eqnarray}
+  Non-bonded interaction are usually evaluated only for atoms separated by more than 3 bonds, as the interactions are already included in the bond stretching and angle bendig terms. 
+  The number of non-bonded terms scales approximately quadratically with the size of the system and so it takes the most of the time of evaluation of the interaction potential.
+
+   The core of a force field is the  definition of the potential. The mathematical form varies among different types of force fields; the harmonic potential is the most common, though, as it usually describes the potential in equilibrius position well. By fitting the formula to an experimental or ab-inition data, parameters are obtained for the various terms. Force fields for smaller systems (for example salts dissolved in water) can more precise than for larger systems, where the formula must be more general due to the high number of types of interactions. 
+
+ When describing a molecule it's most often an advantage to use the internal coordinates. Instead of using the coupled $3N$ cartesian coordinates, the internal coordinates allow us to use the local symmetry of a molecule, which simplifies the formula. 
+ These terms appear in force fields for biophysical applications most frequently: 
+ bond stretching, angle bending, dihedral torsions.
+
+
+  Except the bonding terms that describe the interactions of molecules separated by less than four bonds there also must be such terms that incorporate the strong electrostatic interaction and dispersion. 
+
+  Electrostatic interaction has a long range impact meaning that its contributions from an infinite distance don't vanish and can't be neglected. A multipole expansion is used for its description: the 1\textsuperscript{st} term is a monopole (charged molecules, ions); 2\textsuperscript{ns} is a dipole that is usually present in all structures (for ex. water); 3\textsuperscript{rd} is a quadrupole etc.
+
+  Charges on atoms are represented in that manner. The most important part plays the monopole. For that reason atoms are simplified as partial point charges. If a better precision is needed, dipoles can be added, though it's not a common case to do so. The dipole moment can be added by either specifying a dipole or by adding point charges representing it. The latter method can lead to different results due to the ambiguous determination of the representing charges. 
+
+  As the electrostatic interaction is among the strongest even in neutral systems, its precise treatment is eminent. Ways how to deal with its long ranged nature follow in subsequent sections. 
+
+
+
+  Ewald summation: When periodic boundary conditions for bulk compensation are used, the long range contribution to the electrostatic interaction cannot be neglected. If the system is neutral, it can be treated in a more efficient manner if the summation over distant charges is done in Fourier space rather than in real space. In a case of a charged system, the summation would not converge. 
+
+  The procedure is that the contributions are divided into two groups depending on their distance from the center. The nearer charges are summed in real space. The further charges are formally treated as delta functions, and a gaussian curve with approximately the same but opposite charge is added to each of them. With such tuning the sum in real space becomes convergent. To compensate the added gaussians, their inversion is summed in the reciprocal Fourier space, where it converges better than in real space. 
+% aplikace v programech -- fast FT, P$^3$M (par-par-particle mesh), PME, SPME (smooth PME)
+
+
+
+  Van der Waals: When two atoms draw nearer their electronic structure changes due to electrostatic interaction and electronic correlation. As a consequence, even neutral atoms may attract each other by induced dipoles. The tendency to form them is specified by polarizability, which is a quantity that decribes the tendency of atoms to polarize themselves in an outer electric field. 
+
+  Besides polarizibility, that was briefly introduced in previous sections, there is also a dispersion interaction that describes electronic correlation. Introduction of such forces is crucial with the point charge approximation as oppositely charged atoms would collapse into each other otherwise.
+
+  The force is not strong; it's attractive in a distance $r$ from the source and is approximately proportional to $\frac{1}{r^6}$. The dispersion force is repulsive when atoms are near and the electronic orbital overlap a lot. This is approximately proportional to $ e^{-\alpha r} $.
+
+
+  Lennard-Jones form doesn't suffer from this artefact. Accordingly to its form it is commonly reffered to as (12,6) potential:
+\begin{equation}
+   U_{VdW-LJ} =  \frac{A_{ij}}{r_{ij}^{12}} - \frac{B_{ij}}{r_{ij}^6} = \epsilon _{ij} \left [ \left (\frac{\sigma _{ij}}{r_{ij}} \right )^{12} - 2 \left ( \frac{\sigma _{ij}}{r_{ij}} \right )^6 \right ]
+\end{equation}
+  where $\epsilon$ denotes the depth of the minimum and $\sigma$ is the equilibrius position. 
+
+  It's unusual to define parameters for every pair of atomic types in a force field. The specified parameters often refer to the interaction of two atoms of the same type. The rest of the parateres are obtained via mixing rules, which definition differs among forcefields. The most common mixing rules are Lorentz-Berthelot's:
+\begin{equation}
+ \sigma _{ij} = \frac{1}{2} (\sigma _{ii} + \sigma _{jj}) \, ; \quad \epsilon _{ij} = \sqrt{\epsilon _{ii} \, \epsilon _{jj}} 
+\end{equation}
+%\poznmini{souvisí s optikou -- index lomu }
+
+
+
+
+
+
+
+
 
 \section{Including polarizability}
 
