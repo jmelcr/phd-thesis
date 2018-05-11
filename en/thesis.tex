@@ -110,8 +110,17 @@ Abstract.
 % Definitions of macros (see description inside)
 \include{macros}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page and various mandatory informational pages
 \begin{document}
+
+%%% Custom variables
+% width suitable for fitting into a column in 2-column page layout
+\newlength{\figwidth}
+\setlength{\figwidth}{6 cm} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{title}
 
 %%% A page with automatically generated table of contents of the doctoral thesis
