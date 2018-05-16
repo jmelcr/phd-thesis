@@ -243,7 +243,7 @@ solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. Af
   \includegraphics[width=\figwidth]{../img/ecc_pops/l17/order_parameters_actual_pure-POPS.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/form-f_l17-ecc-pops-exp_compar.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/lipids_chemfig.pdf} 
-  \caption{\label{simVSexpNOions} 
+  \caption{\label{simVSexpNOions_POPS} 
     X-ray scattering form factors from simulations with the Lipid17 \cite{lipid17-future} and 
     the ECC-POPS models compared with experiments~\cite{SDP-CHARMM36_comparison_paper_Samuli-knows} at 298~K. 
     Order parameters of POPS head group, glycerol backbone and acyl chains  
@@ -285,18 +285,27 @@ solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. Af
 \end{table} 
  
  
-First, we present results for bilayers in pure water. 
-The ECC-POPC and Lipid14 models both reproduce the experimental X-ray scattering form factors 
-of a POPC bilayer with a comparable accuracy (see Fig.~\ref{simVSexpNOions}). 
-The area per lipid from the Lipid14 model is by $\approx$1Å larger than the 
-experimental value in Table~\ref{tab:apls}, while the value from the ECC-POPC model 
-is by $\approx$1Å smaller than the experimental one. 
+As a first step in assessment of the quality of the model, 
+bilayer properties in pure water without any ions (or only counter ions) are checked. 
+The experimental X-ray scattering form factors 
+of a bilayer are well reproduced by all lipids in the presented ECC-lipids model 
+(see Fig.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPS} and \ref{simVSexpNOions_POPE}). 
+
+The area per lipid from the ECC-POPC model is by $\approx$1Å smaller 
+than the experimental value in Table~\ref{tab:apls}. 
 The values of the area per lipid of the ECC-POPC model vary slightly 
-when simulated with different water models (i.e., within the interval of 62.2--66.8 Å, see Table~S2 in SI), 
-while still being close to the experimentally reported values. 
-We can thus conclude that the ECC-POPC model reproduces the experimental dimensions of the POPC 
+when simulated with different water models, however,
+they are still close to the experimental value derived using the SDP model \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
+While the agreement between the scattering form factors 
+from the simulation of a pure POPS bilayer and experiment 
+are excellent (Fig.~\ref{simVSexpNOions_POPS}),
+there is a non-negligable difference between the values of the area per lipid in Table~\ref{tab:apls}. 
+Since both values are derived from the scattering form factors through modeling of the electron density of the bilayer,
+we cannot decide, which of the value is more reliable. 
+In general, we can conclude that the presented lipid models within ECC-lipids reproduce the experimental dimensions of the POPC 
 lipid bilayer with a comparable accuracy to other state-of-the-art lipid models~\citep{ollila16}. 
  
+\todo{Next two paragraphs still to be curated. Previous paragrpahs in this section are checked.}
  
 Similarly, the acyl chain order parameters of the ECC-POPC model, as well as those of the Lipid14 model~\citep{dickson14}, agree with the experimental values within the error bars, as presented in Fig.~\ref{simVSexpNOions}. Notably, the experimentally measured forking and small order parameter values of the $C_2$ segment in {\it sn}-2 chain are well reproduced by both models. This feature has been suggested to indicate that the carbonyl of the {\it sn}-2 chain is directed towards the water phase, in contrast to the carbonyl in the {\it sn}-1 chain, which orients more along the bilayer plane~\citep{seelig75,schindler75,gawrisch92}. 
 This arrangement, which is not fully reproduced by other available lipid models~\citep{ollila16}, may be a relevant feature for the ion binding details. 
