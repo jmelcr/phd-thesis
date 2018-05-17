@@ -239,6 +239,21 @@ solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. Af
 
 \begin{figure}[tb!] 
   \centering 
+  \includegraphics[width=\figwidth]{../img/ecc_pope/Order-parameters_form-factors_exp-ECC-POPE.pdf}
+  \caption{\label{simVSexpNOions_POPE} 
+    X-ray scattering form factors from simulations with 
+    the ECC-lipids model of POPE compared with experiments~\cite{kucerka11} at 313~K. 
+    Order parameters of POPE head group, glycerol backbone and acyl chains  
+    from simulations with the ECC-lipids model of POPE
+    compared with experiments by \citet{gally81} (order parameters of glycerol backbone, labeled \emph{E. coli} membrane at~310\,K, ) 
+    and by \citet{seelig76, seelig80} (order parameters $\alpha$ and $\beta$ from DPPE at~341\,K).
+    Open/closed symbols are used for palmitoyl/oleoyl chains of POPE. 
+  }  
+\end{figure} 
+
+
+\begin{figure}[tb!] 
+  \centering 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_actual_pure-POPS.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/l17/order_parameters_actual_pure-POPS.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/form-f_l17-ecc-pops-exp_compar.pdf} 
@@ -256,7 +271,7 @@ solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. Af
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \begin{table}[tb!] 
-  \caption{Values of the area per lipid (APL) of POPC and POPS bilayers without additional ions. \label{tab:apls} 
+  \caption{Values of the area per lipid (APL) of POPC, POPE and POPS bilayers without additional ions. \label{tab:apls} 
   } 
   \begin{tabular}{l|c c} 
     \multicolumn{3}{c}{POPC} \\
@@ -269,6 +284,16 @@ solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. Af
     ECC-POPC                & 63.2$\pm$ 0.6  &  300       \\ 
     \hline 
     experiment (SDP model) \citep{kucerka11} & 64.3  &  303    \\ 
+    \hline 
+    \\
+    \multicolumn{3}{c}{POPE} \\
+    \hline 
+    model          & APL (Å$^2$)   & Temperature (K) \\ 
+    \hline 
+    ECC-POPE                 & 56.7$\pm$ 0.8  &  298 \\ 
+    \hline 
+    experiment   \citep{parsegian89} & 56.6  &  310    \\ 
+    experiment   \citep{rappolt03}   & 60--62 &  308--318  \\ 
     \hline 
     \\
     \multicolumn{3}{c}{POPS} \\
@@ -285,33 +310,61 @@ solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. Af
 \end{table} 
  
  
-As a first step in assessment of the quality of the model, 
-bilayer properties in pure water without any ions (or only counter ions) are checked. 
+We checked X-ray scattering form factors and NMR order parameters 
+in pure water without any ions (or only counter ions)
+as the first step in assessment of the quality of the model. 
 The experimental X-ray scattering form factors 
 of a bilayer are well reproduced by all lipids in the presented ECC-lipids model 
 (see Fig.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPS} and \ref{simVSexpNOions_POPE}). 
 
-The area per lipid from the ECC-POPC model is by $\approx$1Å smaller 
-than the experimental value in Table~\ref{tab:apls}. 
+The area per lipid is often used as a relatively simple structural parameter telling on the bilayer properties and the packing of lipids. 
+In experiments, modeling is used on top of the scattering factors to obtain it \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
+In simulations, this property is easily extracted. 
+We compare the values from experiments and simulations in Table~\ref{tab:apls}. 
+The area per lipid of ECC-POPE agrees well with the experiment by \citet{parsegian89}, 
+however, the other experiment reported in Table~\ref{tab:apls} is considerably larger in the same temperature range. 
+Finding a very similar result for area per lipid of POPE using two independent models (ECC-lipids and \citep{parsegian89})
+raises doubts about the estimation of the property in the work by \citet{rappolt03}. 
+
+The area per lipid of POPC in simulation with ECC-lipids model is smaller by $\approx$1Å 
+than the experimental value derived from the SDP model \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
 The values of the area per lipid of the ECC-POPC model vary slightly 
 when simulated with different water models, however,
-they are still close to the experimental value derived using the SDP model \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
+they are still close to the experiment. 
+
 While the agreement between the scattering form factors 
 from the simulation of a pure POPS bilayer and experiment 
 are excellent (Fig.~\ref{simVSexpNOions_POPS}),
 there is a non-negligable difference between the values of the area per lipid in Table~\ref{tab:apls}. 
 Since both values are derived from the scattering form factors through modeling of the electron density of the bilayer,
 we cannot decide, which of the value is more reliable. 
-In general, we can conclude that the presented lipid models within ECC-lipids reproduce the experimental dimensions of the POPC 
-lipid bilayer with a comparable accuracy to other state-of-the-art lipid models~\citep{ollila16}. 
+In general, we can conclude that the presented lipid models within ECC-lipids 
+reproduce the experimental dimensions of the lipid bilayers 
+with a comparable accuracy to other state-of-the-art lipid models~\citep{ollila16}. 
  
-\todo{Next two paragraphs still to be curated. Previous paragrpahs in this section are checked.}
- 
-Similarly, the acyl chain order parameters of the ECC-POPC model, as well as those of the Lipid14 model~\citep{dickson14}, agree with the experimental values within the error bars, as presented in Fig.~\ref{simVSexpNOions}. Notably, the experimentally measured forking and small order parameter values of the $C_2$ segment in {\it sn}-2 chain are well reproduced by both models. This feature has been suggested to indicate that the carbonyl of the {\it sn}-2 chain is directed towards the water phase, in contrast to the carbonyl in the {\it sn}-1 chain, which orients more along the bilayer plane~\citep{seelig75,schindler75,gawrisch92}. 
-This arrangement, which is not fully reproduced by other available lipid models~\citep{ollila16}, may be a relevant feature for the ion binding details. 
- 
-The order parameters of the $\alpha$ and $\beta$ carbons in the head group are slightly larger in the ECC-POPC model than in the Lipid14 model, which is apparently related to the P-N vector orienting by about 7$^{\circ}$ more toward the water phase in the former model, see Fig.~\ref{OrderParameterCHANGESsurf}. While both models perform relatively well, considering the available experimental evidence, it is not possible to decide which of the two models provides more realistic head group orientations. The ECC-POPC model gives the $\beta$ carbon order parameter value closer to experiments than the Lipid14 model, while the opposite is true for the $\alpha$ carbon. The accuracy of both models in the glycerol backbone region is comparable to other state-of-the-art lipid model available in literature \citep{botan15}, see Fig.~\ref{simVSexpNOions}. 
+The head group and acyl chain order parameters of the lipids within ECC-lipids
+are in general in a good agreement with the experimental values 
+as shown in Figs.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPE},  and \ref{simVSexpNOions_POPS}. 
+The acyl chain order parameters in particular are almost all within the experimental error bars.
+The order parameters of the head groups are at a common accuracy of classical models of lipids \citep{botan15, catte16}. 
 
+The head group order parameters $\alpha$ and $\beta$ are highly relevant for this work,
+as they are being used in the electrometer concept (introduced in section~\ref{section:electrometer}). 
+For POPC, the order parameter $\beta$ agrees well with the experiment, 
+while the order parameter $\alpha$ is somewhat lower. 
+In the case of POPS, the situation is a bit more complicated
+compared to POPC as the order parameter $\alpha$ exhibits a notable forking (see Fig.~\ref{simVSexpNOions_POPS}).
+One of the order parameters of the ECC-lipids model of POPS, $\alpha_1$, agrees well with the experiment, 
+while the other, $\alpha_2$, adopts a higher value underestimating the experimentally reported forking. 
+There is only one order parameter $\beta$ in POPS, 
+which has a higher value closer to zero in the ECC-lipids model than in experiment. 
+Such a feature suggests that the model overestimates the orientational freedom of its head group. 
 
+To our knoweldge, there are no data on the order parameters in POPE. 
+To get at least a rough estimate of the structure of PE head group from experiments, 
+we can compare to either DPPE, which has palmitoyls in both acyl tails, and is measured at a different temperatrue~341\,K \citep{seelig76, seelig80};
+or a mixture of PE lipids from the membrane of \emph{E. coli} at~310\,K, \citep{gally81}. 
+Such data are used in Fig.~\ref{simVSexpNOions_POPE} to provide some esimates of the order parameters from related systems. 
+ 
  
  

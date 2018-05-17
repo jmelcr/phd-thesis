@@ -220,6 +220,15 @@ This is in contradiction with most of the available lipid force fields, which pr
 \subsection{Molecular interactions between Na$^+$ or Ca$^{2+}$ cations and POPC oxygens} 
 We analyzed the ratio of the number of calcium cations bound to either phosphate or carbonyl moieties and the total number of bound cations in our POPC bilayers as done previously in Ref.~\citep{javanainen17}. A maximum distance of 0.3~nm from any lipid oxygen is used to define a bound calcium. The results from ECC-POPC simulation in Table~\ref{tab:binding} show that almost all (99\%) of the bound Ca$^{2+}$ ions are in direct contact with phosphate oxygens. From these ions, only one third (32\%) also interacts with the carbonyl oxygens, while the interaction of calcium ions with carbonyl oxygens only is rare (1\%). The most abundand interaction scenarios between Ca$^{2+}$ ions and phosphate oxygens are visualized using the probability density isocontours in Fig.~\ref{fig:volmaps}. While higher concentrations of \ce{CaCl2} increase the number of contacts per lipid, the distribution of contacts between phosphate and carbonyl oxygens is not affected. 
  
+\todo{Analyze the orientation of the carbonyls and plot it as a violin plot/probability density. Change the following discussion afterwards.}
+In the case of POPC, the $C_2$ segment in {\it sn}-2 chain shows a low order parameter with a small forking as measured in experiments by \citet{seelig75,schindler75,gawrisch92}. 
+This feature has been suggested to indicate that the carbonyl
+of {\it sn}-2 chain is directed towards the water phase, in contrast to the
+carbonyl in {\it sn}-1 chain, which would orient more along the bilayer
+plane~\cite{seelig75,schindler75,gawrisch92}. This may be an important
+feature for the ion binding details, which it is not fully reproduced by other
+available lipid models~\cite{ollila16}.
+
 \begin{figure}[tb!] 
   \centering 
   \includegraphics[width=8.0cm]{../img/ecc_popc/isocontours_r37_ca_O-carb.png} 
