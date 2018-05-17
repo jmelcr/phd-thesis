@@ -54,6 +54,7 @@ will be introduced in the following sections.
 
 
 \section{Classical molecular dynamics simulations}
+\label{section:md}
 
 Classical molecular dynamics simulation is used to provide insight into the dynamics and structure of the particles. 
 \todo{Following taken from my diploma thesis directly -- to be modified!}
@@ -140,77 +141,157 @@ In classical MD simulations, though, Newton equations of motion are used instead
 
 \section{Including polarizability}
 
+The lack of electronic polarizability in standard MD simulation
+force fields has been considered a serious issue since the early days of
+lipid bilayer simulations \dots
   Lit. research (history) on how people include polarizability in classical simulations. 
 
 \subsection{Explicit treatment of electronic polarizability}
 
  Joint subsection on Drude particles and polarizable dipoles, the most common ways of introducing polarizability explicitly into the MD simulation. 
 
-\subsection{Electronic continuum correction as implicit treatment of electronic polarizability}
+In this work, we circumvent the rather demanding explicit inclusion
+of electronic polarization effects \cite{lucas12,chowdhary13} \dots
 
-The lack of electronic polarizability in standard MD force fields has been considered a serious issue since the early days of lipid bilayer simulations. In this work, we circumvent the demanding explicit inclusion of electronic polarization effects~\citep{lucas12, chowdhary13} by accounting for the electronic part of polarizability in lipid bilayer simulations implicitly via the electronic continuum correction (ECC)~\citep{leontyev11}. Technically, this is similar to the phenomenological charge-scaling applied in earlier studies of surfactants, lipids or ionic liquids \citep{jonsson86, egberts94, beichel14}. However, the present concept of ECC is physically well justified and has theoretical support~\citep{leontyev09, leontyev10, leontyev11, leontyev14}. 
- 
-According to ECC, the electronic polarizability can be included into non-polarizable MD in a mean-field way by  
-embedding the ions in a homogeneous dielectric continuum with a dielectric constant $\epsilon_{el}$, which is the electronic part of the dielectric constant of the medium~\citep{leontyev11}. Following Coulomb's law,  ECC can be directly incorporated by scaling the charges with a constant scaling factor of $f_q = \epsilon _{el} ^{-1/2}$, yielding 
-\begin{equation} 
-Q^{ECC} = f_q \cdot Q 
+\subsection{Electronic continuum correction as implicit treatment of electronic polarizability}
+\label{section:ecc}
+
+The theory for accounting for electronic polarization in empirical force fields
+was originally developed by \citet{leontyev09} under the name Molecular Dynamics in Electronic Continuum, MDEC. 
+The term Electronic continuum correction, ECC, originates in the works by \citet{Pluharova2014, kohagen14, kohagen16, martinek17},
+where the rigorously developed theory from \citep{leontyev14} was applied on ionic solutions.
+Through the comparison of neutron scattering and/or \emph{ab-initio} data with classical MD simulations, 
+the authors developed an array of models for cations an anions, here termed ECC-ions,
+that embedded ECC as an implicit model polarizability for electrons. 
+
+\todo{Extensions of this section are relatively easy and possible by incorporating more equations and MDEC theory.}
+
+Electronic continuum correction (ECC) is an implicit model of electronic polarization. 
+in which a system of polarizable particles is represented
+with an equivalent system of particles with fixed charges
+including the effects of electronic polarization \emph{implicitly} in a mean-field way. \citep{leontyev09, leontyev10, leontyev11, leontyev14}
+This can be done by a relatively simple transform of the partial charges,
+which does not change the form of the formula of the empirical force field (examples in section~\ref{section:md})
+making a wrong impression of a \emph{non-polarizable} model again. 
+Technically, ECC is similar to the phenomenological scaling of partial charges, 
+which was applied in earlier studies of aqueous solutions or ionic liquids \citep{jonsson86,egberts94,beichel14},
+in which also other possible effects (e.g. charge transfer) were considered.
+In contrast, ECC is a physically well justified and rigorously derived model~\citep{leontyev09, leontyev10, leontyev11, leontyev14}.
+The relation for the charges employing ECC model can be formally written as
+\begin{equation}  \label{eq:scaling}
+ Q^{ECC} = f_q \cdot Q ,
 \end{equation} 
-for the ECC corrected charges.  
-Given that the  high frequency dielectric constant of water is $\epsilon _{el} = 1.78$ (\textit{i.e.,} the square of the refraction index), the scaling factor for ions in water is roughly $f_q \approx 0.75$. This scaling factor significantly improves the accuracy of simulations of solvated ions, when quantitatively compared with neutron scattering data \citep{kohagen14,kohagen16, Pluharova2014, martinek17}. 
-It is important to note that the value of the 
-high frequency dielectric constant  
+where $Q$ and $Q^{ECC}$ are the original and the scaled, \emph{implicitly polarized}, partial charges respectively. 
+The relation between the original and the new set of charges 
+is, hence, a mere linear scaling with a certain factor, $f_q$, 
+which is related to the high-frequency dielectric constant, $\epsilon _{el}$, of the electrons according to
+\begin{equation}   \label{eq:scaling_factor}
+ f_q = \sqrt{ \epsilon _{el} }
+\end{equation} 
+
+The presented Relation~\ref{eq:scaling} is rather a practical way of implementing the ECC polarizability model into the simulation. 
+It is equivalent to embedding all atoms into a dielectric continuum 
+with the high-frequency dielectric constant of the electrons, $\epsilon _{el}$, providing the same effect.
+It is important to note that the value of the high frequency dielectric constant  
 is around 2 for almost any biologically relevant environment \citep{leontyev11}. 
+This means that even interfaces like biological membranes do not contain discontinuities of the electronic continuum. 
 The dielectric discontinuity in a lipid bilayer thus arises only 
 from the orientational polarization of the molecules, which is accounted for explicitly in standard MD simulations.  
 Therefore, the same correction for the electronic polarizability can be  
 applied throughout the lipid bilayer/aqueous solution interface. 
+Given that the  high frequency dielectric constant of water is 1.78 (i.e., the square of the refraction index), 
+the scaling factor for ions in water is $\approx 0.75$. 
+
+
+
+
+
  
-While using the scaling factor of $f_q = 0.75$ for ions in water is well justified in the ECC theory \citep{leontyev11}, it is not clear whether the same factor should be applied to partial charges used to describe molecules in MD models, e.g., lipids in our case \citep{leontyev14}. Unlike the total charge of an ion, atomic partial charges within molecules are not physical observables. Several computational schemes exist for the assignment of partial charges for biomolecules~\citep{Hu2007}, with the restrained electrostatic potential method (RESP) being commonly used~\citep{RESP_paper, Singh1984}. Considering that water is often included in RESP calculations or charges are refined to improve certain experimental observables, the electronic polarizability effects of the solvent may to some extent be included in standard force fields~\citep{RESP_paper, Singh1984, jorgensen96, ipolq2013, benavides17}. Thus, our application of the scaling factor, $f_q$, to existing partial charges in molecules does not necessarily follow $f_q = \epsilon _{el} ^{-1/2}$. Instead, a consistent scaling factor should lie between the value of 0.75  (\textit{i.e.,} no electronic polarizability included in the original partial charges) and 1 (\textit{i.e.,} electronic polarizability fully included in the original partial charges).  
+
+ 
  
 
 
 
 \section{Implicitly polarizable classical MD models of lipids using ECC}
 
-\textbf{ Change the following text and include PE and PS into this seciton. 
-         Define ECC-lipids. Introduce all lipids in this section. }
+Simulations with explicitly polarizable models are generally considered to be computationally too demanding for a practical use in biophysics. 
+The models employing ECC, however, are on the same level with classical non-polarizable models with fixed charges, yet they implicitly incorporate electronic polarization. 
+The ECC theory was introduced in the above section~\ref{section:ecc}.
+In this section, I will demostrate the application of the ECC theory on phospholipids, 
+where the effects of polarization yield crucial consequences in the accuracy of the interaction with ions. 
 
-Here we develop a ECC-POPC lipid model that accurately describes binding  
-of sodium and calcium ions to the POPC  lipid bilayer.  
-The Lipid14~\citep{dickson14} force field  
-(available in a Gromacs format from Ref. \citep{lipid14files}) was used as a starting  
-point since  
-it provides the most accurate response of the head groups to ions among the available  
-lipid models (see Figs.~2~and~5 in Ref.~\citep{catte16}). Additionally, the Lipid14 model  
-provides relatively realistic head group, glycerol backbone, and acyl chain structures~\citep{dickson14,botan15}. 
-We applied the ECC correction  
-to the Lipid14 model of POPC by scaling  
-partial charges of the head group, glycerol  
-backbone, and carbonyl regions.  
-These are the polar parts of phospholipids which can  
-contribute to the cation binding.  
- 
-To reproduce the experimental ion binding affinities, 
-we scanned possible values of the scaling factor from the interval $f_q~\in~(0.75, 1.0)$. 
-The ion binding affinity was benchmarked against experiments 
-using the head group order parameters and the electrometer concept \citep{seelig87,catte16}, 
-as discussed more detail in the next section. 
-Scaling down the partial charges reduced the ion binding affinity. 
-We found the most accurate ion binding affinities with a scaling factor of $f_q = 0.8$, 
-which is only slightly higher than the ECC one ($f_q=0.75$). 
-Note that common empirical scaling factors for monovalent ions in water are 0.8 or
-even closer to unity \citep{benavides17,skinner14,nacleps}.  In contrast, modern force fields
-for ionic liquids suggest values of 0.6--0.65, which are lower than $\epsilon^{-1/2}_{el}$\citep{holm14}.
-Directly applying 
-the 0.8 scaling to the partial charges of the head group, the glycerol backbone, and 
-the carbonyls reduced the area per lipid to 60~Å$^2$. This area is smaller than in the 
-original Lipid14 model ($65.6 \pm 0.5$~Å$^2$)~\citep{dickson14} and in experiments 
-(64.3~Å$^2$) \citep{kucerka11}. The decrease of the area per lipid arises from a 
-reduced hydration of the lipid head group region after scaling of the partial charges, which effectively 
-reduces the head group polarity. We solve this problem by slightly reducing the effective radii of 
-the modified head group atoms via lowering the $\sigma$ parameters in the Lennard-Jones potential by a 
-factor of $f_\sigma = 0.89$. The same approach was successfully adopted for the ECC ions in aqueous 
-solutions previously \citep{kohagen14, kohagen16, Pluharova2014, martinek17}. After reducing the head group atoms $\sigma$ parameters, the area per molecule is restored to the experimental value (Table~\ref{tab:apls}).  
+We chose phosphatidylcholine (PC), phosphatidylethanolamine (PE) and phosphatidylserine (PS)
+as representants of the most common neutral and negatively charged lipids in plasma membrane \citep{the_review_with_pie_charts_on_my_desk, marsh13}. 
+The Lipid14~\citep{dickson14} model was used for POPE and POPC,
+and the Lipid17~\citep{lipid17} model, already available from AmberTools \citep{ferrer13},
+were used as the starting point for embedding ECC.
+It was shown by \citet{botan15, catte16} that such a family of lipid models provides one of the most 
+realistic descriptions of the head group order parameters of POPC and their response to ions 
+when compared to other available lipid models. 
+
+In the case of POPS, which bears a total negative charge of -1, 
+embedding ECC through the linear transform of the partial charges is straightforward. 
+The resulting ECC-lipid model of POPS, also denoted as ECC-POPS, 
+adopts a formal total charge $-0.75$ in line with ECC and the electronic dielectric constant of water \citep{leontyev14}. 
+Note that the formal charge is equal in size to the charges of monovalent ions developed with ECC \citep{Pluharova2014, kohagen14, kohagen16, martinek17}.
+
+While the scaling factor of $f_q = 0.75$ is undoubtedly justified for molecules with a non-zero total charge like ions or POPS,
+it is not \emph{a priori} clear what factor shall be used for neutral molecules, i.e. for POPE and POPC in our case.
+
+The partial charges of particles forming molecules in simulations are not physical observables unlike the total charge. 
+There is a variety of schemes for assigning partial charges to particles in molecules~\citep{Hu2007}. 
+The restrained electrostatic potential method (RESP) is, however, the most common method used in biomolecules~\citep{RESP_paper, Singh1984, dickson14}. 
+In practice, it is common that water molecules are included in the RESP calculations, 
+and charges are subsequently refined to improve certain experimental observables. 
+Although such tweaks do not affect the zero total charge for neutral molecules,
+it naturally follows that the effects of electronic polarizability 
+may to some extent be present even in standard force fields~\citep{RESP_paper, Singh1984, jorgensen96, ipolq2013, benavides17}. 
+We thus conclude that the scaling factor, $f_q$, for partial charges in existing models of neutral molecules does not necessarily follow the relation \ref{eq:scaling_factor}.
+It is expected instead, that the scaling factor may adopt a slightly higher value than 0.75. 
+
+The ECC correction was applied on top of the Lipid14/Lipid17 models of POPC, POPE and POPS
+by scaling the partial charges of all atoms except acyl tails, 
+i.e. the polar parts in phospholipids, head group, glycerol backbone, and carbonyl regions. 
+Such a choice was guided by the observed strength of interaction with cations. 
+In contrast, the acyl chains do not come in direct contact with ions from the solution, 
+and they are already highly optimized to provide a good description of the
+hydrophobic part of lipid bilayers \cite{dickson14,ollila16}.
+Compared to the acyl tails, the glycerol backbone and the head group regions of phospholipids 
+require improvements in any available lipid model~\cite{botan15}.
+
+We found that the optimal value for the scaling factor of partial charges of the neutral molecules from the Lipid14 force field \citep{dickson14}
+is $f_q = 0.8$, which is indeed close to 0.75, 
+the scaling factor for the ions in water. 
+This value was found by comparing the results from the simulations with POPC to the experimental 
+NMR data~\cite{akutsu81,altenbach84,scherer89} on the head group order parameter response to the bound charge.
+Note that common empirical scaling factors for solutions of monovalent ions in water 
+are 0.8 or even higher \citep{benavides17,skinner14,nacleps}.  
+In contrast, modern force fields for ionic liquids often employ values around 0.6--0.65, 
+which are on the other hand much lower than $\epsilon^{-1/2}_{el}$ \citep{holm14}.
+
+Although scaling of the partial charges improved 
+the head group order parameter response and ion binding affinity,
+it at the same time has deteriorated certain membrane properties; 
+namely the area per lipid generally decreased, often below the experimental values. 
+The decrease of the area per lipid is observed to likely arise from a reduced hydration of the lipid head group region
+as the polarity of the head group has overall decreased after scaling charges. 
+
+We compensated this effect
+by reducing the effective radii of atoms with the scaled charges.
+This was explicitly done for POPC by changing the parameters $\sigma$ in the Lennard-Jones potential 
+in a similar way as was done previously for the ECC-ions in solution \cite{kohagen14,kohagen16,Pluharova2014}.
+Reducing the $\sigma$ parameters of the affected atoms by a factor of $f_\sigma = 0.89$
+restored the area per molecule to the level very close to the experiment (Table~\ref{tab:apls}). 
+Such optimized parameters $\sigma$ were then used for all ECC-lipids, i.e. also for ECC-POPE and ECC-POPS. 
+In addition, the X-ray scattering form factors of POPC, POPE and POPS from simulations remained at a good agreement or even improved with the modifications 
+(see Figs.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPS} and \ref{simVSexpNOions_POPE}). 
+
+
+
+
+
+
 
 
 \subsection{Structural parameters of model membranes with ECC-lipids: Agreement with experiments} 
@@ -315,7 +396,7 @@ in pure water without any ions (or only counter ions)
 as the first step in assessment of the quality of the model. 
 The experimental X-ray scattering form factors 
 of a bilayer are well reproduced by all lipids in the presented ECC-lipids model 
-(see Fig.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPS} and \ref{simVSexpNOions_POPE}). 
+(see Figs.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPS} and \ref{simVSexpNOions_POPE}). 
 
 The area per lipid is often used as a relatively simple structural parameter telling on the bilayer properties and the packing of lipids. 
 In experiments, modeling is used on top of the scattering factors to obtain it \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
