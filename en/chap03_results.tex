@@ -32,10 +32,7 @@ Prepare ground for the work-in-progress POPS model.
 \subsection{Electronic polarization is required for accurate head group response to membrane-bound charge in simulation }
 \label{section:boundCHARGE} 
 
-
-\textbf{ Include 1-2 figures from the NMRLipids II paper \citep{catte16} -- non-polarizable models.
-         Smash them with implicitly polarizable ECC-POPC afterwards! }
- 
+\todo{May be merged with the above section.}
 
 \begin{figure}[tb!] 
   \centering 
@@ -47,11 +44,43 @@ Prepare ground for the work-in-progress POPS model.
   } 
 \end{figure} 
  
-Before studying the sodium and calcium ion binding affinities, we quantify the response of the head group order parameters to the amount of bound charge by using mixtures of monovalent cationic surfactants (dihexadecyldimethylammonium) and POPC~\citep{scherer89}. These mixtures have a well-defined amount of bound charge per PC, namely, the molar fraction of cationic surfactants. This is due to the ability of dihexadecyldimethylammonium to directly insert in the lipid bilayer due to its two hydrophobic acyl chains. Furthermore, available experimental data for these systems can be used to validate the sensitivity of lipid head group order parameters to the amount of bound charge in simulations \citep{scherer89}. 
+The calibration of the response of the lipid electrometer to the amount of bound charge 
+is measured for mixtures of POPC with monovalent cationic surfactants (dihexadecyldimethylammonium) \citep{scherer89}. 
+The amount of bound charge per PC 
+in these systems is simply given by the molar fraction of the cationic surfactants, 
+as essentially all of the surfactants locate to the lipid bilayers 
+due to the two long hydrophobic tails.
+The NMR measurements of such systems  
+can be used to validate the sensitivity of lipid headgroup order parameters
+to the amount of bound charge in simulations \citep{scherer89}.
+
+The changes of the headgroup order parameters with an increasing amount of 
+the cationic surfactant from simulations and experiments~\citep{scherer89} are shown in Fig.~\ref{OrderParameterCHANGESsurf}.
+In line with Equation~\ref{OPchangeEQ},
+we observe in both simulations and experiments approximately a linear decrease of the head group order parameters $\alpha$ and $\beta$.
+The slope of the response from the simulation with ECC-POPC model 
+is in a very good agreement with the experiments for the $\alpha$ segment, 
+while being slightly underestimated for the $\beta$ segment.
+In addition to the order parameters, we also show the change of the P-N vector, 
+which is plotted as the angle between the connector of the phosphorus and nitrogen atoms and the membrane normal. 
+Again, there is a linear dependence on the amount of surface charge
+suggesting a possible relation between the order parameters and the P-N vector mean orientation. 
+\todo{Provide the relation explicitly somewhere?}
+For a direct comparison, we also provide results from simulations with the Lipid14 model. 
+As was already noted in the publication by \citet{catte16},
+the response of the head group order parameteres to the bound charge 
+is overestimated in this model yielding a too steep slope of the response to the increasing amount of the cationic surfactant. 
+It is clear from the above discourse that accounting for electronic polarization is crucial for an accurate response of the lipid electrometer in simulation. 
+After reproducing the concept of electrometer with a known amount of bound surface charge,
+the ECC-POPC model will be employed in the study of interactions with aquaeous ions, namely \ce{K}, \ce{Na+} and \ce{Ca^{2+}}. 
+
+
+
+
+
+
  
-The changes of the head group order parameters with increasing amount of the cationic surfactant are compared between simulations and experiments~\citep{scherer89} in Fig.~\ref{OrderParameterCHANGESsurf}. An approximately linear decrease of the order parameters, as expected from Eq. \ref{OPchangeEQ}, is observed in both simulations and experiments at least for mole fractions below $\sim$30\%. The slope is, however, too steep in the Lipid14 model indicating that the response of head group order parameters to the bound positive charge is too strong. In contrast, the slope of the ECC-POPC model is in a very good agreement with experiments for the $\alpha$ segment, while being only slightly underestimated for the $\beta$ segment. 
  
-In Fig.~\ref{OrderParameterCHANGESsurf}, we show the headgroup P-N vector angle as a function of the mole fraction of the cationic surfactant. As suggested previously~\citep{seelig87}, the headgroup orients more towards the water phase with the increasing amount of positive charge in the PC lipid bilayer. The effect is more pronounced in the Lipid14 model than in the ECC-POPC model.   For example, the addition of 50\% mole fraction of the cationic surfactant leads to a decrease of 20$^{\circ}$ of the P-N vector angle for the Lipid14 model while only of 11$^{\circ}$ in the ECC-POPC model. The difference is in line with the smaller order parameter changes and the reduced charge--dipole interactions in the latter model. The weaker sensitivity of the P-N vector angle response in the ECC-POPC model is in better agreement with experiments. 
 
 
 \section{How neutral and negatively charged phospholipid membranes interact with ions}
