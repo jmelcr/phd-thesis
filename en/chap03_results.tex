@@ -105,7 +105,7 @@ the ECC-POPC model will be employed in the study of interactions with aquaeous i
 
 \begin{figure}[htb!] 
   \centering 
-  \includegraphics[width=8.0cm]{../img/ecc_popc/PN_angle_OrdPars-A-B-g3_L14-ECCL17_q80_sig89_CaCl.pdf} 
+  \includegraphics[width=9.0cm]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_CaCl.pdf}
   \caption{\label{fig:delta_ordPar_CaCl} 
     Changes of the head group order parameters and P-N vector orientation of a POPC bilayer  
     as a function of the CaCl$_2$ concentration in bulk ($C_{ion}$) 
@@ -145,8 +145,10 @@ Within the Lipid14 model, the overestimated changes in the lipid headgroup order
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_POPC_cacl.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_POPS_cacl.pdf} 
   \caption{\label{fig:delta_ordPar_CaCl_PCPS} 
-    Changes of the head group order parameters of a POPC:POPS 5:1 bilayer as a function of CaCl concentration 
-    in bulk ($C_{ion}$) from simulations with different force fields at 298 K together with  
+    Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
+    of POPC and POPS phospholipids in a POPC:POPS 5:1 bilayer as a function of \ce{CaCl2} concentration 
+    in bulk ($C_{ion}$) from simulations with different force fields at 298 K. 
+    The orientation of the \ce{COO^-} group is defined as the connector of its carbon and the $\beta$ carbon it is bonded with, and is denoted with stars. 
   } 
 \end{figure} 
 
@@ -177,19 +179,18 @@ As expected from the changes of the lipid headgroup order parameters in Fig.~ \r
  
 \begin{figure}[htbp!] 
   \centering 
-  \includegraphics[height=19.9cm]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_models-compar.pdf} 
+  \includegraphics[height=19.9cm]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_models-compar_1-4.pdf} 
   \caption{\label{fig:cacl-dens} 
     Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along membrane normal axis 
     for different force fields. 
     In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
-    the density profiles of~\ce{Cl^-} and \ce{Na^{+}} ions are divided by 2, and 
+    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
     the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
     All simulations with \ce{CaCl2} shown here have the same molar concentration of ions in water ($C_{ion}'$=350~mM). 
-    The simulation with \ce{NaCl} has $C_{ion}'$=1000~mM. 
     } 
 \end{figure} 
 
-
+ 
 
 
 
@@ -232,10 +233,11 @@ The stationary distribution of the states reveals a strong preference of the cal
 When interacting with PS, configurations with the phosphate moiety from either PC or PS dominate the population.
 Moreover, states containing interactions with the carboxylate group in PS 
 bear higher probability when interacting also with the phosphate group of the same lipid or other lipids. 
+This is also reflected as a shift of the mean orientation of the \ce{COO^-} group from $62^\circ$ to $73^\circ$ (420~mM \ce{CaCl2})
+measured as the connector of the carbon atoms, which form the bond between the group and the $\beta$-carbon of the phospholipid. 
 The interactions of the carboxylate group in PS with calcium and other phosphate groups
 sheds light into the qualitatively different response of the head group order parameters $\alpha$ and $\beta$ in PS compared to PC 
 (see Figs.~\ref{fig:delta_ordPar_CaCl} and~\ref{fig:delta_ordPar_CaCl_PCPS}). 
-\todo{Add figures showing the shift of the distribution of a COO- orientation w/o \ce{CaCl2}.}
 
 
 
@@ -248,10 +250,10 @@ is due to the confomational change of the carboxylate group that is attracted mo
 
 
 
-\begin{figure}[tb]
+\begin{figure}[tb!]
   \centering
   \includegraphics[width=8.0cm]{../img/ecc_popc/histogram_bound_times_ECC-lipids_346mM_CaCl.pdf} 
-  \includegraphics[width=8.0cm]{../img/ecc_pops/histogram_bound_times_ECC-lipids_346mM_CaCl.pdf}
+  \includegraphics[width=8.0cm]{../img/ecc_pops/histogram_bound_times_26CaCl2.pdf}
   \caption{\label{fig:hist_residence_times}
    Histograms of residence times of \ce{Ca^{2+}} in a POPC bilayer
    from ECC-POPC (top) and CHARMM36 (bottom) simulations with ECC-ions.
@@ -277,9 +279,6 @@ is due to the confomational change of the carboxylate group that is attracted mo
 \end{figure}
 
 
-\todo{Timescales: Comment implied timescales and the MFPT (mean first passage times) and the associated states that contribute to the slowest transitions. 
-Get MFPT also for pure PC. 
-Give upper limit of residence time for 90\% of population (as in ECC-POPC paper) -- it is $142$~ns, longest observed $521$~ns.}
 Timescales associated with the binding of calcium cation from solution to the membrane
 are plotted for each binding event as a histogram in Fig.~\ref{fig:hist_residence_times}. 
 Using these plots, we can estimate the upper bound for the residence time of a calcium cation 
@@ -311,7 +310,7 @@ without complicated transitions at the time scales of the order of the lag time 
 
  
 \begin{table}[tb!] 
-\begin{centering}
+\centering
   \caption{Bulk concentrations of Ca$^{2+}$ (C$_b$), 
            and the percentages of the population 
            of bound Ca$^{2+}$ to either to PC or PS, 
@@ -322,7 +321,6 @@ without complicated transitions at the time scales of the order of the lag time 
            and only to PS 
            in a mixed POPC:POPS (5:1) bilayer. 
           \label{tab:Ca_binding_PCPS} } 
-          \todo{transpose this table and remove the comparison with Lipid14/17}
   \begin{tabular}{ l | r } 
 	model   & ECC-lipids  \\
 	\hline
@@ -336,7 +334,6 @@ without complicated transitions at the time scales of the order of the lag time 
 	PS only          &    7  \\ 
 	\hline 
   \end{tabular} 
-\end{centering}
 \end{table} 
 
 
@@ -434,7 +431,7 @@ In summary, the results from the ECC-POPC model suggest that the exchange of cal
 
 \begin{figure}[htb!] 
   \centering 
-  \includegraphics[width=8.0cm]{../img/ecc_popc/OrdPars-A-B_L14-ECCL17_q80_sig89_NaCl.pdf} 
+  \includegraphics[width=9.0cm]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_NaCl.pdf}
   \caption{\label{fig:delta_ordPar_NaCl} 
     Changes of the head group order parameters of a POPC bilayer as a function of NaCl concentration 
     in bulk ($C_{ion}$) from simulations with different force fields at 313 K together with  
@@ -463,6 +460,23 @@ the results~(Figs.~\ref{fig:delta_ordPar_NaCl} and \ref{fig:delta_ordPar_CaCl}).
 In line with the previous work \citep{catte16}, the results suggest that improvements 
 in the lipid parameters are required to correctly describe the binding of cations to phospholipid bilayers. 
  
+
+\begin{figure}[htbp!] 
+  \centering 
+  \includegraphics[width=9.0cm]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_models-compar_5-7_NaCl-KCl.pdf}
+  \caption{\label{fig:nacl-dens} 
+    Number density profiles of \ce{K^{+}}, \ce{Na^{+}} and \ce{Cl^-} along membrane normal axis 
+    for different force fields. 
+    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}} in Fig.~\ref{fig:cacl-dens},  
+    the density profiles of~\ce{Cl^-}, \ce{K^+} and \ce{Na^+} ions are divided by 2, and 
+    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
+    The simulation with \ce{NaCl} has $C_{ion}'$=1000~mM, 
+    the simulation with \ce{KCl}  has $C_{ion}'$=1100~mM. 
+    } 
+\end{figure} 
+
+
+
 \todo{convert this paragraph into a NaCl-only. }
 The results from simulations combining the ECC-POPC with the ECC-ion models \citep{martinek17, kohagen16, Pluharova2014} exhibit a significantly improved behavior of the POPC head group order parameters as a function of NaCl or CaCl$_2$ concentrations, see Fig.~\ref{fig:delta_ordPar_NaCl} and Fig.~\ref{fig:delta_ordPar_CaCl}. Considering that we are also able to reproduce the experimental response in systems with known charge density (see above section \ref{section:boundCHARGE}), we conclude that our ECC model correctly reproduces the binding affinities of Na$^{+}$ and Ca$^{2+}$ ions to the POPC lipid bilayer. Furthermore, while the response of the glycerol backbone $g_3$ order parameter to CaCl$_2$ was significantly overestimated in the original Lipid14 model, the ECC-POPC model provides an improved agreement with experiment, as seen in Fig.~\ref{fig:delta_ordPar_CaCl}. 
 Also the changes of the P-N vector angle are too pronounced for the Lipid14 model, 
@@ -506,8 +520,10 @@ Finally, the ion binding affinities for the ECC-POPC model with different water 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_POPC_kcl.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_POPS_kcl.pdf} 
   \caption{\label{fig:delta_ordPar_KCl} 
-    Changes of the head group order parameters of a POPC:POPS 5:1 bilayer as a function of KCl concentration 
-    in bulk ($C_{ion}$) from simulations with different force fields at 298 K together with  
+    Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
+    of POPC and POPS phospholipids in a POPC:POPS 5:1 bilayer as a function of \ce{KCl} concentration 
+    in bulk ($C_{ion}$) from simulations with different force fields at 298 K. 
+    The orientation of the \ce{COO^-} group is defined as the connector of its carbon and the $\beta$ carbon it is bonded with, and is denoted with stars. 
   } 
 \end{figure} 
  
@@ -519,8 +535,10 @@ Finally, the ion binding affinities for the ECC-POPC model with different water 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_POPC_nacl.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_POPS_nacl.pdf} 
   \caption{\label{fig:delta_ordPar_NaCl} 
-    Changes of the head group order parameters of a POPC:POPS 5:1 bilayer as a function of NaCl concentration 
-    in bulk ($C_{ion}$) from simulations with different force fields at 298 K together with  
+    Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
+    of POPC and POPS phospholipids in a POPC:POPS 5:1 bilayer as a function of \ce{NaCl} concentration 
+    in bulk ($C_{ion}$) from simulations with different force fields at 298 K. 
+    The orientation of the \ce{COO^-} group is defined as the connector of its carbon and the $\beta$ carbon it is bonded with, and is denoted with stars. 
   } 
 \end{figure} 
 
@@ -541,7 +559,6 @@ In the current state, I think it will be overall better to distribute the conclu
 
 Optional section for any possible idea regarding the interactions of POPC and POPS.
 May be included in the above section with the cationic surfactant as a note on how the model responds to negative charge. 
-\todo{The plot does not contain the experimental series with varying PC-PS content. tba}
 
 \begin{figure}[htb!] 
   \centering 
@@ -550,9 +567,12 @@ May be included in the above section with the cationic surfactant as a note on h
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_PC-PS_mix_POPC_nacl.pdf} 
   \includegraphics[width=\figwidth]{../img/ecc_pops/order_parameters_changes_A-B_PC-PS_mix_POPS_nacl.pdf} 
   \caption{\label{fig:delta_ordPar_NaCl_PC-PS_mix} 
-    Changes of the head group order parameters of a POPC:POPS 5:1 bilayer as a function of PS content.
+    Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
+    of POPC and POPS phospholipids in a POPC:POPS 5:1 bilayer as a function of PS content.
+    The orientation of the \ce{COO^-} group is defined as the connector of its carbon and the $\beta$ carbon it is bonded with, and is denoted with stars. 
     Experimental points have inherent systematic error, as they come from different experiments.
-    A complete series of points can be found (?) in \cite{roux90} -- which is to be added to the plot.
+    A complete series of points can be found in \citep{roux90} -- which is to be added to the plot.
   } 
+\todo{Add the experimental series by \citep{roux90} to the plot. }
 \end{figure} 
  
