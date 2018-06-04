@@ -54,12 +54,18 @@
 \usepackage{mhchem} 
 \usepackage{chemfig} 
 \usepackage[obeyFinal]{easy-todo}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+%% some hyphenation patterns
+\hyphenation{char-ged phos-pha-ti-dyl-eth-an-ol-a-mi-ne phos-pha-ti-dyl-se-ri-ne}
+\tolerance=1600
 
 
 %%% Basic information on the thesis
 
 % Thesis title in English (exactly as in the formal assignment)
-\def\ThesisTitle{Thesis title: Simulation of processes in cellular membranes}
+\def\ThesisTitle{Simulation of processes in cellular membranes}
 
 % Author of the thesis
 \def\ThesisAuthor{Josef Melcr}
@@ -150,12 +156,15 @@ Abstract.
 \chapwithtoc{List of Abbreviations}
 
 \begin{description}   %[align=right]  ,labelwidth=3cm]
-\item [MD] Molecular dynamics
-\item [ECC] Electronic continuum correction
+\item [MD]   Molecular dynamics
+\item [ECC]  Electronic continuum correction
 \item [POPC] Palmitoyloleoylphosphatidylcholine
 \item [DPPC] Dipalmitoylphosphatidylcholine
 \item [POPS] Palmitoyloleoylphosphatidylserine
 \item [POPE] Palmitoyloleoylphosphatidylethanolamine
+\item [PC]   Phosphatidylcholine
+\item [PS]   Phosphatidylserine
+\item [MSM]  Markov state modeling
 \end{description}
 
 %%% Doctoral theses must contain a list of author's publications
