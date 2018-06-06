@@ -74,15 +74,15 @@ In line with Equation~\ref{OPchangeEQ},
 we observe in both simulations and experiments approximately a linear decrease of the head group order parameters $\alpha$ and $\beta$.
 The slope of the response from the simulation with ECC-POPC model 
 is in a very good agreement with the experiments for the $\alpha$ segment, 
-while being slightly underestimated for the $\beta$ segment.
+while being slightly underestimated for the $\beta$ segment at higher concentrations.
 In addition to the order parameters, we also show the change of the P-N vector, 
 which is plotted as the angle between the connector of the phosphorus and nitrogen atoms and the membrane normal. 
 Again, there is a linear dependence on the amount of surface charge
 suggesting a possible relation between the order parameters and the P-N vector mean orientation. 
-\todo{Provide the relation explicitly somewhere?}
+\todo{Provide the relation explicitly somewhere? -- Yes.}
 
 For a direct comparison, we also provide results from simulations with the Lipid14 model. 
-As was already noted in the publication by \citet{catte16},
+It is already noted in our publication \citep{melcr18} that
 the response of the head group order parameteres to the bound charge 
 is overestimated in this model yielding a too steep slope of the response to the increasing amount of the cationic surfactant. 
 It is clear from the above discourse that accounting for electronic polarization is crucial for an accurate response of the lipid electrometer in simulation. 
@@ -106,6 +106,7 @@ the ECC-POPC model will be employed in the study of interactions with aquaeous i
 \begin{figure}[htb!] 
   \centering 
   \includegraphics[width=9.0cm]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_CaCl.pdf}
+\todo{Change axes limits to reveal the steep onset at 0mM for L14. The increase in PN-vector of PC is correct. }
   \caption{\label{fig:delta_ordPar_CaCl} 
     Changes of the head group order parameters and P-N vector orientation of a POPC bilayer  
     as a function of the CaCl$_2$ concentration in bulk ($C_{ion}$) 
@@ -340,10 +341,12 @@ without complicated transitions at the time scales of the order of the lag time 
 	\hline
 	$C_{ion}\,/\,\mathrm{mM}$  &  $240\pm 10 $  \\
 	\hline
-	PC+PS  &  100  \\
-	PC+PS no PO$_4$  &  98-99  \\
-	PC+PS no COO$^-$ &  100  \\
-	PC-$Ca^{2+}$-PS  &   43  \\
+	%PC+PS  &  100  \\
+	%PC+PS no PO$_4$  &  98-99  \\
+	only PO$_4$ in PS  &  1-2  \\
+	%PC+PS no COO$^-$ &  100  \\
+	only COO$^-$ in PS &  >1  \\
+	both PC and PS   &   43  \\
 	PC only          &   50  \\
 	PS only          &    7  \\ 
 	\hline 
