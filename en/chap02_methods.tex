@@ -1,13 +1,7 @@
 \chapter{Molecular modeling of biological membranes}
 \label{chap:methods}
 
-\todo{Rewrite the beginning, three bio in the first sentence, doesn't say really much.}
-Biological membranes are of a great interest in biology and biophysics. 
-The tools and methods that enable their research have greatly evolved over the last decades. 
-Nowadays, there is a plethora of membrane models and experimental methods, 
-each having its benefits and drawbacks \citep{REF} \todoi{1-2 chosen reviews, everything else in prev chapter}
-(see section~\ref{sec:modelmemb} in chapter~\ref{chap:intro} for a detailed overview). 
-
+\todo{Add this: What is the advantage of using MD compared to other methods?}
 Molecular simulation can be considered as one of the newer approaches in this field. 
 Starting with simple membrane models \citep{REF} \todoi{REF: few old/new simulation works},
 simulation of membranes has evolved into a field of computational biophysics
@@ -16,8 +10,72 @@ Recent progress in computational resources and algorithms
 has allowed the simulations to grow in spatial scales and composition complexity
 bringing relevance for applications in biology. \citep{REF: CECAM workshop} \todoi{REF to CECAM workshop 2018 Lugano}
 
-Molecular dynamics simulations of biological membranes employ empirical particle-based models of molecules. 
-Vast majority of the models are built using classical non-polarizable particles, 
+
+\section{Classical molecular dynamics simulations}
+\label{section:md}
+
+In a MD simulation, the system of interest is propagated numerically in discrete time steps.
+Newton equations of motion are solved for systems with calssical particles, which form the majority of applications.
+Interactions between particles, which often represent individual atoms, 
+are described by an approximate interaction potential, $V$, also called a \emph{force field}. 
+Such a potential can be formally written as a sum of individual terms representing different model interactions:
+%The form of the force field varies with the model potentials that are used for the description of the individual interaction components. 
+The symbols $K$ and $V$ are the force constants that describe the strength of such an interaction,
+%As an example, the interaction potential of AMBER \citep{ferrer13}, a popular model for biomolecules, has the following form:
+ % Amber potential energy form:
+\begin{eqnarray}  \label{eq:amber}
+  V = & \displaystyle \sum _{bonds} K_b (r-r_{0})^2 + \sum _{angles} K_\Theta (\Theta-\Theta_{0})^2 + \\ \nonumber
+      & \displaystyle \sum _{dihedrals} V_n (1+\cos(n\phi -\phi_0)) + \\ \nonumber
+      & \displaystyle \sum _{i<j} \left ( s_{ij} ^{VdW} \epsilon _{ij} \left [ \left (\frac{\sigma _{ij}}{r_{ij}} \right )^{12} - 2 \left ( \frac{\sigma _{ij}}{r_{ij}} \right )^6 \right ] + s_{ij}^q \frac{q_i q_j}{\epsilon \, r_{ij}} \right )
+\end{eqnarray}
+The first three terms represent the intra-molecular forces arising from bond stretching, angle bending and dihedral angle torsion. 
+$r$, $\Theta$ and $\phi$ are the respective dimensions,
+and $n$ is the multiplicity of the torsion potential. 
+
+The last terms in the square brackets represent the inter-molecular interactions; 
+the short-distance repulsion, the dispersion, or Van der Waals forces, and electrostatic interactions. 
+Depending on the model force field, the non-bonded interactions are evaluated only for atoms separated by more than three or four bonds, 
+which is here formally introduced through the matrix $s_{ij}$ that modifies the interaction accordingly.
+
+The constants in matrices $A_{ij}$ and $B_{ij}$ represent the strengths of the attraction and repulsion forces 
+arising from disperion and the overlap of the electronic clouds of the individual particles.  
+The electrostatic interaction is described by the interacting partial charges $q_i$ and by the formally applied dielectric constant $\epsilon$ of the medium, 
+which is assumed to be 1 in most force fields for biomolecules. 
+In a later section~\ref{section:ecc}, we will show how to modify this interaction 
+by changing the dielectric constant $\epsilon$ to include the effects of electronic polarization. 
+
+\todo{Samuli suggested to remove this paragraph.}
+Note that the interactions are simplified not only by the empirical formulae for the individual contributions, 
+but to a large extent also by assuming that the interaction potentials are \emph{pair-wise additive}. 
+Especially in the case of the inter-molecular forces, this is a severe approximation, 
+which neglects the contributions from three and higher-body interactions. 
+It was, however, shown that even such an approximate interaction potential is sufficiently accurate in many cases. \citep{} \todo{Put some application references.} 
+
+\todo{This requires better wording. Actually, short-range repulsion is stronger, too.}
+The electrostatic interaction yields the strongest inter-molecular attraction forces. 
+In classical MD simulation, the electrostatic interaction is approximated by point charges in the centres of the particles. 
+It has non-negligable contributions even from long distances. 
+In periodic systems, i.e. in simulations with periodic boundary conditions, 
+evaluating contributions from all periodic images is necessary. 
+In neutral systems, this is efficiently done by using the Ewald summation,
+in which the long range contributions are calculated in Fourier space rather than in real space
+using fast algorithms developed for this purpose. \citep{darden93, essman95}
+
+The attractive dispersion and the repulsive excluded volume interactions 
+in the empirical interaction potential in Equation~\ref{eq:amber} 
+adopt the form of Lennard-Jones potential, 
+which is expressed in terms of interaction energy $\epsilon_{ij}$ and the distance of the potential minimum, $\sigma_{ij}$, 
+which separates the regions where the interaction is repulsive (distances smaller than $\sigma$), 
+and where they are attractive (distances larger than $\sigma$). 
+Such a parameter hence also tells on the size of the spherical particle, 
+which has an impact on the balance between electrostatic and Van der Waals forces.
+
+
+
+% Examples, models, applications
+
+Molecular dynamics simulations of biological membranes employ semi-empirical particle-based models of molecules. 
+The models are built using classical non-polarizable particles, 
 each representing an individual atom (atomistic models), 
 or a group of atoms (united-atom or coarse grained models). 
 The following classical models are among the most popular in membrane modeling:
@@ -57,102 +115,12 @@ will be introduced in the following sections.
 
 
 
-\section{Classical molecular dynamics simulations}
-\label{section:md}
-
-Classical molecular dynamics simulations provide insight into the dynamics and structure of molecules. 
-They are commonly used for generating equilibrium thermodynamic ensembles,
-that cas serve as input for statistical methods to extract observable equilibrium quantities. 
-Classical MD simulations can be also used to assess the evolution of non-equilibrium states.
-% Pavel: the commented line is not true
-%Such application is commonly termed as \emph{Steered MD}. 
-Molecular modeling, and MD simulation in particular, 
-is often combined with experiments,
-which helps in their interpretation and provides detailed insight. 
-
-In a MD simulation, the system of interest is propagated numerically in discrete time steps.
-Newton equations of motion are solved for systems with calssical particles, which form the majority of applications.
-Interactions between particles, which often represent individual atoms, 
-are described by an approximate interaction potential, also called a \emph{force field}. 
-
-The form of the force field varies with the model potentials that are used for the description of the individual interaction components. 
-\todo{Reformulate the following so that it is not specific for Amber. Pavel finds the formula not that specific for Amber to mention it as an example.}
-As an example, the interaction potential of AMBER \citep{ferrer13}, a popular model for biomolecules, has the following form:
- % Amber potential energy form:
-\begin{eqnarray}  \label{eq:amber}
-  V = & \displaystyle \sum _{bonds} K_b (r-r_{0})^2 + \sum _{angles} K_\Theta (\Theta-\Theta_{0})^2 + \\ \nonumber
-      & \displaystyle \sum _{dihedrals} \frac{1}{2} V_n (1+\cos(n\phi -\phi_0)) + \sum _{i<j} \left [ s_{ij} ^{VdW} \left( \frac{A_{ij}}{r_{ij} ^{12}} - \frac{B_{ij}}{r_{ij} ^6} \right ) + s_{ij}^q \frac{q_i q_j}{\epsilon \, r_{ij}} \right ]
-\end{eqnarray}
-The first three terms represent the intra-molecular forces arising from bond stretching, angle bending and dihedral angle torsion. 
-The symbols $K$ and $V$ are the force constants that describe the strength of such an interaction,
-$r$, $\Theta$ and $\phi$ are the respective dimensions,
-and $n$ is the multiplicity of the torsion potential. 
-
-The last terms in the square brackets represent the inter-molecular interactions; 
-the short-distance repulsion, the dispersion, or Van der Waals forces, and electrostatic interactions. 
-Depending on the model force field, the non-bonded interactions are evaluated only for atoms separated by more than three or four bonds, 
-which is here formally introduced through the matrix $s_{ij}$ that modifies the interaction accordingly.
-
-The constants in matrices $A_{ij}$ and $B_{ij}$ represent the strengths of the attraction and repulsion forces 
-arising from disperion and the overlap of the electronic clouds of the individual particles.  
-The electrostatic interaction is described by the interacting partial charges $q_i$ and by the formally applied dielectric constant $\epsilon$ of the medium, 
-which is assumed to be 1 in most force fields for biomolecules. 
-In a later section~\ref{section:ecc}, we will show how to modify this interaction 
-by changing the dielectric constant $\epsilon$ to include the effects of electronic polarization. 
-
-Note that the interactions are simplified not only by the empirical formulae for the individual contributions, 
-but to a large extent also by assuming that the interaction potentials are \emph{pair-wise additive}. 
-Especially in the case of the inter-molecular forces, this is a severe approximation, 
-which neglects the contributions from three and higher-body interactions. 
-It was, however, shown that even such an approximate interaction potential is sufficiently accurate in many cases. \citep{} \todo{Put some application references.} 
-
-\todo{This requires better wording. Actually, short-range repulsion is stronger, too.}
-The electrostatic interaction yields the strongest inter-molecular attraction forces. 
-In classical MD simulation, the electrostatic interaction is approximated by point charges in the centres of the particles. 
-It has non-negligable contributions even from long distances. 
-In periodic systems, i.e. in simulations with periodic boundary conditions, 
-evaluating contributions from all periodic images is necessary. 
-In neutral systems, this is efficiently done by using the Ewald summation,
-in which the long range contributions are calculated in Fourier space rather than in real space
-using fast algorithms developed for this purpose. \citep{darden93, essman95}
-
-The attractive dispersion and the repulsive excluded volume interactions 
-in the empirical interaction potential in Equation~\ref{eq:amber} 
-adopt the form of Lennard-Jones potential, 
-which can be also expressed in terms of interaction energy $\epsilon_{ij}$ and the distance of the potential minimum, $\sigma_{ij}$, as
-\begin{equation}
-   U_{LJ} =  \frac{A_{ij}}{r_{ij}^{12}} - \frac{B_{ij}}{r_{ij}^6} = \epsilon _{ij} \left [ \left (\frac{\sigma _{ij}}{r_{ij}} \right )^{12} - 2 \left ( \frac{\sigma _{ij}}{r_{ij}} \right )^6 \right ] .
-\end{equation}
-The parameter $\sigma$ separates the regions, 
-where the interaction is repulsive (distances smaller than $\sigma$), 
-and where they are attractive (distances larger than $\sigma$). 
-Such a parameter hence also tells on the size of the spherical particle, 
-which has an impact on the balance between electrostatic and Van der Waals forces.
-
-The parameters $\sigma_{ij}$ and $\epsilon_{ij}$ are usually derived only for a small set of pairs of the same particles,
-and the parameters for any other pair of particles are derived by using combination formulae. 
-Lorentz-Berthelot combination rules are one of the most common: 
-\begin{equation}
- \sigma _{ij} = \frac{1}{2} (\sigma _{ii} + \sigma _{jj}) \, ; \quad \epsilon _{ij} = \sqrt{\epsilon _{ii} \, \epsilon _{jj}} 
-\end{equation}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Electronic continuum correction as implicit treatment of electronic polarizability}
 \label{section:ecc}
 
 \todo{Add a couple of sentences of on different ways of accounting for electronic polarization.}
+
+\todo{Condense this paragraph.}
 The lack of electronic polarizability in standard MD simulation
 force fields has been considered a serious issue since the early days of
 lipid bilayer simulations \dots
@@ -160,7 +128,6 @@ lipid bilayer simulations \dots
  Joint subsection on Drude particles and polarizable dipoles, the most common ways of introducing polarizability explicitly into the MD simulation. 
 \ldots rather demanding explicit inclusion
 of electronic polarization effects \cite{lucas12,chowdhary13} \dots
-
 The theory for accounting for electronic polarization in a mean field way in empirical force fields
 was originally developed by \citet{leontyev09} under the name Molecular Dynamics in Electronic Continuum, MDEC. 
 The term Electronic continuum correction, ECC, originates in the works by \citet{Pluharova2014, kohagen14, kohagen16, martinek17},
@@ -168,9 +135,6 @@ where the rigorously developed theory from \citep{leontyev14} was systematicaly 
 Through the comparison of neutron scattering and/or \emph{ab-initio} molecular dynamics data with classical MD simulations, 
 the authors developed an array of models for cations an anions, termed here as ECC-ions,
 that embedded ECC as an implicit model for electronic polarizability. 
-
-\todo{Extensions of this section are relatively easy and possible by incorporating more equations and MDEC theory.}
-
 Electronic continuum correction (ECC) is an implicit model for accounting for electronic polarization. 
 in which a system of polarizable particles is represented
 with an equivalent system of particles with fixed charges
@@ -182,6 +146,7 @@ Technically, ECC is similar to the phenomenological scaling of partial charges,
 which was applied in earlier studies of aqueous solutions or ionic liquids \citep{jonsson86,egberts94,beichel14},
 in which also other possible effects (e.g. charge transfer) were considered.
 In contrast, ECC is a physically well justified and rigorously derived model~\citep{leontyev09, leontyev10, leontyev11, leontyev14}.
+
 \todo{Rewrite the following till the end. use an explicit form of Coulomb equation with epsilon and scaled charges to show the scaling factor and skip some unnecessarry text below.}
 The relation for the charges employing ECC model can be formally written as
 \begin{equation}  \label{eq:scaling}
@@ -222,12 +187,14 @@ the scaling factor for ions in water is $\approx 0.75$.
 \section{Implicitly polarizable classical MD models of lipids using ECC}
 \label{section:ecc-lipids}
 
+\todo{Paragraph Suggested for removal.}
 Simulations with explicitly polarizable models are not frequently used in practice in biophysics. 
 The models employing ECC, however, are on the same level of comupational demands with classical non-polarizable models with fixed charges, yet they implicitly incorporate electronic polarization. 
 %The ECC theory was introduced in the above section~\ref{section:ecc}.
 In this section, I will demostrate the application of the ECC theory on phospholipids, 
 where the effects of polarization yield crucial consequences in the accuracy of the description of the interaction with ions. 
 
+\todo{Describe motivation, goal (cation binding), strategy (ECC). With cation binding, mention it very briefly and point to the next chapter.}
 We chose phosphatidylcholine (PC), phosphatidylethanolamine (PE) and phosphatidylserine (PS)
 as representants of the most common neutral and negatively charged lipids in the plasma membrane \citep{the_review_with_pie_charts_on_my_desk, marsh13}. 
 The Lipid14~\citep{dickson14} model was used for POPE and POPC,
@@ -237,14 +204,15 @@ It was shown by \citet{botan15, catte16} that such a family of lipid models prov
 realistic descriptions of the head group order parameters of POPC and their response to ions 
 when compared to other available lipid models. 
 
-In the case of POPS, which bears a total negative charge of -1, 
+\todo{Make the discussion POPS-agnostic -- talk about charged molecules/lipids.}
+In the case of charged lipids, 
 embedding ECC through the linear transform of the partial charges is straightforward. 
 The resulting ECC-lipid model of POPS, also denoted as ECC-POPS, 
 adopts a formal total charge $-0.75$ in line with ECC and the electronic dielectric constant of water \citep{leontyev14}. 
 Note that the formal charge is equal in size to the charges of monovalent ions developed with ECC \citep{Pluharova2014, kohagen14, kohagen16, martinek17}.
 
 While the scaling factor of $f_q = 0.75$ is clearly justified for molecules with a non-zero total charge like ions or POPS,
-it is not \emph{a priori} clear what factor shall be used for zwitterionic molecules, i.e. for POPE and POPC in our case.
+it is not \emph{a priori} clear what factor shall be used for neutral or zwitterionic molecules, e.g. for POPE and POPC. 
 
 Unlike the total charge, the partial charges of particles forming molecules in simulations are not physical observables. 
 There is a variety of schemes for assigning partial charges to particles in molecules~\citep{Hu2007}. 
@@ -268,7 +236,7 @@ hydrophobic part of lipid bilayers \cite{dickson14,ollila16}.
 Compared to the acyl tails, the glycerol backbone and the head group regions of phospholipids 
 require improvements in any available lipid model~\cite{botan15}.
 
-We found that the optimal value for the scaling factor of partial charges of the neutral molecules from the Lipid14 force field \citep{dickson14}
+We found that the optimal value \todo{Optimized w.r.t. what? -- to reproduce cation binding and response.} for the scaling factor of partial charges of the neutral molecules from the Lipid14 force field \citep{dickson14}
 is $f_q = 0.8$, which is indeed slighly higher than 0.75, 
 i.e. the scaling factor for the ions in water. 
 This value was found by comparing the results from the simulations with POPC to the experimental 
@@ -366,7 +334,6 @@ In addition, the X-ray scattering form factors of POPC, POPE and POPS from simul
            at temperatures $T$ without additional ions. \label{tab:apls} } 
   \begin{tabular}{l|c c} 
     \multicolumn{3}{c}{POPC} \\
-    \hline 
     model          & APL / Å$^2$   & $T$ / K  \\ 
     \hline 
     Lipid14 POPC                    & 65.1$\pm$ 0.6  &  300 \\ 
@@ -378,17 +345,15 @@ In addition, the X-ray scattering form factors of POPC, POPE and POPS from simul
     \hline 
     \multicolumn{3}{c}{} \\
     \multicolumn{3}{c}{POPE} \\
-    \hline 
     model          & APL / Å$^2$   & $T$ / K  \\ 
     \hline 
     ECC-POPE                 & 56.7$\pm$ 0.8  &  298 \\ 
     \hline 
     experiment   \citep{parsegian89} & 56.6  &  310    \\ 
-    experiment   \citep{rappolt03}   & 60--62 &  308--318  \\ 
+    experiment   \citep{rappolt03}   & 59--61 &  303--313  \\ 
     \hline 
     \multicolumn{3}{c}{} \\
     \multicolumn{3}{c}{POPS} \\
-    \hline 
     model          & APL / Å$^2$   & $T$ / K  \\ 
     \hline 
     Lipid17 POPS              & 53.5$\pm$ 0.8  &  298 \\ 
@@ -412,11 +377,15 @@ The area per lipid is often used as a relatively simple structural parameter rep
 In experiments, modeling is used on top of the scattering factors to obtain it \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
 From simulations, this property is easily extracted. 
 We compare the values from experiments and simulations in Table~\ref{tab:apls}. 
+Experiments were performed only at temperatures higher than in the simulation, 
+however, if we extrapolate the experimental values using the series in the work by \citet{rappolt03} 
+(i.e. $\approx 1Å^2$ for each $5^\circ$C), 
+the estimate of the area per lipid from the simulation lays between the two distinct values from the extrapolated experiments. 
+
 The area per lipid of ECC-POPE agrees well with the experiment by \citet{parsegian89}, 
 however, the other experimental value reported in Table~\ref{tab:apls} is considerably larger in the same temperature range. 
-\todo{Correct the following argument -- the simulation/experiments are at different temperatures!}
-Finding a very similar result for area per lipid of POPE using two independent models (ECC-lipids and \citep{parsegian89})
-raises certain doubts about the experimental estimation of the property in the work by \citet{rappolt03}. 
+%Finding a very similar result for area per lipid of POPE using two independent models (ECC-lipids and \citep{parsegian89})
+%raises certain doubts about the experimental estimation of the property in the work by \citet{rappolt03}. 
 
 The area per lipid of POPC in simulation with ECC-lipids model is smaller by $\approx$1Å 
 than the experimental value derived from the SDP model \citep{SDP-CHARMM36_comparison_paper_Samuli-knows}. 
