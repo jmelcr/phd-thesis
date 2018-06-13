@@ -39,9 +39,9 @@ for which we present the first simulation results that are in \emph{quantitative
 
 The response of the head group order parameters 
 to a certain amount of bound charge in the bilayer 
-was calibrated using monovalent charged surfactants in \citep{scherer89}. 
+was calibrated using monovalently charged surfactants in \citep{scherer89}. 
 After such a calibration,
-we can estimate binding affinities of free cations from the measured head group order parameter changes. \citep{scherer89}
+binding affinities of free cations can be estimated from the measured head group order parameter changes. \citep{scherer89}
 This forms the lipid electrometer concept (introduced in section\ref{section:electrometer}),
 which can be used to directly compare experimental measurements with MD simulations. 
 We performed such a comparison for both neutral and negatively charged membranes with \ce{NaCl} and \ce{CaCl2} 
@@ -126,7 +126,7 @@ experiments and also both MD simulation models show approximately linear decreas
 Results from simulations with two models are shown.
 We employ our newly developed model ECC-POPC, introduced in the previous chapter, 
 which accounts for electronic polarizability using ECC \citep{leontyev14}.
-For a direct comparison, we also show results for Lipid14 model by \citet{dickson14},
+For a direct comparison, we also show results for Lipid14, a standard model by \citet{dickson14},
 which served as a starting point in the development of ECC-POPC. 
 This model was also used in the works \citep{catte16, nmrlipids_proj4}. 
 
@@ -147,7 +147,7 @@ Although the structure of ECC-POPC model without any ions does not agree with NM
 such a model reproduces well the changes of the order parameters.
 It follows that using this model,
 we can write an approximate relation between the changes of the order parameters and the P-N vector mean orientation. 
-For the change of order parameter $\alpha$, $\Delta S^\alpha$, we arrive at
+For the change of the order parameter $\alpha$, $\Delta S^\alpha$, we arrive at
 \begin{equation}
 \Delta \vec{PN} = (185 \pm 5) \cdot \Delta S^\alpha .
 \end{equation}
@@ -167,8 +167,9 @@ ECC-lipids will be employed in the study of interactions with aquaeous ions, nam
 
 
 \section{Interactions of neutral and negatively charged phospholipid membranes with K$^+$, Na$^+$}
+\label{section:lip-ion_k_na}
 
-\begin{figure}[htb!] 
+\begin{figure}[tbp!] 
   \centering 
   \includegraphics[height=10 cm]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_NaCl.pdf}
   \includegraphics[height= 9 cm]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_KCl.pdf}
@@ -181,14 +182,13 @@ ECC-lipids will be employed in the study of interactions with aquaeous ions, nam
   } 
 \end{figure} 
  
-
  
 \begin{figure}[tbp!] 
   \centering 
   \includegraphics[width=\figwidthsmall]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPC_nacl.pdf} 
   \includegraphics[width=\figwidthsmall]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPS_nacl.pdf} 
 \todo{Add LiCl resp. NaCl labels to experiments in legend. Remove the legend for ECC-lipids in one of the plots -- they are side by side and hence it is duplicate.}
-  \caption{\label{fig:delta_ordPar_NaCl} 
+  \caption{\label{fig:delta_ordPar_NaCl_PCPS} 
     Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
     of POPC (left) and POPS (right) phospholipids in a POPC:POPS 5:1 bilayer as a function of \ce{NaCl} concentration 
     in bulk ($C_{ion}$) from simulations with different force fields at 298 K.
@@ -202,13 +202,12 @@ ECC-lipids will be employed in the study of interactions with aquaeous ions, nam
 \end{figure} 
 
 
-
 \begin{figure}[tbp!] 
   \centering 
   \includegraphics[width=\figwidthsmall]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPC_kcl.pdf} 
   \includegraphics[width=\figwidthsmall]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPS_kcl.pdf} 
 \todo{Remove the extra legend.}
-  \caption{\label{fig:delta_ordPar_KCl} 
+  \caption{\label{fig:delta_ordPar_KCl_PCPS} 
     Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
     of POPC (left) and POPS (right) phospholipids in a POPC:POPS 5:1 bilayer as a function of \ce{KCl} concentration 
     in bulk ($C_{ion}$) from simulations with different force fields and experiments at 298 K. \citep{roux90}
@@ -219,27 +218,45 @@ ECC-lipids will be employed in the study of interactions with aquaeous ions, nam
  
 
 
-\todo{Rewrite this whole section.}
+It was presented in the previous section,
+that accounting for electronic polarization,
+a distinct feature of ECC-lipids compared to other lipid models, 
+is crucial for an accurate description of the response of the POPC electrometer. 
+In this section,
+we employ ECC-lipids to simulate neutral and negatively charged bilayers 
+in the presence of monovalent salts, namely \ce{KCl} and \ce{NaCl}. 
+The results are compared using the concept of the lipid electrometer 
+with NMR measurements and simulations in Figures \ref{fig:delta_ordPar_NaCl}, \ref{fig:delta_ordPar_NaCl_PCPS} and \ref{fig:delta_ordPar_KCl_PCPS}. 
 
- 
-Changes of the lipid bilayer head group order parameters extracted from simulations and 
-experiments \citep{akutsu81, altenbach84} are shown in Figs.~\ref{fig:delta_ordPar_NaCl} 
-and~\ref{fig:delta_ordPar_CaCl} as functions of NaCl or CaCl$_2$ concentrations. 
-As seen in Fig.~\ref{OrderParameterCHANGESsurf}, the order parameters decrease 
-proportionally to the amount of the bound positive charge. 
-These results can be thus used to compare the ion binding affinities to lipid bilayers between 
-simulations and experiments using the electrometer concept~\citep{seelig87, catte16}. 
- 
-The experimentally measured small order parameter 
-changes with NaCl (Fig.~\ref{fig:delta_ordPar_NaCl})  
-are reproduced by the Lipid14 model simulated with Åqvist ions. 
-However, the same combination of models overestimates the order parameter changes with CaCl$_2$ (Fig.~\ref{fig:delta_ordPar_CaCl}). 
-Replacing Åqvist ions with ion parameters by Dang et al.~\citep{smith94, chang1999, dang2006} 
-or ECC-ions~\citep{martinek17, kohagen16, Pluharova2014} did not improve 
-the results~(Figs.~\ref{fig:delta_ordPar_NaCl} and \ref{fig:delta_ordPar_CaCl}). 
+Interactions of \ce{Na^+} with neutral POPC bilayer were studied in \citep{catte16}, 
+and with negatively charged mixed 5\,PC:1\,PS bilayer in \citep{nmrlipids_proj4}. 
+It was concluded that the interactions are generally overestimated in magnitude in almost all models 
+but Lipid14 \citep{dickson14}, resp. Lipid17 \citep{lipid17-future}, 
+which yields semi-quantitative agreement with the small changes of the order parameters measured experimentally
+when used with the model of ions by \citet{aqvist90} (Fig.~\ref{fig:catte16}). 
+However, when used with a more accurate model of ions by \citet{Pluharova2014, martinek17},
+the model overestimates the binding affinity of \ce{Na^+}
+measured with lipid electrometer concept in Fig.~\ref{fig:delta_ordPar_NaCl}. 
 In line with the previous work \citep{catte16}, the results suggest that improvements 
-in the lipid parameters are required to correctly describe the binding of cations to phospholipid bilayers. 
- 
+in the lipid parameters are required for more accurate interactions even with monovalent cations. 
+
+The results from simulations combining the models ECC-lipids \citep{melcr18} and ECC-ions \citep{martinek17, kohagen16, Pluharova2014} 
+exhibit an improved behavior of the POPC and POPS head group order parameters as a function of \ce{NaCl} or \ce{KCl} concentrations, 
+as plotted in Figs.~\ref{fig:delta_ordPar_NaCl}, \ref{fig:delta_ordPar_NaCl_PCPS} and \ref{fig:delta_ordPar_KCl_PCPS}. 
+
+The interaction with \ce{K^+}, which binds very weakly to both neutral and negatively charged membranes, 
+renders a qualitatively different response of the order parameter $S^\beta$ in POPS in the mixed negatively charged membranes. 
+While the order parameter $S^\beta$ increases for both \ce{Na^+} and \ce{Ca^{2+}},
+it decreases in the presence of \ce{K^+}.
+This feature is \emph{qualitatively} captured by a few models in \citep{nmrlipids_proj4},
+however, neither of them is as close to a \emph{qunatitative} agreement with the experiments 
+as the combination of ECC-lipids with ECC-ions. 
+In addition, the different response of order parameteres $S^{\alpha _1}$ and $S^{\alpha _2}$ in POPS is also well captured by the model. 
+Such a detailed description of the changes of the structural parameters 
+demonstrates that including electronic polarization
+improves the description of the interaction even for very weakly binding cations like \ce{K^+}. 
+
+
 
 \begin{figure}[tbp!] 
   \centering 
@@ -274,31 +291,20 @@ in the lipid parameters are required to correctly describe the binding of cation
 
 
 
-The results from simulations combining the ECC-POPC with the ECC-ion models \citep{martinek17, kohagen16, Pluharova2014} exhibit a significantly improved behavior of the POPC head group order parameters as a function of NaCl or CaCl$_2$ concentrations, see Fig.~\ref{fig:delta_ordPar_NaCl} and Fig.~\ref{fig:delta_ordPar_CaCl}. Considering that we are also able to reproduce the experimental response in systems with known charge density (see above section \ref{section:boundCHARGE}), we conclude that our ECC model correctly reproduces the binding affinities of Na$^{+}$ and Ca$^{2+}$ ions to the POPC lipid bilayer. Furthermore, while the response of the glycerol backbone $g_3$ order parameter to CaCl$_2$ was significantly overestimated in the original Lipid14 model, the ECC-POPC model provides an improved agreement with experiment, as seen in Fig.~\ref{fig:delta_ordPar_CaCl}. 
-Also the changes of the P-N vector angle are too pronounced for the Lipid14 model, 
-for which the largest tilting toward water phase induced by a $780\,\mathrm{mM}$ 
-CaCl$_2$ concentration is approximately 17$^{\circ}$. The corresponding value 
-for the ECC-POPC simulation is only 6$^{\circ}$ ($820\,\mathrm{mM}$ CaCl$_2$).  
+The difference between the affinity of \ce{Na^+} and \ce{K^+} to neutral and negatively charged membranes
+can be described by their relative surface excess with respect to water, $\Gamma ^{w} _{ion}$, 
+which is shown in the plots of the density profiles of the ions in Figs.~\ref{fig:nacl-dens} and \ref{fig:nacl-dens_PCPS}. 
+Such a quantity compares the adsorption of ions to the adsorption of water molecules at an interface 
+without the necessity of defining a Gibbs dividing surface. \citep{chattorajBOOK}
+While \ce{K^+} maintains negative value of $\Gamma^{w}_{K}$ even for the negatively charged bilayer,
+the value of $\Gamma^{w}_{Na}$ for \ce{Na^+} changes from negative to positive
+in a neutral POPC bilayer resp. in a negatively charged bilayer with a composition 5\,PC:1\,PS.
+This means that at the given concentration the bilayer interface has a small preference to \ce{Na^+} cations compared to water molecules. 
+Interestingly, this value is slightly decreased in the presence of an additional \ce{NaCl} concentration adding also \ce{Cl^-} anions, 
+which are not present in the system when only counterions are used
+(bottom resp. top plot in Fig.~\ref{fig:nacl-dens_PCPS}. 
+The interaction of a neutral POPC bilayer with \ce{NaCl} is discussed in a greater detail in \citep{melcr18}. 
 
-% on the binding affinity using surface excess:
-Interestingly, the calculated relative surface excess of \ce{NaCl} at $1\,\mathrm{M}$ concentration (ECC-ions~\citep{Pluharova2014}) using our ECC-POPC model is not only quantitatively but also qualitatively different from \ce{CaCl2} having actually a negative value of $\Gamma_{Na}^{water} = -0.11 \pm 0.01) \rm{nm}^{-2}$ (Fig.~\ref{fig:nacl-dens}. This  
-means that on average water molecules are preferred to sodium and chloride ions at the membrane-water interface.   
-This is in contradiction with most of the available lipid force fields, which predict a positive surface excess of sodium at PC lipid bilayers \citep{catte16}. 
- 
-Even though \ce{Na+} ions do not bind strongly to a POPC bilayer, they still interact mostly with its oxygen moieties. 
-The results from a simulation at a $1\,$M \ce{NaCl} concentration show that 55\% of \ce{Na+} ions at the bilayer interact with phosphate oxygens of POPC only and 20\% with carbonyl oxygens only, with the remaining 25\%, is interacting with both negatively charged groups. 
-Sodium ions, which do not exhibit any appreciable affinity for the bilayer, also interact primarily with phosphate oxygens of the POPC, but in contrast to calcium, the interactions purely with carbonyls are also significant. 
- 
-The probabilities of different complexes formed by \ce{Na+} ions and POPC 
-analyzed from the simulation with the ECC-POPC model at $1\,$M concentration of NaCl are also  
-shown in Fig.~\ref{fig:cacl_complexes}. In contrast to calcium, the 
-probability is largest (67\%) for 1:1 complex, significantly smaller (29\%) 
-for 1:2 complexes and very small (4\%) for 1:3 of \ce{Na+}:POPC complexes. 
- 
-Note that the exchange of \ce{Na+} ions at the POPC membrane 
-is yet another order of magnitude faster, with 90\% of the residence times smaller than~1~ns and the longest residence time being~6~ns. 
- 
-Finally, the ion binding affinities for the ECC-POPC model with different water models are compared in SI. In general, the performance of ECC-POPC with any of the tested water models is better than that of the original Lipid14 model, with the order parameter changes being slightly overestimated with the four-site water models and with TIP3P model. 
  
 
 
