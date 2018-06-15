@@ -375,11 +375,45 @@ for which also the structure of pure POPS bilayer with only counterions is drama
 %%% Discuss the changes of OPs and vectors from neutral and neg. membranes
 While the changes induced by \ce{CaCl2} are \emph{qualitatively} correct for Lipid14/17, 
 we achieve a \emph{quantitative} agreement with experiments using ECC-lipids model. 
-Increasing concentrations of \ce{CaCl2} induce a systematic decrease of the order parameters $S^\alpha$ and $S^\beta$ in POPC 
+Increasing concentrations of \ce{CaCl2} induce a systematic decrease of the order parameters $S^\alpha$ and $S^\beta$ in POPC. 
 Although the total magnitude of the response of the order parameteres is comparable in the neutral and the negatively charged bilayers, 
 the shape of the changes in the latter shows a steeper onset at low concentrations. 
 This is apparently due to the presence of POPS, 
 which has a higher affinity to \ce{Ca^{2+}} compared to POPC. 
+
+
+
+
+\begin{figure}[htbp!] 
+  \centering 
+  \includegraphics[width=\figwidth]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_concentrations-compar.pdf} 
+  \caption{\label{fig:cacl-dens} 
+    Number density profiles of \ce{Ca^{2+}} and \ce{Cl^-} along membrane normal starting at the centre of the bilayer 
+    for different concentrations of \ce{CaCl2}. 
+    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
+    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
+    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
+    } 
+\end{figure} 
+
+
+\begin{figure}[htbp!] 
+  \centering 
+  \includegraphics[width=\figwidth]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf}
+  \caption{\label{fig:cacl-dens_PCPS} 
+    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along membrane normal starting at the centre of the bilayer 
+    for the negatively charged membrane of a composition 5\,PC:1\,PS
+    at various bulk concentrations of \ce{CaCl2} from simulations. 
+    All profiles contain \ce{Na^+} counterions and an additional concentration of \ce{CaCl2}. 
+    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
+    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
+    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
+    } 
+\end{figure} 
+ 
+
+
+
 
 
 %%% Present the density profiles (different concentrations for both POPC and mixed)
@@ -424,74 +458,16 @@ We find that the complex response of the head group order parameters of POPS
 is affected by the confomational changes of the carboxylate group,
 which is attracted more towards the phosphate region, 
 where the calcium cations dominantly bind. 
+This is also very likely the reason, 
+why the magnitude of the P-N vector change in POPS is diminished compared to POPC, 
+which is not restrained by an additional cation binding group like PS.  
 
 
-Further evidence for the detailes of the interactions of \ce{Ca^{2+}} with varoius moieties in POPS or POPS
-was obtained by counting contacts between the cations and the oxygen atoms of the lipids
+Further detailes about the interactions of \ce{Ca^{2+}} with varoius moieties in POPS or POPS
+were obtained by counting contacts between the cations and the oxygen atoms of the lipids
 similarly as was done in \cite{melcr18}. 
-The threshold for counting a contact was set to $0.3 \mathrm{nm}$, 
+The threshold for counting a contact was set to $0.3\,\mathrm{nm}$, 
 which encompasses the first peak of radial distribution function between the cations and the oxygen atoms of the lipids. 
-
-The percentages of the populations of membrane-bound calcium cations for various membrane moieties 
-are summarized in Table~\ref{tab:Ca_binding_PCPS}.
-Even though the negatively charged membrane contains only 18\% of POPS, 
-approximately 43\% of the total population of bound calcium cations is in contact with PS lipids
-with 7\% bound only to them. 
-This corroborates the intrinsincally higher affinity of PS lipids to calcium cations compared to neutral PC lipids. 
-POPC interacts with the calcium cations almost entirely through its phosphate group 
-in both neutral and negatively charged membranes, 
-which is visualized for POPC using probability density isocontours in Fig.~\ref{fig:volmaps}.
-Interactions of \ce{Ca^{2+}} with carbonyl groups are also present, 
-however, they always also interact with other pohsphate groups, 
-but a very small negligable amount much below 1\%. 
-
-
-Relative probabilites of \ce{Ca^{2+}} complexes with a certain number of lipids are shown in Fig.~\ref{fig:cacl_complexes}. 
-Calcium cations that are bound only to PC in the mixed bilayer with PS 
-behave similarly as in the pure PC bilayer
-maintaining similar probabilities for clustering one, two or even three PC lipids together. 
-In contrast, PS lipids prefer 1:1 ratio with \ce{Ca^{2+}},
-which may also be due to their low molar fraction in the the mixed bilayer. 
-In total, however, the negatively charged membrane has its stoichiometry shifted towards complexes of three phospholipids to one calcium. 
-This is also reflected in the increased probability 
-of a single phospholipid interacting with two \ce{Ca^{2+}} cations 
-compared to the neutral POPC bilayer, 
-where such a probability is almost negligable. 
-% Not shown through numbers, however, I have the plots to back it. 
-
-
-
-
-
-
-\begin{figure}[htbp!] 
-  \centering 
-  \includegraphics[width=\figwidth]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_models-compar_1-4.pdf} 
-  \caption{\label{fig:cacl-dens} 
-    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along membrane normal starting at the centre of the bilayer 
-    for different force fields. 
-    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
-    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
-    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
-    All simulations with \ce{CaCl2} shown here have the same molar concentration of ions in water ($C_{ion}'$=350~mM). 
-    } 
-\end{figure} 
-
-
-\begin{figure}[htbp!] 
-  \centering 
-  \includegraphics[width=\figwidth]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf}
-  \caption{\label{fig:cacl-dens_PCPS} 
-    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along membrane normal starting at the centre of the bilayer 
-    for the negatively charged membrane of a composition 5\,PC:1\,PS
-    at various bulk concentrations of \ce{CaCl2} from simulations. 
-    All profiles contain \ce{Na^+} counterions and an additional concentration of \ce{CaCl2}. 
-    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
-    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
-    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
-    } 
-\end{figure} 
- 
 
 
 \begin{table}[tb!] 
@@ -528,6 +504,7 @@ where such a probability is almost negligable.
 
 
 
+
 \begin{figure}[tb!] 
   \centering 
   \includegraphics[width=\figwidth]{../img/ecc_popc/isocontours_r37_ca_O-carb.png} 
@@ -547,8 +524,24 @@ where such a probability is almost negligable.
     Carbon atoms are depicted in cyan, hydrogen atoms in white, oxygen atoms in red, nitrogen in blue.
   } 
 \end{figure} 
- 
- 
+
+
+
+The percentages of the populations of membrane-bound calcium cations for various membrane moieties 
+are summarized in Table~\ref{tab:binding}.
+Even though the negatively charged membrane contains only 18\% of POPS, 
+approximately 41\% of the total population of bound calcium cations is in contact with PS lipids
+with 8\% bound only to them. 
+This corroborates the intrinsincally higher affinity of PS lipids to calcium cations compared to neutral PC lipids. 
+POPC interacts with the calcium cations almost entirely through its phosphate group 
+in both neutral and negatively charged membranes, 
+which is visualized for POPC using probability density isocontours in Fig.~\ref{fig:volmaps}.
+Interactions of \ce{Ca^{2+}} with carbonyl groups are also present, 
+however, they always interact also with other pohsphate groups, 
+but a very small negligable amount much below 1\%. 
+
+
+
 \begin{figure}[tb!] 
   \centering 
   \includegraphics[width=\figwidth]{../img/stoichiometry_CaCl2_comparison_Ecc-lipids_PC-vs-PCPS.pdf} \\ 
@@ -561,6 +554,35 @@ where such a probability is almost negligable.
       Probabilities were taken from simulations with comparable bulk concentrations of calcium around 250~mM. 
   } 
 \end{figure} 
+
+
+
+
+Relative probabilites of \ce{Ca^{2+}} complexes with a certain number of lipids are shown in Fig.~\ref{fig:cacl_complexes}. 
+Calcium cations that are bound only to PC in the mixed bilayer with PS 
+behave similarly as in the pure PC bilayer
+maintaining comparable probabilities for clustering one, two or even three PC lipids together. 
+In contrast, PS lipids prefer 1:1 ratio with \ce{Ca^{2+}},
+which may also be due to their low molar fraction in the the mixed bilayer. 
+In total, however, the negatively charged membrane has its stoichiometry 
+shifted towards complexes with three phospholipids and one calcium. 
+
+This is also reflected in the increased probability 
+of a single phospholipid interacting with two \ce{Ca^{2+}} cations 
+compared to the neutral POPC bilayer, 
+where such a probability is almost negligable. 
+% Not shown through numbers, however, I have the plots to back it. 
+
+
+
+
+
+
+
+
+
+ 
+ 
  
 
 
@@ -575,15 +597,7 @@ where such a probability is almost negligable.
 
 \begin{figure}[tb!]
   \centering
-  \hfill
-\subfloat[neutral PC bilayer]{
-  \includegraphics[width=\figwidthsmall]{../img/ecc_popc/histogram_bound_times_ECC-lipids_346mM_CaCl.pdf} 
-}\hfill
-\subfloat[negatively charged 5\,PC:1\,PS bilayer]{
-  \includegraphics[width=\figwidthsmall]{../img/ecc_pops/histogram_bound_times_26CaCl2.pdf}
-}\hfill
-  \hfill
-\todo{Put the scale of the x-axis the same -- or even better -- combine the plots into one!}
+  \includegraphics[width=\figwidth]{../img/histogram_bound_times_26CaCl2_comparison_PC-PCPS.pdf}
   \caption{\label{fig:hist_residence_times}
    Histograms of residence times of \ce{Ca^{2+}} 
    in a neutral membrane composed of POPC (left)
@@ -636,32 +650,4 @@ in equilibrium when more realistic \emph{polarizable} force fields are used.
 %Analysis of the possible binding pathways of calcium cations to the negatively charged mixed bilayer 
 %reveal that the cations mostly enter the membrane bound states directly from solution 
 %without complicated transitions at the time scales of the order of the lag time of the Markov state model, $25\,\mathrm{ns}$. 
-
-
-
-
-
-
-
-
-
-
- 
-
-
- 
-
- 
- 
- 
- 
- 
-
-
-
-
-
-
-
-
 
