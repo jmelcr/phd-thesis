@@ -1,12 +1,15 @@
 \chapter{Molecular modeling of biological membranes}
 \label{chap:methods}
 
-In biophysics, there are plenty of experimental methods for determining structure of biomolecules.
-The structure of biological membranes can be resolved using
-Nuclear magnetic resonance (NMR) \citep{catte16, botan15, seelig80, seelig90, seelig87}, 
+Biological membranes are difficult to study experimentally. 
+Among the well established methods for the studies of membranes belong
+Nuclear magnetic resonance (NMR)     \citep{catte16, botan15, seelig80, seelig90, seelig87}, 
 small angle x-ray diffraction (SAXD) \citep{ollila16, pabst07}, 
-and fluorescence spectroscopy \citep{javanainen17, melcrova16}. 
-The resolution of such methods is, however, often insufficient 
+and fluorescence spectroscopy        \citep{javanainen17, melcrova16}. 
+Recently, advances in cryo-EM        \citep{chiu2017editorial, nogales2015development}
+and single-molecule techniques       \citep{ritchie2013single}
+reveal another promising tools. 
+The resolution of such experimental methods is, however, often insufficient 
 for the charactrerization of the structure in atomistic detail. 
 In contrast, Molecular dynamics simulations provide atomistic resolution of biomolecules.
 This makes simulations well suited to be used in conjuction with the experimental methods
@@ -15,11 +18,12 @@ In addition, the properties from experiments can be extracted from the simulatio
 and compared together cross-validating the two independent approaches. 
 
 Molecular modeling is one of the newer approaches for studying biological membranes. 
-Starting with simple membrane models \citep{REF} \todoi{REF: few old/new simulation works},
+Starting with simple membrane models \citep{Berger97, bockmann04, bockmann03, sachs04, sachs04_potential} 
 simulation of membranes has evolved into a field of computational biophysics
-that is capable of answering fundamental questions.
+that is capable of answering fundamental questions \citep{Bilkova2017Calcium, magarkar2017}.
 Recent progress in computational resources and algorithms
-has allowed the simulations to grow in spatial scales and composition complexity bringing relevance for applications in biology. \citep{perspective_cecam_lugano_2018} 
+has allowed the simulations to grow in spatial scales and composition complexity 
+making relevant applications in biology. \citep{perspective_cecam_lugano_2018, eerden17} 
 
 
 \section{Classical molecular dynamics simulations}
@@ -48,39 +52,42 @@ the short-distance repulsion, the dispersion, or Van der Waals forces, and elect
 Depending on the model force field, the non-bonded interactions are evaluated only for atoms separated by more than three or four bonds, 
 which is here formally introduced through the matrix $s_{ij}$ that modifies the interaction accordingly.
 
-The constants in matrices $A_{ij}$ and $B_{ij}$ represent the strengths of the attraction and repulsion forces 
-arising from disperion and the overlap of the electronic clouds of the individual particles.  
-The electrostatic interaction is described by the interacting partial charges $q_i$ and by the formally applied dielectric constant $\epsilon$ of the medium, 
-which is assumed to be 1 in most force fields for biomolecules. 
-In a later section~\ref{section:ecc}, we will show how to modify this interaction 
-by changing the dielectric constant $\epsilon$ to include the effects of electronic polarization. 
+%The constants in matrices $\sigma _{ij}$ and $\epsilon _{ij}$  
+%respresent respectively the position and the depth of the minimum of the Lenard-Jones potential,
+%which is used to model the attractive dispersion interaction 
+%and the repulsive forces arising from an unfavourable overlap of electronic shells. 
+%$A_{ij}$ and $B_{ij}$ represent the strengths of the attraction and repulsion forces 
+%arising from disperion and the overlap of the electronic clouds of the individual particles.  
+The interactions representing the 
+attractive dispersion and the repulsive excluded volume 
+in the empirical interaction potential in Equation~\ref{eq:amber} 
+adopt the form of Lennard-Jones potential. 
+It is expressed in terms of interaction energy $\epsilon_{ij}$ and the distance of the potential minimum, $\sigma_{ij}$, 
+which separates the regions where the interaction is repulsive (distances smaller than $\sigma$), 
+and where they are attractive (distances larger than $\sigma$). 
+The parameters $\sigma _{ij}$ also tell on the sizes of the spherical particles
+having an impact on the balance of Van der Waals forces with electrostatic forces.
 
-\todo{Samuli suggested to remove this paragraph.}
-Note that the interactions are simplified not only by the empirical formulae for the individual contributions, 
-but to a large extent also by assuming that the interaction potentials are \emph{pair-wise additive}. 
-Especially in the case of the inter-molecular forces, this is a severe approximation, 
-which neglects the contributions from three and higher-body interactions. 
-It was, however, shown that even such an approximate interaction potential is sufficiently accurate in many cases. \citep{} \todo{Put some application references.} 
 
-\todo{This requires better wording. Actually, short-range repulsion is stronger, too.}
-The electrostatic interaction yields the strongest inter-molecular attraction forces. 
-In classical MD simulation, the electrostatic interaction is approximated by point charges in the centres of the particles. 
-It has non-negligable contributions even from long distances. 
-In periodic systems, i.e. in simulations with periodic boundary conditions, 
-evaluating contributions from all periodic images is necessary. 
+%\todo{Samuli suggested to remove this paragraph.}
+%Note that the interactions are simplified not only by the empirical formulae for the individual contributions, 
+%but to a large extent also by assuming that the interaction potentials are \emph{pair-wise additive}. 
+%Especially in the case of the inter-molecular forces, this is a severe approximation, 
+%which neglects the contributions from three and higher-body interactions. 
+%It was, however, shown that even such an approximate interaction potential is sufficiently accurate in many cases. \citep{} \todo{Put some application references.} 
+
+The electrostatic interaction is a strong attractive and also repulsive force. 
+In classical MD simulation, it is approximated using point partial charges, $q_i$, in the centres of the particles. 
+Forces from long distances yield non-negligable contributions,
+which must to be accounted for especially in the commonly used 
+periodic systems, i.e. in simulations with periodic boundary conditions. 
 In neutral systems, this is efficiently done by using the Ewald summation,
 in which the long range contributions are calculated in Fourier space rather than in real space
 using fast algorithms developed for this purpose. \citep{darden93, essman95}
-
-The attractive dispersion and the repulsive excluded volume interactions 
-in the empirical interaction potential in Equation~\ref{eq:amber} 
-adopt the form of Lennard-Jones potential, 
-which is expressed in terms of interaction energy $\epsilon_{ij}$ and the distance of the potential minimum, $\sigma_{ij}$, 
-which separates the regions where the interaction is repulsive (distances smaller than $\sigma$), 
-and where they are attractive (distances larger than $\sigma$). 
-Such a parameter hence also tells on the size of the spherical particle, 
-which has an impact on the balance between electrostatic and Van der Waals forces.
-
+The formally applied dielectric constant of the medium, $\epsilon$,  
+is assumed to be 1 in most force fields for biomolecules. 
+In a later section~\ref{section:ecc}, we will show how to modify this interaction 
+by changing the dielectric constant $\epsilon$ to include the effects of electronic polarization. 
 
 
 % Examples, models, applications
@@ -117,7 +124,7 @@ that both structure and interactions of phospholipid models require further opti
 in order to become capable of interpreting solid state NMR experiments. 
 In particular, we have discovered that 
 the lack of electronic polarizability is a major issue in any of the models 
-from the above mentioned works \citep{botan15, catte16}
+from the above mentioned works %\citep{botan15, catte16}
 when interactions with charged moieties become important. 
 Several possible ways for including polarizability into simulations, both explicit and implicit, 
 will be introduced in the following sections. 
@@ -243,7 +250,7 @@ Such a choice was guided by the observed strength of interaction with cations.
 In contrast to the head group and the glycerol backbone atoms, 
 the acyl chains do not come in direct contact with ions from the solution, 
 and they are already highly optimized to provide a good description of the
-hydrophobic part of lipid bilayers \cite{dickson14,ollila16}.
+hydrophobic part of lipid bilayers \cite{dickson14, ollila16, Pluhackova2016}.
 Compared to the acyl tails, the glycerol backbone and the head group regions of phospholipids 
 require improvements in any available lipid model~\cite{botan15}.
 
@@ -420,7 +427,7 @@ The head group and acyl chain order parameters within ECC-lipids
 are in general in a good agreement with the experimental values 
 as shown in Figs.~\ref{simVSexpNOions}, \ref{simVSexpNOions_POPE},  and \ref{simVSexpNOions_POPS}. 
 The acyl chain order parameters in particular are almost all within the experimental error bars.
-The order parameters of the head groups are at a accuracy comparable to classical models of lipids \citep{botan15, catte16}. 
+The order parameters of the head groups are at a accuracy comparable to classical models of lipids \citep{botan15, catte16, Pluhackova2016}. 
 
 The head group order parameters $\alpha$ and $\beta$ are highly relevant for this work,
 as they are being used in the electrometer concept (introduced in section~\ref{section:electrometer}). 
