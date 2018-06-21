@@ -136,32 +136,49 @@ will be introduced in the following sections.
 \section{Electronic continuum correction as implicit treatment of electronic polarizability}
 \label{section:ecc}
 
+The lack of electronic polarizability in standard MD simulation
+force fields has been considered a serious issue since the early days of
+lipid bilayer simulations \dots
+
 \todo{Dissect the following text from \citep{huang2017mapping}, which summarizes main problems in polarizable simulations and their recent devel.}
-A variety of polarizable FFs have been developed using different formalisms to model polarizability.8–19 Two of the most widely used polarizable FFs are the AMOEBA FF18,20–23 and the Drude FF.19,24–33 Both have undergone more than a decade of continuous development and have parameters covering a wide range of biomolecules such as proteins,23,28 nucleic acids,31 lipids,29,34 and carbohydrates.30 The AMOEBA FF adopts the point induced dipole model in which each atom carries an induced dipole moment determined by the electric field and its atomic polarizability. Permanent dipole and quadrupoles are also assigned to each atomic site for a more accurate description of electrostatic interactions. The Drude FF adopts the classical Drude oscillator model where auxiliary charges (Drude oscillators or particles) are attached to non-hydrogen atoms with harmonic springs, and the displacement of the Drude particle relative to its parent atom represents the response to the external electric field. Virtual particles representative of lone pairs are included in the Drude FF to improve the treatment of electrostatic interactions typically involving hydrogen bond acceptors.
-The charge distribution between a Drude particle and its parent atom is a finite difference representation of a dipole moment. Similarly, lone pairs can be considered as real space representations of permanent multipoles. Such analogy between the classical Drude oscillator model and the multipole and induced dipole (MPID) model suggests that in theory one can interconvert polarizable FFs between the two models. However, in practice whether such FF mapping is feasible depends critically on how good these finite difference approximations are and the quality of the original FF parametrization.
-In this work, we convert the Drude polarizable force field from its original classical Drude oscillator formalism onto a permanent multipole and induced dipole formalism, which we refer to as MPID. We show that a direct mapping without any reparametrization can transfer the Drude FF into the MPID FF, yielding a similar level of agreement as the Drude FF in reproducing condensed phase properties of organic liquids, crystals, and interfaces. This study is partly inspired by our recent algorithm developments involving spherical harmonic treatment of multipoles and analytic treatment of induced dipole moments based on perturbation theory (PT) that significantly improves the computational speed and numerical stability for evaluating electrostatics in the context of multipole and induced dipole formalisms, respectively.35–37 We also incorporate the dispersion particle mesh Ewald (PME) method38 in the MPID simulations for more accurate modeling of long range van der Waals (vdW) interactions. Our results thus also serve as an additional validation of these novel simulation algorithms.
+A variety of polarizable FFs have been developed using different formalisms to model polarizability.  8–19 
+
+The AMOEBA FF adopts the point induced dipole model in which each atom carries an induced dipole moment determined by the electric field and its atomic polarizability. 
+Permanent dipole and quadrupoles are also assigned to each atomic site for a more accurate description of electrostatic interactions. 
+
+The Drude FF adopts the classical Drude oscillator model where auxiliary charges (Drude oscillators or particles) are attached to non-hydrogen atoms with harmonic springs, and the displacement of the Drude particle relative to its parent atom represents the response to the external electric field. 
+Virtual particles representative of lone pairs are included in the Drude FF to improve the treatment of electrostatic interactions typically involving hydrogen bond acceptors.
+The charge distribution between a Drude particle and its parent atom is a finite difference representation of a dipole moment. 
+
+Two of the most widely used polarizable FFs are the AMOEBA FF18,20–23 and the Drude FF.19,24–33 
+
+Similarly, lone pairs can be considered as real space representations of permanent multipoles. 
+Such analogy between the classical Drude oscillator model and the multipole and induced dipole (MPID) model suggests that in theory one can interconvert polarizable FFs between the two models. 
+
+In this work, we convert the Drude polarizable force field from its original classical Drude oscillator formalism onto a permanent multipole and induced dipole formalism, which we refer to as MPID. 
+We show that a direct mapping without any reparametrization can transfer the Drude FF into the MPID FF, yielding a similar level of agreement as the Drude FF in reproducing condensed phase properties of organic liquids, crystals, and interfaces. 
+Our results thus also serve as an additional validation of these novel simulation algorithms.
 
 Amoeba references: \citep{amoeba06, amoeba10, amoeba13}
 
 \todo{Condense this paragraph.}
-The lack of electronic polarizability in standard MD simulation
-force fields has been considered a serious issue since the early days of
-lipid bilayer simulations \dots
-  Lit. research (history) on how people include polarizability in classical simulations. 
- Joint subsection on Drude particles and polarizable dipoles, the most common ways of introducing polarizability explicitly into the MD simulation. 
 \ldots rather demanding explicit inclusion
 of electronic polarization effects \cite{lucas12,chowdhary13} \dots
-The theory for accounting for electronic polarization in a mean field way in empirical force fields
+
+The theory for accounting for electronic polarization implicitly in a mean field way in empirical force fields
 was originally developed by \citet{leontyev09} under the name Molecular Dynamics in Electronic Continuum, MDEC. 
 The term Electronic continuum correction, ECC, originates in the works by \citet{Pluharova2014, kohagen14, kohagen16, martinek17},
 where the rigorously developed theory from \citep{leontyev14} was systematicaly applied to ionic solutions.
 Through the comparison of neutron scattering and/or \emph{ab-initio} molecular dynamics data with classical MD simulations, 
 the authors developed an array of models for cations an anions, termed here as ECC-ions,
 that embedded ECC as an implicit model for electronic polarizability. 
+
 Electronic continuum correction (ECC) is an implicit model for accounting for electronic polarization. 
 in which a system of polarizable particles is represented
 with an equivalent system of particles with fixed charges
 including the effects of electronic polarization \emph{implicitly} in a mean-field way. \citep{leontyev09, leontyev10, leontyev11, leontyev14}
+
+\todo{Rewrite the following till the end. use an explicit form of Coulomb equation with epsilon and scaled charges to show the scaling factor and skip some unnecessarry text below.}
 This can be done by a relatively simple transform of the partial charges,
 which does not change the form of the formula of the empirical force field (examples in section~\ref{section:md})
 making a superficial impression of a \emph{non-polarizable} model again. 
@@ -170,7 +187,6 @@ which was applied in earlier studies of aqueous solutions or ionic liquids \cite
 in which also other possible effects (e.g. charge transfer) were considered.
 In contrast, ECC is a physically well justified and rigorously derived model~\citep{leontyev09, leontyev10, leontyev11, leontyev14}.
 
-\todo{Rewrite the following till the end. use an explicit form of Coulomb equation with epsilon and scaled charges to show the scaling factor and skip some unnecessarry text below.}
 The relation for the charges employing ECC model can be formally written as
 \begin{equation}  \label{eq:scaling}
  Q^{ECC} = f_q \cdot Q ,
