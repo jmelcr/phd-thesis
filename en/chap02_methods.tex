@@ -32,23 +32,24 @@ making relevant applications in biology. \citep{perspective_cecam_lugano_2018, e
 In a MD simulation, the system of interest is propagated numerically in discrete time steps using
 Newton equations of motion. 
 Interactions between particles, which often represent individual atoms, 
-are described by an approximate interaction potential, $V$, also called a \emph{force field}. 
+are described by an approximate interaction potential, $U$, also called a \emph{force field}. 
 Such a potential can be formally written as a sum of individual terms representing different model interactions:
 %The form of the force field varies with the model potentials that are used for the description of the individual interaction components. 
-The symbols $K$ and $V$ are the force constants that describe the strength of such an interaction,
+The symbols $K$ are the force constants describing the strengths of the bonded interactions,
+which are formally written as
 %As an example, the interaction potential of AMBER \citep{ferrer13}, a popular model for biomolecules, has the following form:
  % Amber potential energy form:
 \begin{eqnarray}  \label{eq:amber}
-  V = & \displaystyle \sum _{bonds} K_b (r-r_{0})^2 + \sum _{angles} K_\Theta (\Theta-\Theta_{0})^2 + \\ \nonumber
-      & \displaystyle \sum _{dihedrals} V_n (1+\cos(n\phi -\phi_0)) + \\ \nonumber
+  U = & \displaystyle \sum _{bonds} K_b (r-r_{0})^2 + \sum _{angles} K_\Theta (\Theta-\Theta_{0})^2 + \\ \nonumber
+      & \displaystyle \sum _{dihedrals} K_n (1+\cos(n\phi -\phi_0)) + \\ \nonumber
       & \displaystyle \sum _{i<j} \left ( s_{ij} ^{VdW} \epsilon _{ij} \left [ \left (\frac{\sigma _{ij}}{r_{ij}} \right )^{12} - 2 \left ( \frac{\sigma _{ij}}{r_{ij}} \right )^6 \right ] + s_{ij}^q \frac{q_i q_j}{\epsilon \, r_{ij}} \right )
 \end{eqnarray}
 The first three terms represent the intra-molecular forces arising from bond stretching, angle bending and dihedral angle torsion. 
-$r$, $\Theta$ and $\phi$ are the respective dimensions,
+$r$, $\Theta$ and $\phi$ are their respective dimensions,
 and $n$ is the multiplicity of the torsion potential. 
 
 The last terms in the large brackets represent the inter-molecular interactions; 
- Van der Waals forces, and electrostatic interactions. 
+ Van der Waals and electrostatic forces. 
 Depending on the model force field, the non-bonded interactions are evaluated only for atoms separated by more than three or four bonds, 
 which is here formally introduced through the matrix $s_{ij}$ that modifies the interaction accordingly.
 
