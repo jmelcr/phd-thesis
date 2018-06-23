@@ -7,13 +7,20 @@ The biological relevance of these ions reaches from relatively simple osmotic ef
 Calcium is an important cation in biology, 
 which takes part in many signalling pathways, e.g. triggering of the release of neurotransmitter in neurons,
 and processes such as regulating cardiac rythm in heart. 
+\todo{This has been studied for decades -- add extra references/reviews?}
 The interaction of \ce{Ca^{2+}} with phospholipid membranes has recieved attention recently from both experiments and simulations \citep{melcrova16, javanainen17}.
 
 In the previous chapter, we presented new classical MD models of phospholipids,
 which account for electrionic polarization via ECC (introduced in section~\ref{section:ecc}). 
-It was demonstrated that such models, termed ECC-lipids, 
+It was demonstrated that ECC-lipids 
 meet current accuracy standards in the field 
-by comparing them with NMR order parameters and X-ray diffraction data (section~\ref{section:ecc-lipids}. 
+achieved by matching them against X-ray diffraction data and 
+NMR order parameters at various concentrations of salts (section~\ref{section:ecc-lipids}. 
+%The effects of electronic polarization are crucial for an accurate response of lipid head group order parameters 
+%with respect to an increasing amount of charge bound to the membrane, 
+%which was used during the development of the model 
+%as will be shown in the following sections. 
+
 
 In this chapter, we will provide detailed insight into the interactions of these ions with neutral and negatively charged model membranes,
 namely with a POPC bilayer and with a negatively charged bilayer with a composition of 5~POPC:1~POPS. 
@@ -23,9 +30,8 @@ which excel any state-of-the-art model of ions or lipids in terms of lipid-ion i
 
 First, we summarize the literature knowledge on the interactions of ions with membranes in experiments and simulations.
 Then we demonstrate the outstanding accuracy of the newly developed model of POPC, ECC-POPC, 
-in the responses of the head group order parameters.
-The simulation study with a cationic surfactant 
-validates ECC-POPC as an accurate model of the lipid electrometer concept observed in NMR experimnents. 
+in the response of the head group order parameters to a membrane-bound charge
+validating ECC-POPC as an accurate model of the lipid electrometer. 
 At last, we will provide detailed insight into the binding of cations to the neutral and negatively charged bilayers. 
 We put extra stress on the interactions with \ce{Ca^{2+}}, 
 for which we present the first simulation results that are in \emph{quantitative} agreement with experiments. \citep{catte16, melcr18}
@@ -33,6 +39,8 @@ for which we present the first simulation results that are in \emph{quantitative
 
 
 
+
+\todo{Continue here. cont}
 
 \section{Binding of cations to phospholipid bilayers and lipid electrometer concept from experiments and simulations}
 \label{section:electrometer_exp_sim} 
