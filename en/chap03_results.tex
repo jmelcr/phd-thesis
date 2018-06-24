@@ -329,7 +329,6 @@ The interaction of a neutral POPC bilayer with \ce{NaCl} is discussed in a great
 \section{Interactions of neutral and negatively charged phospholipid membranes with \ce{Ca^{2+}} cations}
 \label{section:lip-ion_ca}
 
-\todo{Continue here. cont}
 
 
 \begin{figure}[tbp!] 
@@ -366,13 +365,13 @@ The interaction of a neutral POPC bilayer with \ce{NaCl} is discussed in a great
 
 
 %%% Sum up what is to be presented briefly
-The importance of treating polarizability for interactions of phospholipids even with monovalent ions was demonstrated in the previous section. 
+The importance of treating polarizability for interactions of phospholipids with monovalent ions was demonstrated in the previous section. 
 Electronic polarization is a non-negligable contribution to the interactions of calcium even in simple aquaeous solutions of \ce{CaCl2} \citep{martinek17, kohagen16, Pluharova2014}. 
 In this section,
 we will show the results from simulations of neutral and negatively charged phospholipid bilayers at varying \ce{CaCl2} concentrations
 using the recently developed models ECC-lipids and ECC-ions \citep{melcr18, martinek17}, 
 which implicitly include the effects of electronic polarization through electronic continuum correction \citep{leontyev11}. 
-Validated with the concept of a lipid electrometer (introduced in section\ref{section:electrometer}),
+Validated with the concept of a lipid electrometer in section \ref{section:electrometer_exp_sim},
 such implicitly polarizable models yield accurate description of 
 the interaction of \ce{Ca^{2+}} with both neutral and negatively charged phospholipids. 
 
@@ -380,18 +379,20 @@ The changes of the head group order parameters $S^\alpha$ and $S^\beta$ from sim
 are shown in Fig.~\ref{fig:delta_ordPar_CaCl} for a neutral POPC bialyer, 
 and in Fig.~\ref{fig:delta_ordPar_CaCl_PCPS} for a negatively charged bilayer with a compostion 5\,PC:1\,PS. 
 For a direct comparison and a connection to the published works by \citet{catte16, nmrlipids_proj4},
-results from the simulations with Lipid17 model \citep{lipid17-future} are also included in the figures. 
-Although Lipid17 already belongs to the top-performing models in terms of the responses of the head group order parameters in those studies,  
-including electronic polarizability to form ECC-lipids improves the results even further.
+we show simulation results from ECC-lipids and Lipid17 \citep{lipid17-future}
+highlighting the improvement over Lipid17 arising from electronic polarization. 
+%Although Lipid17 already belongs to the top-performing models in terms of the responses of the head group order parameters in those studies,  
+%including electronic polarizability to form ECC-lipids improves the results even further.
 The effect is probably the most striking for POPS, 
-for which also the structure of pure POPS bilayer with only counterions is dramatically improved with the augmentation. 
+for which also the structure of a pure POPS bilayer with only counterions is dramatically improved with the augmentation. 
 
 
 %%% Discuss the changes of OPs and vectors from neutral and neg. membranes
-While the changes induced by \ce{CaCl2} are \emph{qualitatively} correct for Lipid14/17, 
-we achieve a \emph{quantitative} agreement with experiments using ECC-lipids model. 
+%While the changes induced by \ce{CaCl2} are \emph{qualitatively} correct for Lipid14/17, 
+Using ECC-lipids, we achieve a \emph{quantitative} agreement with the changes induced by \ce{CaCl2} from experiments. 
 Increasing concentrations of \ce{CaCl2} induce a systematic decrease of the order parameters $S^\alpha$ and $S^\beta$ in POPC. 
-Although the total magnitude of the response of the order parameteres is comparable in the neutral and the negatively charged bilayers, 
+Although the total magnitude of the response of the order parameteres in POPC 
+is only slightly higher in the negatively charged bilayers than in the neutral bilayers, 
 the shape of the changes in the latter shows a steeper onset at low concentrations. 
 This is apparently due to the presence of POPS, 
 which has a higher affinity to \ce{Ca^{2+}} compared to POPC. 
@@ -403,8 +404,8 @@ which has a higher affinity to \ce{Ca^{2+}} compared to POPC.
   \centering 
   \includegraphics[width=\figwidth]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_concentrations-compar.pdf} 
   \caption{\label{fig:cacl-dens} 
-    Number density profiles of \ce{Ca^{2+}} and \ce{Cl^-} along membrane normal starting at the centre of the bilayer 
-    for different concentrations of \ce{CaCl2}. 
+    Number density profiles of \ce{Ca^{2+}} and \ce{Cl^-} along the normal of the neutral POPC bilayers starting at the centre 
+    for different concentrations of \ce{CaCl2} from simulations with ECC-lipids. 
     In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
     the density profiles of~\ce{Cl^-} ions are divided by 2, and 
     the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
@@ -416,9 +417,9 @@ which has a higher affinity to \ce{Ca^{2+}} compared to POPC.
   \centering 
   \includegraphics[width=\figwidth]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf}
   \caption{\label{fig:cacl-dens_PCPS} 
-    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along membrane normal starting at the centre of the bilayer 
+    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along the normal of the membrane starting at the centre
     for the negatively charged membrane of a composition 5\,PC:1\,PS
-    at various bulk concentrations of \ce{CaCl2} from simulations. 
+    at various bulk concentrations of \ce{CaCl2} from simulations with ECC-lipids. 
     All profiles contain \ce{Na^+} counterions and an additional concentration of \ce{CaCl2}. 
     In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
     the density profiles of~\ce{Cl^-} ions are divided by 2, and 
@@ -478,7 +479,7 @@ why the magnitude of the P-N vector change in POPS is diminished compared to POP
 which is not restrained by an additional cation binding group like PS.  
 
 
-Further detailes about the interactions of \ce{Ca^{2+}} with varoius moieties in POPS or POPS
+Further detailes about the interactions of \ce{Ca^{2+}} with varoius moieties in POPC or POPS
 were obtained by counting contacts between the cations and the oxygen atoms of the lipids
 similarly as was done in \cite{melcr18}. 
 The threshold for counting a contact was set to $0.3\,\mathrm{nm}$, 
@@ -552,8 +553,8 @@ POPC interacts with the calcium cations almost entirely through its phosphate gr
 in both neutral and negatively charged membranes, 
 which is visualized for POPC using probability density isocontours in Fig.~\ref{fig:volmaps}.
 Interactions of \ce{Ca^{2+}} with carbonyl groups are also present, 
-however, they always interact also with other pohsphate groups, 
-but a very small negligable amount much below 1\%. 
+however, they are always accompanied by interactions with other pohsphate groups, 
+%but a very small negligable amount much below 1\%. 
 
 
 
@@ -572,6 +573,7 @@ but a very small negligable amount much below 1\%.
 
 
 
+\todo{Continue here. cont}
 
 Relative probabilites of \ce{Ca^{2+}} complexes with a certain number of lipids are shown in Fig.~\ref{fig:cacl_complexes}. 
 Calcium cations that are bound only to PC in the mixed bilayer with PS 
