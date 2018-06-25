@@ -564,16 +564,16 @@ however, they are always accompanied by interactions with other pohsphate groups
   \caption{\label{fig:cacl_complexes} 
       Relative probabilities of existence of \ce{Ca^{2+}} complexes 
       with a certain number of lipids.  
-      All lipids were taken into account with the exception of the complexes in light green, 
-      for which we counted only contacts with POPC from the mixed 5\,PC:1\,PS negatively charged bilayer 
-      and calculated the probabilities of the calcium-lipid complexes also only per POPC. 
+      All lipids were taken into account with the exception of the complexes in light green and orange, 
+      for which we counted only contacts with POPC resp POPS from the mixed 5\,PC:1\,PS negatively charged bilayer. 
+      The calculated probabilities of the calcium-lipid complexes also reflect only POPC (light green) resp POPS (orange). 
       Probabilities were taken from simulations with comparable bulk concentrations of calcium around 250~mM. 
+      Clusters of four or more lipids were not observed in either membrane. 
   } 
 \end{figure} 
 
 
 
-\todo{Continue here. cont}
 
 Relative probabilites of \ce{Ca^{2+}} complexes with a certain number of lipids are shown in Fig.~\ref{fig:cacl_complexes}. 
 Calcium cations that are bound only to PC in the mixed bilayer with PS 
@@ -583,11 +583,14 @@ In contrast, PS lipids prefer 1:1 ratio with \ce{Ca^{2+}},
 which may also be due to their low molar fraction in the the mixed bilayer. 
 In total, however, the negatively charged membrane has its stoichiometry 
 shifted towards complexes with three phospholipids and one calcium. 
+This is obviously due to the presence of POPS, 
+which also contributes to the pre-formed one and two-membered clusters of POPC. 
+Clusters of four or more lipids were not observed in either membrane. 
 
-This is also reflected in the increased probability 
-of a single phospholipid interacting with two \ce{Ca^{2+}} cations 
-compared to the neutral POPC bilayer, 
-where such a probability is almost negligable. 
+%This is also reflected in the increased probability 
+%of a single phospholipid interacting with two \ce{Ca^{2+}} cations 
+%compared to the neutral POPC bilayer, 
+%where such a probability is almost negligable. 
 % Not shown through numbers, however, I have the plots to back it. 
 
 
@@ -617,8 +620,8 @@ where such a probability is almost negligable.
   \includegraphics[width=\figwidth]{../img/histogram_bound_times_26CaCl2_comparison_PC-PCPS.pdf}
   \caption{\label{fig:hist_residence_times}
    Histograms of residence times of \ce{Ca^{2+}} 
-   in a neutral membrane composed of POPC (left)
-   and in a negatively charged membrane with a compostion 5\,PC:1\,PS (right)
+   in a neutral membrane composed of POPC (orange)
+   and in a negatively charged membrane with a compostion 5\,PC:1\,PS (blue)
    from simulations with ECC-lipids and ECC-ions.
    The simulation with the neutral membrane has a bulk concentration of calcium $C_{ion} = 280\mathrm{mM}$, 
    the simulation with the negatively charged membrane has a bulk concentration of calcium $C_{ion} = 240\mathrm{mM}$. 
