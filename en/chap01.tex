@@ -4,7 +4,7 @@
 %A historical review on lipid membrane models \citep{Mouritsen2011}. 
 %Lipid rafts references are \citep{Simons2004,Hancock2006,Lingwood2010,Quinn2010,Kraft2013}. 
 
-All living cells separate their inner environment by a membrane. 
+All living cells separate their inner environment by a membrane 
 preventing molecules from a free diffusion in or out. 
 This allows them to maintain specific conditions required for their functioning. 
 Cellular membranes are mainly composed of lipids and proteins. 
@@ -12,137 +12,121 @@ Depending on its function, the membrane can be enriched with other molecules, e.
 In such a dynamically structured fluid mosaic,  % dynamically structured mosaic model
 lipids self-assemble into a lipid bilayer \citep{vereb03,Mouritsen2011,Vattulainen2011}.
 
-The intracellular environment contains a weak electrolytic solution of \ce{KCl} 
+Biological membranes are systems with a very complex structure. 
+It is, hence, convenient to use simplified models of such membranes, 
+which allow us to focus on the basic principles and properties. 
+Lipid bilayers are often used as such model membranes,
+which are accessbile for both experimental and simulation studies. 
+In particular, the zwitterionic phosphatidylcholine (PC) bilayers are
+used to study the role of ions in complex biological
+systems~\citep{scherer87,seelig90,cevc90}.
+In experiments, there are several commonly used model membrane systems --
+liposomes, 
+micelles, 
+unilamellar vesicles of varying sizes from giant to small, 
+supported bilayers,
+bicelles,
+and nanodiscs. \citep{keller2017, MolBiolCell, marsh13}
+Despite their simplicity compared to cellular membranes,
+even such model membranes pose high enough challenges for nowadays science. 
+\citep{pohl18, melcrova16, javanainen17, magarkar2017, botan15, catte16, Kulig14b, Kulig14, Pluhackova2016, vacha09a}
+
+
+
+
+\section{Transmembrane potential}
+
+The intracellular environment of cells contains a weak electrolytic solution of \ce{KCl}, 
 while there is a similarly weak solution of \ce{NaCl} on the extracellular side. 
 The concentrations of these salts, usually around 150\,mM, 
 are regulated and maintained out of equilibrium through specific channels and pumps 
 to provide specific functions and stress-free conditions \citep{Bezanilla2008, Knudsen_book2002}. 
-
-Transmembrane potential is a crucial property of living cells.  
-affecting distributions of ions and protons as well as their currents through the membrane. 
-For example, the concerted action of voltage-gated channels and pumps in neurons 
+The unequal distribution of ions on either side of the membrane
+gives rise to transmembrane potential. 
+For example, it is ``an engine'' for neural signalling --
+the concerted action of voltage-gated channels and pumps in neurons 
 provides the fast signal transduction through axons \citep{Knudsen_book2002, Storace2015, Sung2015}. 
 The common magnitude of the transmembrane potential in cells is in the range 10--100~mV. 
 In experiment, the membrane potential can be measured using the patch clamp technique \citep{Bezanilla2008}
 and the current in-development voltage-sensitive fluorescent probes \citep{Storace2015, Sung2015}. 
 
-The transmembrane potential in simulations can be modeled by various methods. \citep{Roux1997,Tieleman2001,Sin2015, Roux2008,Gumbart2012, Sachs2004,Delemotte2008}.
+The transmembrane potential in simulations can be modeled by various methods. \citep{Roux1997,Tieleman2001,Sin2015, Roux2008,Gumbart2012, sachs04_potential,Delemotte2008}.
 In particular for particle-based molecular simulations, 
 there are two methods for the modelling of the membrane potential --
  the constant electric field method \citep{Roux1997,Roux2008,Gumbart2012} and
- the ion-imbalance method \citep{Sachs2004,Delemotte2008}. 
-Both of these methods have been successfully used to study membrane electroporation or voltage-sensitive proteins \cite{Vargas2012, bockmann_kinetics_2008, gumbart_constant_2012, kutzner_computational_2011, casciola_molecular_2014}. 
-We have compared and connected together the two practically independent developments in our work \citep{melcr16}
-proving that they are equivalent models of the transmembrane potential yielding indistinguishable results.
+ the ion-imbalance method \citep{sachs04_potential,Delemotte2008}. 
+Both of these methods have been successfully used to study membrane electroporation or voltage-sensitive proteins \citep{Vargas2012, bockmann_kinetics_2008, gumbart_constant_2012, kutzner_computational_2011, casciola_molecular_2014}. 
+These two practically independent developments were compared and connected together in our work \citep{melcr16},
+where we prove them to be equivalent models of the transmembrane potential yielding indistinguishable results. 
 
 
 
-
- Exemplify things with the following: \\
- Processes in Neurons. 
- Transmembrane potential. 
- Action potential. 
-
-
-\section{Model membranes, Phospholipid bilayers }
-\label{sec:modelmemb}
-
- Model membranes and membrane models in experiments and in simulations.
- Phospholipid bilayers or just bilayers with various composition. 
-
- Supported bilayers, vesicles, SUV, LUV, GUV, multilamellar vesicles
-
- \todo{Take hints from Plasek's lecture in ownCloud.}
 
 
 
 \section{Interactions of cations with phospholipid bilayers}
 
- Several chosen Experimental studies. 
-
- Contradiction between simulation/experimental studies 
- (use what's in the paper PCCP NMRLipids II). 
-
-\todo{Following taken from NMRLipids 2 \citep{catte16} -- dissect!}
-
-Due to its high physiological importance --- nerve cell signalling being the prime example ---
-interaction of cations with phospholipid membranes
-has been widely studied via theory, simulations, and experiments.
-The relative ion binding affinities are generally agreed to
+Interactions of cations with cellular membranes play a key role in many biological processes. 
+The binding of Na$^+$ and Ca$^{2+}$ to PC bilayers are widely studied both in
+experiments~\citep{akutsu81,altenbach84,seelig90,cevc90,tocanne90,binder02,pabst07,uhrikova08}
+and simulations~\citep{magarkar2017, bockmann03,bockmann04,berkowitz12,melcrova16,javanainen17, catte16, nmrlipids_proj4}.
+The details of ion binding are, however, not fully consistent in the literature.
+The relative binding affinities of ions are generally agreed to
 follow the Hofmeister series~\citep{eisenberg79,cevc90,tocanne90,binder02,celma07,leontidis09,vacha09a,klasczyk10,harb13}, 
 however,
-consensus on the quantitative affinities is currently lacking.
-Until 1990, the consensus (documented in two extensive reviews~\citep{cevc90,tocanne90}) was that
-while  multivalent cations interact significantly with phospholipid bilayers,
-for monovalent cations (with the exception of Li$^+$) the interactions are weak.
-This conclusion has since been strengthened by further
-studies showing that bilayer properties remain unaltered upon the addition of sub-molar concentrations of monovalent 
-salt~\citep{binder02,pabst07,filippov09}.
-Since 2000, however, another view has emerged, suggesting much stronger interactions between phospholipids and monovalent cations, and strong Na$^{+}$ binding in particular~\citep{bockmann03,bockmann04,vacha09a,manyes05,manyes06,fukuma07,leontidis09,ferber11,morata12,klasczyk10,harb13}.
+there is no consensus on the quantitative affinities. 
 
-The pre-2000 view has the experimental support that
-(in contrast to the significant effects caused by any multivalent cations)
-sub-molar concentrations of NaCl have a negligible effect on
+Interpretations of non-invansive spectroscopic methods, like nuclear magnetic resonance (NMR), 
+x-ray scattering and infrared spectroscopy suggest that monovalent cations (with the exception of Li$^+$) 
+exhibit negligible binding to PC lipid bilayers with submolar concentrations, 
+while multivalent cations interact significantly 
+\citep{cevc90,tocanne90, hauser76,hauser78,herbette84,altenbach84,uhrikova08}.
+In particular, sub-molar concentrations of NaCl have a negligible effect on
 phospholipid infrared spectra~\citep{binder02},
 area per molecule~\citep{pabst07},
 dipole potential~\citep{clarke99},
 lateral diffusion~\citep{filippov09},
 and choline head group order parameters~\citep{akutsu81};
-in addition, the water sorption isotherm of a NaCl--phospholipid system
-is highly similar to that of a  pure NaCl solution
---- indicating that the ion--lipid interaction is very weak~\citep{binder02}. 
 
-The post-2000 'strong binding' view rests on experimental and above all simulational findings.
-At sub-molar NaCl concentrations, the rotational and translational dynamics of membrane-embedded fluorescent probes decreased~\citep{bockmann03,vacha09a,harb13}, and atomic force microscopy (AFM) experiments showed changes in bilayer hardness~\citep{manyes05,manyes06,fukuma07,ferber11,morata12};
-in atomistic molecular dynamics (MD) simulations, phospholipid bilayers consistently bound Na${^+}$,
-although the binding strength depended on the model used~\citep{bockmann03,bockmann04,sachs04,berkowitz06,cordomi08,cordomi09,valley11,berkowitz12}.
+Another view, emerging more rencently, suggests much stronger interactions between phospholipids and monovalent cations. 
+For instance, sub-molar concentrations of \ce{NaCl} reduce rotational and translational dynamics of membrane-embedded fluorescent probes \citep{bockmann03,vacha09a,harb13}, 
+and changes in the hardness of bilayers are also reported from atomic force microscopy experiments \citep{manyes05,manyes06,fukuma07,ferber11,morata12}.
+In addition, atomistic molecular dynamics simulations consistently predict strong interactions of Na${^+}$ with phospholipids bilayers,
+which, however, depend on the employed model \citep{bockmann03,bockmann04,sachs04,berkowitz06,cordomi08,cordomi09,valley11,berkowitz12}.
 
-Some observables have been interpreted in favour of both views. For example,
-as the effect of monovalent ions (except Li$^+$)  on the phase transition temperature is tiny
-(compared to the effect of multivalent ions), it was initially interpreted 
-as an indication that only multivalent ions and Li$^+$ specifically bind to phospholipid bilayers~\citep{cevc90}; 
-however, such a small effect in calorimetric measurements was later interpreted to indicate that also
-Na$^+$ binds~\citep{bockmann03,klasczyk10}.
-Similarly, the lack of significant positive electrophoretic mobility
-of phosphatidylcholine (PC) vesicles in the presence of NaCl
-(again in contrast to multivalent ions and Li$^+$)
-suggested weak binding of Na$^+$~\citep{eisenberg79,tatulian87,manyes05,manyes06,klasczyk10};
-%NaCl increases the (initially negative) zeta potential to only about zero,
-%whereas positive zeta potentials are generally reached with
-however, these data were also explained by a countering effect of the Cl$^-$ ions~\citep{berkowitz06,knecht13}.
-Furthermore, to reduce the area per lipid in scattering experiments, molar concentrations of NaCl were required~\citep{pabst07}, indicating weak ion--lipid interaction;
-in MD simulations, however, already orders of magnitude lower concentrations resulted in Na$^+$ binding and a clear reduction of area per lipid~\citep{bockmann03,cordomi08}.
-Finally, lipid lateral diffusion was unaltered by NaCl in noninvasive NMR experiments~\citep{filippov09};
-%suggesting that the fluorescence results arise from Na$^{+}$ interactions with probes rather than with lipids.
-%This is pointed out in Conclusions, which I think is the best place for it. -markus.
-however, as it was reduced upon Na$^+$ binding in simulations,
-the reduced lateral diffusion of fluorescent probes~\citep{bockmann03,vacha09a,harb13}
-has been interpreted to support the post-2000 'strong binding' view.
-
-In this paper, we set out to solve the apparent contradictions
-between the pre-2000 and post-2000 views.
-To this end, we employ the 'molecular electrometer' concept,
-according to which the changes in the C--H order parameters of the $\alpha$ and $\beta$ carbons 
-in the phospholipid head group (see Fig.~\ref{POPCstructure}) can be used to measure the ion affinity for a
-PC lipid bilayer~\citep{brown77,akutsu81,altenbach84,seelig87,scherer89}.
-As the order parameters can be accurately measured in experiments and directly compared to 
-simulations~\citep{ollila16}, applying the molecular electrometer as a function of cation concentration allows the 
-comparison of binding affinity between simulations and experiments.
-In addition to demonstrating the usefulness of this general concept,
-we show that the response of the $\alpha$ and $\beta$ order parameters to penetrating cations
-is qualitatively correct in MD simulations, but that in several  models the affinity of Na$^{+}$ for PC bilayers
-is grossly overestimated.
-Moreover, we show that the accuracy of lipid--Ca$^{2+}$ interactions 
-in current models is not enough for atomistic resolution interpretation of NMR experiments. 
+In our recent work~\citep{catte16}, we addressed the apparent controversies 
+by using the molecular electrometer concept, 
+where the experimentally measured changes of certain head group order parameters 
+are related to the amount of charge bound to a bilayer. \citep{brown77,akutsu81,altenbach84,seelig87,scherer89}.
+This concept is introduced and further discussed in the following section~\ref{section:electrometer}. 
+We have shown that the response of the PC head group order parameters $\alpha$ and $\beta$ 
+to cations bound to the bilayer is qualitatively correct in MD simulations, 
+but several models grossly overestimate the affinity of \ce{Na^+} to such bilayers. 
+Moreover, we find that the interactions of \ce{Ca^{2+}} cations with PC bilayers
+in current simulation models are not accurate enough for interpreting NMR experiments. 
+We argued that the lack of electronic polarizability can be responsible for the disagreement. 
+Later, we developed a model of POPC, 
+which accounts for electronic polarization through electrnoic continuum correction (see section~\ref{section:ecc}), 
+and which yields accurate response of the head group order parameteres to various monovalent and divalent cations. \citep{melcr18}
+This model was extended to other lipids, which are introduced in the section~\ref{section:ecc-lipids}. 
 
 
 
-\subsection{NMR molecular electrometer concept} \label{section:electrometer} 
+
+
+
+
+% &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& 
+% &=&     SEPARATOR   &=& &=& &=& &=& &=& &=& &=& &=& &=& 
+% &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& &=& 
+
+
+\section{NMR molecular electrometer concept} \label{section:electrometer} 
 
 Ion binding in lipid bilayers can be experimentally quantified
 by measuring the changes of the head group order parameters in lipids.
 In the case of the head group order parameters $\alpha$ and $\beta$ in phosphatidylcholine
-(see Fig.~\ref{simVSexpNOions} for the definition of the order parameters)
+(see Fig.~\ref{fig:simVSexpNOions} for the definition of the order parameters)
 such changes are known under the term ''electrometer concept'' \citet{seelig87,catte16}. 
 It is experimentally observed that the C-H bond
 order parameters of $\alpha$ and $\beta$ carbons in a PC lipid head group
