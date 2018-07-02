@@ -2,7 +2,7 @@
 \addcontentsline{toc}{chapter}{Preface}
 
 Cellular membranes are important and evolutionarily very old biological structures. 
-\citep{MolBiolCell, Knudsen_book2002} 
+\citep{MolBiolCell} 
 The first primitive predecessors of cells already bear hints of membranes 
 separating their inner environment from the outer world. 
 Current organisms often contain a multitude of immensly complex membranes, 
@@ -14,30 +14,41 @@ each serving many functions.
 %I focus on the processes, 
 My work is motivated by the processes,
 which involve interactions of biologically relevant ions with membranes. 
-Excitable cells like neurons 
-rely on the exchange of the monovalent cations \ce{Na^+} and \ce{K^+}
-enabling them to conduct electrical signals. 
 Fusion of synaptic vesicles with neuronal cell membranes 
 is controlled by a divalent cation \ce{Ca^{2+}}.
+Excitable cells like neurons 
+rely on the exchange of the monovalent cations \ce{Na^+} and \ce{K^+},
+which form a variable transmembrane potential
+enabling them to conduct electrical signals. 
+The transmembrane potential can be modeled in atomistic simulations by two methods, 
+the constant electric field method, 
+and the ion-imbalance method. 
+The methodological differences between them raise a few questions -- 
+do they provide the same results? 
+Can they be used interchangably?
+What happens to the membrane under voltage?
+
+
 In this work, 
-I accurately quantify the interactions of these cations, 
-i.e.,
-\ce{Na^+}, \ce{K^+} and \ce{Ca^{2+}},
+I will also quantify the interactions of 
+\ce{Na^+}, \ce{K^+} and \ce{Ca^{2+}} cations,
 with model biological membranes
 using classical molecular dynamics simulation. 
 In order to achive this goal,
 I developed an improved force field
 of phospholipids as the major components of cellular membranes.
-These models account for electronic polarization
+These new models account for electronic polarization
 using the electronic continuum correction,  
 which is an effective way of accounting for electronic polarization via charge rescaling. 
-My simulations provide a proof of concept 
-for the applicability of this approach 
-to both neutral and charged lipids. 
-I demonstrate that accounting for electronic polarization 
-is necessary for accurate description of interactions 
-between ions and phospholipids. 
+How crucial is the electronic polarization for the interaction of phospholipid bilayers with cations?
+Is it only applicable to molecules?
+Can we obtain realistic structures of phospholipid bilayers and cations at atomistic resolution?
 
-%==============================
-Extend with the transmembrane potential modeling work.
-%==============================
+
+%I will provide a proof of concept 
+%for the applicability of this approach 
+%to both neutral and charged lipids. 
+%I will demonstrate that accounting for electronic polarization 
+%is necessary for accurate description of interactions 
+%between ions and phospholipids. 
+
