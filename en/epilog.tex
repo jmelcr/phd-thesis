@@ -3,42 +3,42 @@
 
 Motivated by cellular processes, 
 which involve ions as major actors, 
-we have studied model membranes and their interactions 
+we have investigated model phospholipid membranes and their interactions 
 with biologically relevant ions. 
 The controlled concentrations of \ce{Na^+} and \ce{K^+} cations 
 on either side of the membrane of neurons
-forms its transmembrane potential. 
+forms the transmembrane potential. 
 Neurons vary the concentrations of theses cations
 to modulate the transmembrane potential 
-and to conduct electrical signals along its axons. \citep{Knudsen_book2002, Storace2015, Sung2015}
+and to conduct electrical signals along the axons. \citep{Knudsen_book2002, Storace2015, Sung2015}
 In our work \citep{melcr16},
-we compared two methods for the modeling of the transmembrane potential in molecular simulations, 
+we compared two methods for modeling of the transmembrane potential in molecular simulations, 
 i.e., 
 the constant electric field method \cite{Roux1997,Roux2008, gumbart_constant_2012}, 
 and the ion imbalance method \cite{sachs04_potential, kutzner_computational_2011}. 
-We have proved the two methodologies to be equivalent 
+We have proven the two methodologies to be equivalent, 
 at least for electrolytes formed by the same monovalent ions on both sides of the membrane. 
 %This was demonstrated by simulations, 
 %in which we simultaneously applied both methods
 %with an opposite polarity. 
 %The results from such a setup were indistinguishable 
 %from simulations without voltage within the achievable accuracy. 
-While,
+While
 the structure of the bilayer remains almost unchanged by the transmembrane potential, 
 the induced electric field in the hydrophobic core of the bilayer
 affects the orientation of water molecules at its interface 
 highligting its importance in electroporation. \citep{bu2017mechanics}
 
 
-We performed extensive sets of simulations of phospholipid bilayers
-with different salts at various concentrations
+Next,
+we performed extensive sets of simulations of phospholipid bilayers
+with different salts at varying concentrations
 to study the binding of cations to model membranes. 
 We used the most abundant representants of phospholipids
 to form neutral (POPC) or negatively charged (5\,POPC:1\,POPS) bilayers, 
 for which we have provided a detailed insight 
 into the interactions with 
 \ce{Na^+}, \ce{K^+}, and \ce{Ca^{2+}} cations. 
-
 The affinity of the cations 
 was measured using the concept of a lipid electrometer 
 introduced by \citet{seelig87} 
@@ -51,20 +51,20 @@ Such changes can then be related to the amount of bound ions.
 
 In our publications \citep{catte16, nmrlipids_proj4},
 we have shown that such order parameters can be accurately determined also from MD simulations
-and their changes correlate with the amount of bound charge in phospholipid bilayers
+and their changes correlate with the amount of bound charge in phospholipid bilayers, 
 despite the inaccuracies in their actual structures without salts \citep{botan15}. 
 It was found, however, that
-neither force field examined in those works 
+none of the force fields examined in those works 
 provided a sufficient accuracy for interpreting 
 the experimentally measured structural changes induced by salt concentrations
 and cation-lipid stoichiometries. 
 While there were several models
 that predicted realistic binding affinities of \ce{Na^+} to PC bilayers,
-all models overestimated the binding affinity of \ce{Ca^{2+}}
-unless specific repulsive potentials between the cations and the bilayer are applied. \citep{catte16, nmrlipids_proj4}
-In this light,
-we identify strong binding of \ce{Na^+} and \ce{Ca^{2+}} cations
-in simulation models as an artifact.  
+all existing models overestimated the binding affinity of \ce{Ca^{2+}}
+unless ad hoc specific repulsive potentials between the cations and the bilayer were applied. \citep{catte16, nmrlipids_proj4}
+Thus,
+we identified the strong binding of \ce{Na^+} and \ce{Ca^{2+}} cations
+in existing simulation models as a computational artifact.  
 Such excessive amounts of cations 
 would form effectively positively charged membranes
 even at physiological concentrations
@@ -72,17 +72,17 @@ affecting interactions with any charged molecules.
 For instance,
 the total charge of proteins
 in prokaryotes and also eukaryotes 
-is inclined on average towards negative,
+is mostly negative,
 \citep{link1997identifying, link1997comparing, urquhart1998comparison, schwartz2001whole, knight2004global}
-however,
+Thus,
 positively charged membranes would promote non-specific adsorption of proteins on their surface 
-contradictory to literature.  
+contrary to experiment.  
 \citep{junkova2016, lingwood2010lipid, sekerevs2015song} 
 
 
 A major improvement over currently available non-polarizable force fields
 was achieved by developing new models of phospholipids, 
-ECC-lipids,
+the so called ECC-lipids,
 which are described in section~\ref{section:ecc-lipids}
 and in the publication \citep{melcr18}. 
 In contrast to the models studied in the works \citep{catte16, nmrlipids_proj4},
@@ -99,7 +99,7 @@ that it is sufficient to also scale the Lenard-Jones parameters $\sigma$ of the 
 to reach a structural agreement with x-ray scattering experiments. 
 Our new model, ECC-lipids,
 provides a proof of concept of the applicability of ECC
-to charged and even neutral molecules. 
+to charged as well as neutral molecules. 
 
 
 
@@ -110,10 +110,10 @@ and occasionally also with the carbonyl groups.
 \ce{K^+} interacts only very weakly with the bilayers
 affecting slightly only carboxylate groups in POPS,
 which are more exposed to the solvent compared to phosphate groups. 
-An overall weaker binding of cations to phospholipid bilayers is observed 
+In overall, weaker binding of cations to phospholipid bilayers is observed 
 compared to previous MD simulation studies~\citep{nmrlipids_proj4, catte16, bockmann03, bockmann04, melcrova16, javanainen17}. 
 Importantly,
-our simulations show for the first time a \emph{quantitative} agreement with the lipid electrometer concept
+our simulations show for the first time a \emph{quantitative} agreement with the experimental lipid electrometer concept
 for POPC and also for POPS with all the studied cations. 
 For instance, the small differences 
 in the responses of the order parameter $\beta$ in POPS
@@ -139,12 +139,12 @@ while multivalent cations interact significantly
 \citep{cevc90,tocanne90, hauser76,hauser78,herbette84,altenbach84,clarke99,binder02,pabst07,uhrikova08,filippov09}.
 
 
-Treatment or negligance of the electronic polarization 
-was shown to have a dramatic impact on the interactions
+Treatment  of the electronic polarization 
+was shown to have a dramatically positive impact on the accuracy of the description of interactions
 between phospholipids and cations. 
 The presented application of ECC to lipids
-forms a pivotal work for its future adaptations 
-to also other, especially charged and zwitterionic, compounds, 
-e.g. proteins and nucleic acids,
+consitutes a pivotal work for its future adaptations 
+to also other compounds, especially charged and zwitterionic, 
+e.g. proteins or nucleic acids,
 for which we expect improvements in a similar range. 
 
