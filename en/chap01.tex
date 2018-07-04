@@ -4,19 +4,19 @@
 %A historical review on lipid membrane models \citep{Mouritsen2011}. 
 %Lipid rafts references are \citep{Simons2004,Hancock2006,Lingwood2010,Quinn2010,Kraft2013}. 
 
-All living cells separate their inner environment by a membrane 
+All living cells separate their inner environment from the exterior by a membrane 
 preventing molecules from a free diffusion in or out. 
-This allows them to maintain specific conditions required for their functioning. 
+This allows the cells to maintain specific conditions required for their functioning. 
 Cellular membranes are mainly composed of lipids and proteins. 
-Depending on its function, the membrane can be enriched with other molecules, e.g. sugars and saccharides forming glycocalyx \citep{reitsma07}. 
+Depending on its function, the membrane can be enriched with other molecules, e.g., sugars and saccharides forming glycocalyx \citep{reitsma07}. 
 In such a dynamically structured fluid mosaic,  % dynamically structured mosaic model
 lipids self-assemble into a lipid bilayer \citep{vereb03,Mouritsen2011,Vattulainen2011}.
 
 Biological membranes are systems with a very complex structure. 
 It is, hence, convenient to use simplified models of such membranes, 
 which allow us to focus on the basic principles and properties. 
-Lipid bilayers are often used as such model membranes,
-which are accessbile for both experimental and simulation studies. 
+Lipid bilayers are often used as such model membranes 
+being accessbile for both experimental and simulation studies. 
 In particular, the zwitterionic phosphatidylcholine (PC) bilayers are
 used to study the role of ions in complex biological
 systems~\citep{scherer87,seelig90,cevc90}.
@@ -28,7 +28,7 @@ supported bilayers,
 bicelles,
 and nanodiscs. \citep{keller2017, MolBiolCell, marsh13}
 Despite their simplicity compared to cellular membranes,
-even such model membranes pose high enough challenges for nowadays science. 
+even such model membranes pose significant challenge for science today. 
 \citep{pohl18, melcrova16, javanainen17, magarkar2017, botan15, catte16, Kulig14b, Kulig14, Pluhackova2016, vacha09a}
 
 
@@ -40,19 +40,19 @@ The intracellular environment of cells contains a weak electrolytic solution of 
 while there is a similarly weak solution of \ce{NaCl} on the extracellular side. 
 The concentrations of these salts, usually around 150\,mM, 
 are regulated and maintained out of equilibrium through specific channels and pumps 
-to provide specific functions and stress-free conditions \citep{Bezanilla2008, Knudsen_book2002}. 
+to provide specific functions and general homeostasis conditions \citep{Bezanilla2008, Knudsen_book2002}. 
 The unequal distribution of ions on either side of the membrane
 gives rise to a transmembrane potential. 
 For instance, the concerted action of voltage-gated ion channels and pumps in neurons 
 modulates their transmembrane potential
-providing the fast signal transduction through the axons \citep{Knudsen_book2002, Storace2015, Sung2015}. 
-The common magnitude of the transmembrane potential in cells is in the range 10--100~mV. 
+providing a fast signal transduction through the axons \citep{Knudsen_book2002, Storace2015, Sung2015}. 
+The common magnitude of the transmembrane potential in cells is in the range of 10--100~mV. 
 In experiment, the membrane potential can be measured using the patch clamp technique \citep{Bezanilla2008}
-and the current in-development voltage-sensitive fluorescent probes \citep{Storace2015, Sung2015}. 
+and the more modern voltage-sensitive fluorescent probes \citep{Storace2015, Sung2015}. 
 
-The transmembrane potential in simulations can be modeled by various methods. \citep{Tieleman2001,Sin2015, Roux1997, sachs04_potential}.
+The transmembrane potential in simulations can be modeled by several methods. \citep{Tieleman2001,Sin2015, Roux1997, sachs04_potential}.
 In particular for particle-based molecular simulations, 
-there are two methods for the modeling of the membrane potential --
+there are two approaches for the modeling of the membrane potential --
  the constant electric field method \citep{Roux1997,Roux2008,Gumbart2012}, 
 and
  the ion-imbalance method \citep{sachs04_potential,Delemotte2008}. 
@@ -100,19 +100,19 @@ The voltage drop across the membrane is $499\,$mV for IIMB and $486\,$mV for CEF
 \section{Interactions of cations with phospholipid bilayers}
 
 Interactions of cations with cellular membranes play a key role in many biological processes. 
-The binding of Na$^+$ and Ca$^{2+}$ to PC bilayers are widely studied both in
+The binding of Na$^+$ and Ca$^{2+}$ to PC bilayers has been widely studied both in
 experiments~\citep{akutsu81,altenbach84,seelig90,cevc90,tocanne90,binder02,pabst07,uhrikova08}
 and simulations~\citep{magarkar2017, bockmann03,bockmann04,berkowitz12,melcrova16,javanainen17, catte16, nmrlipids_proj4}.
 The details of ion binding are, however, not fully consistent in the literature.
 The relative binding affinities of ions are generally agreed to
 follow the Hofmeister series~\citep{eisenberg79,cevc90,tocanne90,binder02,celma07,leontidis09,vacha09a,klasczyk10,harb13}, 
 however,
-there is no consensus on the quantitative affinities. 
+there is no consensus on the quantitative aspects of the ion affinities. 
 
-Interpretations of non-invansive spectroscopic methods, like nuclear magnetic resonance (NMR), 
-x-ray scattering and infrared spectroscopy suggest that monovalent cations (with the exception of Li$^+$) 
-exhibit negligible binding to PC lipid bilayers with submolar concentrations, 
-while multivalent cations interact significantly 
+Interpretations of spectroscopic methods, like nuclear magnetic resonance (NMR), 
+x-ray scattering, and infrared spectroscopy suggest that monovalent alkali cations (with the exception of Li$^+$) 
+exhibit negligible binding to PC lipid bilayers, 
+while multivalent cations interact more strongly 
 \citep{cevc90,tocanne90, hauser76,hauser78,herbette84,altenbach84,uhrikova08}.
 In particular, sub-molar concentrations of NaCl have a negligible effect on
 phospholipid infrared spectra~\citep{binder02},
@@ -128,8 +128,8 @@ In addition, atomistic molecular dynamics simulations consistently predict stron
 which, however, depend on the employed model \citep{bockmann03,bockmann04,sachs04,berkowitz06,cordomi08,cordomi09,valley11,berkowitz12}.
 
 In our recent work~\citep{catte16}, we addressed the apparent controversies 
-by using the molecular electrometer concept, 
-where the experimentally measured changes of certain head group order parameters 
+using the molecular electrometer concept, 
+where the experimentally (by NMR) measured changes of certain head group order parameters 
 are related to the amount of charge bound to a bilayer. \citep{brown77,akutsu81,altenbach84,seelig87,scherer89}.
 This concept is introduced and further discussed in the following section~\ref{section:electrometer}. 
 We have shown that the response of the PC head group order parameters $\alpha$ and $\beta$ 
@@ -137,11 +137,12 @@ to cations bound to the bilayer is qualitatively correct in MD simulations,
 but several models grossly overestimate the affinity of \ce{Na^+} to such bilayers. 
 Moreover, we find that the interactions of \ce{Ca^{2+}} cations with PC bilayers
 in current simulation models are not accurate enough for interpreting NMR experiments. 
-We argued that the lack of electronic polarizability can be responsible for the disagreement. 
-Later, we developed a model of POPC, 
+We argued that the lack of electronic polarizability in the simulations 
+can be responsible for the disagreement. 
+Consequently, we developed a model of POPC, 
 which accounts for electronic polarization through electrnoic continuum correction (see section~\ref{section:ecc}), 
 and which yields accurate response of the head group order parameteres to various monovalent and divalent cations. \citep{melcr18}
-This model was extended to other lipids, which are introduced in the section~\ref{section:ecc-lipids}. 
+This model was also extended to other lipids, which are introduced in the section~\ref{section:ecc-lipids}. 
 
 
 
@@ -169,18 +170,18 @@ can be then related to the amount of bound ions.
 
 The order parameters can be robustly and accurately determined from both MD simulations and  NMR experiments. 
 Hence, the electrometer concept can be used to compare the two techniques
-in terms of the ion binding affinity to lipid bilayers containing PC phospholipid.  \citep{catte16,ollila16} 
+in terms of the ion binding affinities to lipid bilayers containing PC phospholipids.  \citep{catte16,ollila16} 
 
 From MD simulations the order parameters can be calculated using the definition
 \begin{equation}\label{OP} 
 S_{\rm CH}=\frac{1}{2}\langle 3\cos^2\theta -1 \rangle, 
 \end{equation} 
-where $\theta$ is the angle between the bond and membrane
+where $\theta$ is the angle between the \ce{C-H} bond and membrane
 normal and the average, denoted with pointed brackets, is taken over all sampled configurations \citep{ollila16}.
 
 The order parameters for all C-H bonds in lipid molecules, including
 $\alpha$ and $\beta$ segments in head group, can be accurately measured
-using $^2$H NMR or $^{13}$C NMR techniques \citep{ollila16}. 
+using $^2$H or $^{13}$C NMR techniques \citep{ollila16}. 
 The relation between the amount of the bound charge per lipid,  $X^\pm$, and
 the head group order parameter change, $\Delta S_{\rm{CH}}^{i}$,
 is empirically quantified as~\citep{seelig87,ferreira16}
@@ -188,7 +189,7 @@ is empirically quantified as~\citep{seelig87,ferreira16}
 \begin{equation}\label{OPchangeEQ} 
 \Delta S_{\rm{CH}}^{i}= S_{\rm{CH}}^{i}(X^\pm)-S_{\rm{CH}}^{i}(0) \approx m_i \frac{4 }{3\chi}X^\pm, 
 \end{equation} 
-where $S_{\rm{CH}}^{i}(0)$ denote the order parameter in the absence of bound charge,
+where $S_{\rm{CH}}^{i}(0)$ denotes the order parameter in the absence of bound charge,
 $i$ refers to either $\alpha$ or $\beta$ carbon,
 $m_i$ is an empirical constant depending on the valency and the position of the bound charge,
 and $\chi \approx$\,167\,kHz is the quadrupole coupling constant, 
@@ -197,9 +198,9 @@ with the experimental value for POPC from the works by \citet{seelig77,Davis83}.
 The measured change of the order parameter depends on the head group response to the bound charge 
 and on the amount of the bound charge (\textit{i.e.,} $m_i$ and $X^\pm$ in Eq.~\ref{OPchangeEQ}, respectively).  
 The quantification of the empirical factor $m_i$ has been done experimentally for a wide range of systems
-to show the robustness of the electrometer concept and its negligable chemical specificity~\citep{seelig87, beschiasvili91}. 
+to demonstrate the robustness of the electrometer concept and its negligable chemical specificity~\citep{seelig87, beschiasvili91}. 
 The measurements of the electrometer response to cationic surfactants 
-can be leveraged in simulations to compare the response of the head group order parameters 
+can be exploited in simulations to compare the response of the head group order parameters 
 with a known amount of bound surface charge,
 as all molecules of the surfactant partition into the bilayer. 
 
