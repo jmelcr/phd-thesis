@@ -7,8 +7,9 @@
 All living cells separate their inner environment from the exterior by a membrane 
 preventing molecules from a free diffusion in or out. 
 This allows the cells to maintain specific conditions required for their functioning. 
-Cellular membranes are mainly composed of lipids and proteins. 
-Depending on its function, the membrane can be enriched with other molecules, e.g., sugars and saccharides forming glycocalyx \citep{reitsma07}. 
+Cellular membranes are mainly composed of lipids and proteins, 
+while enrichment with other molecules, e.g., sugars and saccharides forming glycocalyx, 
+is often required for their specific function.  \citep{reitsma07} 
 In such a dynamically structured fluid mosaic,  % dynamically structured mosaic model
 lipids self-assemble into a lipid bilayer \citep{vereb03,Mouritsen2011,Vattulainen2011}.
 
@@ -19,7 +20,7 @@ Lipid bilayers are often used as such model membranes
 being accessbile for both experimental and simulation studies. 
 In particular, the zwitterionic phosphatidylcholine (PC) bilayers are
 used to study the role of ions in complex biological
-systems~\citep{scherer87,seelig90,cevc90}.
+systems~\citep{scherer87,seelig90,cevc90, vacha09a, javanainen17}.
 In experiments, there are several commonly used model membrane systems --
 liposomes, 
 micelles, 
@@ -53,7 +54,7 @@ x-ray scattering, and infrared spectroscopy suggest that monovalent alkali catio
 exhibit negligible binding to PC lipid bilayers, 
 while multivalent cations interact more strongly 
 \citep{cevc90,tocanne90, hauser76,hauser78,herbette84,altenbach84,uhrikova08}.
-In particular, sub-molar concentrations of NaCl have a negligible effect on
+In particular, submolar concentrations of NaCl have a negligible effect on
 phospholipid infrared spectra~\citep{binder02},
 area per molecule~\citep{pabst07},
 dipole potential~\citep{clarke99},
@@ -61,10 +62,10 @@ lateral diffusion~\citep{filippov09},
 and choline head group order parameters~\citep{akutsu81};
 
 Another view, emerging more rencently, suggests much stronger interactions between phospholipids and monovalent cations. 
-For instance, sub-molar concentrations of \ce{NaCl} reduce rotational and translational dynamics of membrane-embedded fluorescent probes \citep{bockmann03,vacha09a,harb13}, 
+For instance, submolar concentrations of \ce{NaCl} reduce rotational and translational dynamics of membrane-embedded fluorescent probes \citep{bockmann03,vacha09a,harb13}, 
 and changes in the hardness of bilayers are also reported from atomic force microscopy experiments \citep{manyes05,manyes06,fukuma07,ferber11,morata12}.
 In addition, atomistic molecular dynamics simulations consistently predict strong interactions of Na${^+}$ with phospholipids bilayers,
-which, however, depend on the employed model \citep{bockmann03,bockmann04,sachs04,berkowitz06,cordomi08,cordomi09,valley11,berkowitz12}.
+which, however, depend on the employed model \citep{bockmann03,bockmann04,sachs04,berkowitz06,cordomi08,cordomi09,valley11,berkowitz12,catte16,nmrlipids_proj4,melcr18}.
 
 In our recent work~\citep{catte16}, we addressed the apparent controversies 
 using the molecular electrometer concept, 
@@ -81,7 +82,11 @@ can be responsible for the disagreement.
 Consequently, we developed a model of POPC, 
 which accounts for electronic polarization through electrnoic continuum correction (see section~\ref{section:ecc}), 
 and which yields accurate response of the head group order parameteres to various monovalent and divalent cations. \citep{melcr18}
-This model was also extended to other lipids, which are introduced in the section~\ref{section:ecc-lipids}. 
+This model was also extended to other lipids, which are introduced in the section~\ref{section:ecc-lipids}, 
+and it was employed in Chapter~\ref{chap:results} 
+providing a simulation-based supporting evidence to the older view,
+which suggests that \ce{Na^+} and \ce{K^+} interact weakly, 
+while \ce{Ca^{2+}} specifically binds to phospholipid bilayers.
 
 
 
@@ -100,7 +105,7 @@ Ion binding in lipid bilayers can be experimentally quantified
 by measuring the changes of the head group order parameters in lipids.
 In the case of the head group order parameters $\alpha$ and $\beta$ in phosphatidylcholine
 (see Fig.~\ref{fig:simVSexpNOions} for the definition of the order parameters)
-such changes are known under the term ''electrometer concept'' \citep{seelig87,catte16}. 
+such changes are known under the term ''electrometer concept'' \citep{seelig87,catte16, ollila16}. 
 It is experimentally observed that the C-H bond
 order parameters of $\alpha$ and $\beta$ carbons in a PC lipid head group
 are proportional to the amount of charge, positive or negative, bound per lipid~\citep{seelig87}.
@@ -128,7 +133,7 @@ is empirically quantified as~\citep{seelig87,ferreira16}
 \begin{equation}\label{OPchangeEQ} 
 \Delta S_{\rm{CH}}^{i}= S_{\rm{CH}}^{i}(X^\pm)-S_{\rm{CH}}^{i}(0) \approx m_i \frac{4 }{3\chi}X^\pm, 
 \end{equation} 
-where $S_{\rm{CH}}^{i}(0)$ denotes the order parameter in the absence of bound charge,
+where $S_{\rm{CH}}^{i}(0)$ denotes the order parameter in the absence of any bound charge,
 $i$ refers to either $\alpha$ or $\beta$ carbon,
 $m_i$ is an empirical constant depending on the valency and the position of the bound charge,
 and $\chi \approx$\,167\,kHz is the quadrupole coupling constant, 
@@ -140,7 +145,8 @@ The quantification of the empirical factor $m_i$ has been done experimentally fo
 to demonstrate the robustness of the electrometer concept and its negligable chemical specificity~\citep{seelig87, beschiasvili91}. 
 The measurements of the electrometer response to cationic surfactants 
 can be exploited in simulations to compare the response of the head group order parameters 
-with a known amount of bound surface charge,
+with a known amount of bound surface charge per lipid,
+i.e., $X^\pm$ in Eq.~\ref{OPchangeEQ},
 as all molecules of the surfactant partition into the bilayer. 
 
 

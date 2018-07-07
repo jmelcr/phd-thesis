@@ -9,18 +9,15 @@ Current organisms often contain a multitude of immensly complex membranes,
 each serving many functions. 
 Processes in cellular membranes are thus crucial for life. 
 
-%In this thesis,
-%Simulation of processes in cellular membranes,
-%I focus on the processes, 
 My work is motivated by processes,
-which involve interactions of biologically relevant ions with membranes. 
-Fusion of synaptic vesicles with neuronal cell membranes 
-is controlled by a divalent cation \ce{Ca^{2+}}.
-Excitable cells like neurons 
-rely on the exchange of the monovalent cations \ce{Na^+} and \ce{K^+},
-which form a variable transmembrane potential
-enabling them to conduct electrical signals. 
-The transmembrane potential can be modeled in atomistic simulations by two methods, 
+which involve interactions of biologically relevant ions with cellular membranes. 
+For instance in neurons, 
+the fusion of synaptic vesicles containing neurotransmitter with neuronal cell membranes 
+is controlled by a divalent cation \ce{Ca^{2+}}. \citep{Berridge2003, Clapham2007}
+This process is triggered by a change in 
+the transmembrane potential across the neuronal plasma membrane,
+which is modulated by the exchange of the monovalent cations \ce{Na^+} and \ce{K^+}. \citep{Knudsen_book2002}
+The transmembrane potential in atomistic simulations can be modeled by two approaches, 
 the constant electric field method, 
 and the ion-imbalance method. 
 The methodological differences between them raise the following questions:
@@ -28,27 +25,18 @@ Do they provide the same results?
 Can they be used interchangably?
 What happens to the membrane under voltage?
 
-
-In this work, 
-I also quantify the interactions of 
-\ce{Na^+}, \ce{K^+} and \ce{Ca^{2+}} cations,
-with model biological membranes
-using classical molecular dynamics simulations. 
-In order to achive this goal,
-I developed an improved force field
-of phospholipids as the major components of cellular membranes.
-This new model accounts for electronic polarization
-using the electronic continuum correction,  
-which is an effective way of accounting for electronic polarization via charge rescaling. 
+Until recently,
+there was no consensus on the binding of 
+\ce{Na^+}, \ce{K^+} and \ce{Ca^{2+}} cations
+to biological membranes -- 
+simulations and some experiments   \citep{berkowitz12, vacha09a, harb13}
+do not reproduce other experiments \citep{roux90, pabst07, akutsu81}. 
+From the point of simulations,
+all currently available models 
+require improvements in structure and interaction with cations. 
 Here, the following questions arise:
-How crucial is the electronic polarization for the interactions of phospholipid bilayers with biologically relevant cations?
+Is the missing electronic polarization in simulations responsible for the discrepancy?
+If yes, how crucial is it for the interactions of phospholipid bilayers with biologically relevant cations?
 Can we obtain in this way realistic structures of phospholipid bilayers with interacting cations at atomistic resolution?
 
-
-%I will provide a proof of concept 
-%for the applicability of this approach 
-%to both neutral and charged lipids. 
-%I will demonstrate that accounting for electronic polarization 
-%is necessary for accurate description of interactions 
-%between ions and phospholipids. 
 
