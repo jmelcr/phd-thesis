@@ -249,24 +249,37 @@ from experimental measurements of the change of the order parameter $\alpha$ in 
 %we employ ECC-lipids to simulate neutral and negatively charged bilayers 
 %in the presence of monovalent salts, namely \ce{KCl} and \ce{NaCl}. 
 
-Interactions of \ce{Na^+} cations with neutral POPC bilayers were studied in \citep{catte16}, 
-and with negatively charged mixed 5\,PC:1\,PS bilayers in \citep{nmrlipids_proj4}. 
-It was concluded that the interactions are generally overestimated in magnitude in almost all models 
+The binding of \ce{Na^+} cations to phospholipid bilayers 
+is not generally agreed between simulations 
+\citep{bockmann03,sachs04,berkowitz06,cordomi09}
+and experiments 
+\citep{cevc90,tocanne90,hauser76,herbette84,uhrikova08}.
+We attempted to find a model, 
+which would successfully interpret the experiments on binding of \ce{Na^+}
+to neutral and negatively charged phospholipid bilayers \citep{akutsu81, roux90} 
+in our works \citep{catte16, nmrlipids_proj4}.
+After testing the currently available force fields for phospholipids,
+we concluded
+that the interactions are generally overestimated in magnitude in almost all models 
 but Lipid14 (PC) \citep{dickson14}, resp. Lipid17 (PS) \citep{lipid17-future}. 
 This model yields a semi-quantitative agreement with the experimentally measured small changes of the order parameters 
 when used with the model of ions by \citet{aqvist90} (Fig.~\ref{fig:catte16}). 
 However, when used with a more accurate model of ions by \citet{Pluharova2014, martinek17},
 the model overestimates the binding affinity of \ce{Na^+}
 measured with lipid electrometer concept in Fig.~\ref{fig:delta_ordPar_NaCl}. \citep{melcr18}
-In line with our works \citep{catte16, nmrlipids_proj4}, the results suggest that improvements 
+In total, these results suggest that improvements 
 in the lipid parameters are required for more accurate interactions even with monovalent cations. 
+\citep{catte16, melcr18, nmrlipids_proj4}
 
-The results from simulations combining the models 
-ECC-lipids \citep{melcr18} and ECC-ions \citep{martinek17, kohagen16, Pluharova2014} 
-with neutral and negatively charged membranes
-exhibit an improved behavior of the POPC and POPS head group order parameters 
-as a function of \ce{NaCl} or \ce{KCl} concentrations, 
-which is plotted for \ce{NaCl} in Figs.~\ref{fig:delta_ordPar_NaCl} and \ref{fig:delta_ordPar_NaCl_PCPS}, 
+Generally improved behaviour 
+of the POPC and POPS head group order parameters 
+with \ce{NaCl} or \ce{KCl} concentrations 
+was achieved through the combination of models 
+ECC-lipids \citep{melcr18} and ECC-ions \citep{martinek17, kohagen16, Pluharova2014}. 
+Simulations with these models 
+reveal a good agreement with the NMR experiments 
+for both neutral and negatively charged membranes.
+The results are plotted for \ce{NaCl} in Figs.~\ref{fig:delta_ordPar_NaCl} and \ref{fig:delta_ordPar_NaCl_PCPS}, 
 and for \ce{KCl} in Figs.~\ref{fig:delta_ordPar_NaCl} and \ref{fig:delta_ordPar_KCl_PCPS}. 
 
 
