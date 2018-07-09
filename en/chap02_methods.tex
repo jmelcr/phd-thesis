@@ -10,9 +10,9 @@ Recent advances in cryo-EM             \citep{chiu2017editorial, nogales2015deve
 and single-molecule microscopy imaging \citep{ritchie2013single}
 reveal another promising tools. 
 The resolution of such experimental methods is, however, often insufficient 
-for the charactrerization of the structure in atomistic detail. 
+for the characterization of the structure in atomistic detail. 
 In contrast, molecular dynamics simulations provide atomistic resolution of biomolecules.
-This makes simulations well suited to be used in conjuction with the experimental methods
+This makes simulations well suited to be used in conjunction with the experimental methods
 bringing deeper insight to the experimentally determined properties. 
 In addition, the properties from experiments can be extracted from the simulations 
 and compared together, thus cross-validating the two independent approaches. 
@@ -86,7 +86,7 @@ having an impact on the balance of Van der Waals forces with electrostatic force
 
 The electrostatic interaction creates strong attractive and repulsive forces. 
 In classical MD simulation, it is approximated using point partial charges, $q_i$, in the centres of the particles (most often atoms). 
-Forces from long distances yield non-negligable contributions,
+Forces from long distances yield non-negligible contributions,
 which must to be accounted for especially in the commonly used 
 periodic systems, i.e., in simulations with periodic boundary conditions. 
 In neutral systems, this is efficiently done by using the Ewald summation,
@@ -164,7 +164,7 @@ The classical Drude oscillator model is inspired by a classical representation o
 It uses an auxiliary charge,
 also termed Drude oscillator or Drude particle, 
 which is attached to each atom through a harmonic spring.
-The displacement of the Drude particle respresents the induced polarization proportionally to the acting electric field,
+The displacement of the Drude particle represents the induced polarization proportionally to the acting electric field,
 as implemented for example in the Drude force field \citep{lemkul2016empirical}. 
 
 %In this work, we convert the Drude polarizable force field from its original classical Drude oscillator formalism onto a permanent multipole and induced dipole formalism, which we refer to as MPID. 
@@ -222,7 +222,7 @@ and $r_{ij}$ are the distances between particles $i$ and $j$.
 %and the terms $U^{q-dip} _i$ are the interactions between point charges and induced dipoles. 
 It naturally follows from the above equation that 
 embedding all atoms into a dielectric continuum 
-is equivalent to a fromal scaling of the atomic point charges 
+is equivalent to a formal scaling of the atomic point charges 
 \begin{equation}  \label{eq:scaling}
  q_i ^{ECC} = \frac{q_i}{\sqrt{\epsilon _{el}}} ,
 \end{equation} 
@@ -260,12 +260,12 @@ applied throughout the lipid bilayer/aqueous solution interface.
 
 %\todo{Describe motivation, goal (cation binding), strategy (ECC). With cation binding, mention it very briefly and point to the next chapter.}
 %The structures of the head group region of neutral POPC bilayers from simulations are generally not in agreement with experiments. \citep{botan15}
-Simulation studies have revealed that the interactions of phospholipds with cations, especially with divalent cations, 
+Simulation studies have revealed that the interactions of phospholipids with cations, especially with divalent cations, 
 are overestimated in all classical MD models. \citep{catte16,nmrlipids_proj4}
 The neglect of polarizability in the simulations was one of the possible explanations for the observed discrepancy between simulations and experiments. 
 Motivated by the accuracy and simplicity of the electronic continuum correction (ECC) applied on ions by \citep{martinek17},
 we developed implicitly polarizable models of phospholipids using a similar strategy. 
-The newly depeloped model provides accurate interactions between phospholipid bilayers and cations in agreement with experiments, 
+The newly developed model provides accurate interactions between phospholipid bilayers and cations in agreement with experiments, 
 which is presented in the next chapter.  
 In this section, we show how the model captures the structure of phospholipid bilayers without ions, or with only counterions. 
 
@@ -310,7 +310,7 @@ require improvements in any available lipid model~\cite{botan15,nmrlipids_proj4}
 
 We found that the optimal value for the scaling factor of partial charges of neutral molecules from Lipid14 
 that yields accurate responses of the lipid head groups to the charges bound to the membrane
-is $0.8$, which is indeed slighly higher than 0.75, 
+is $0.8$, which is indeed slightly higher than 0.75, 
 i.e., the scaling factor for the ions in water. 
 This value was found by comparing the results from the simulations with POPC to the experimental 
 NMR data on the head group order parameter response to the bound charge. \citep{akutsu81,altenbach84,scherer89}
@@ -378,7 +378,7 @@ In addition, the X-ray scattering form factors of POPC, POPE and POPS from simul
     from simulations with the ECC-lipids model of POPE
     compared with experiments by \citet{gally81} (order parameters of glycerol backbone, labeled \emph{E. coli} membrane at~310\,K, ) 
     and by \citet{seelig76, seelig80} (order parameters $\alpha$ and $\beta$ from DPPE at~341\,K).
-    The signs of the order parameters were not determined in the experimnets, same signs as in POPC (Fig.~\ref{fig:simVSexpNOions}) are assumed. 
+    The signs of the order parameters were not determined in the experiments, same signs as in POPC (Fig.~\ref{fig:simVSexpNOions}) are assumed. 
     Open/closed symbols are used for palmitoyl/oleoyl chains of POPE. 
     The chemical structure of POPE is the same as for POPC in Fig.~\ref{fig:simVSexpNOions}, 
     but the methyl groups in choline (denoted with $\gamma$), which are substituted with hydrogen atoms in PE. 
@@ -471,7 +471,7 @@ lays between the two distinct values from the experiments in Table~\ref{tab:apls
 While the agreement between the scattering form factors 
 from the simulation of a pure POPS bilayer and experiment 
 are excellent (Fig.~\ref{simVSexpNOions_POPS}),
-there is a non-negligable difference between the values of the area per lipid in Table~\ref{tab:apls}. 
+there is a non-negligible difference between the values of the area per lipid in Table~\ref{tab:apls}. 
 Since both values are derived from the scattering form factors through modeling of the electron density of the bilayer,
 we cannot decide, which of the values is more reliable. 
 In general, we can conclude that ECC-lipids
@@ -498,9 +498,9 @@ There is only one order parameter $\beta$ in POPS,
 which has a higher value closer to zero in the ECC-lipids model than in experiment. 
 Such a feature suggests that the model overestimates the orientational freedom of its head group. 
 
-To our knoweldge, there are no data on the order parameters in POPE. 
+To our knowledge, there are no data on the order parameters in POPE. 
 To get at least a rough estimate of the structure of PE head group from experiments, 
-we can compare to either DPPE, which has palmitoyls in both acyl tails, and is measured at a different temperatrue~341\,K \citep{seelig76, seelig80};
+we can compare to either DPPE, which has palmitoyls in both acyl tails, and is measured at a different temperature~341\,K \citep{seelig76, seelig80};
 or a mixture of PE lipids from the membrane of \emph{E. coli} at~310\,K, \citep{gally81}. 
 Such data are used in Fig.~\ref{simVSexpNOions_POPE} to provide estimates of the order parameters for related systems. 
  
@@ -550,7 +550,7 @@ from simulations without voltage within the achievable accuracy.
 The electric field induced by the voltage 
 exists exclusively in the hydrophobic region of the membrane,
 where it has an almost constant strength. 
-This finding provides clues to understanding the evolutionary design of volage-gated proteins. \citep{Vargas2012} 
+This finding provides clues to understanding the evolutionary design of voltage-gated proteins. \citep{Vargas2012} 
 Moreover,
 the structure of the bilayer is preserved even at high voltages at the time scales of our simulations,
 unlike that of water at the interface with the hydrophobic core of the bilayer
