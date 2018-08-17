@@ -1,0 +1,248 @@
+%%% The main file. It contains definitions of basic parameters and includes all other parts.
+
+%% Settings for single-side (simplex) printing
+% Margins: left 40mm, right 25mm, top and bottom 25mm
+% (but beware, LaTeX adds 1in implicitly)
+% \documentclass[12pt,a4paper]{report}
+% \setlength\textwidth{145mm}
+% \setlength\textheight{247mm}
+% \setlength\oddsidemargin{15mm}
+% \setlength\evensidemargin{15mm}
+% \setlength\topmargin{0mm}
+% \setlength\headsep{0mm}
+% \setlength\headheight{0mm}
+% % \openright makes the following text appear on a right-hand page
+% \let\openright=\clearpage
+
+%% Settings for two-sided (duplex) printing
+\documentclass[12pt,a4paper,twoside,openright]{report}
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{14.2mm}
+\setlength\evensidemargin{0mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+\let\openright=\cleardoublepage
+
+%% Generate PDF/A-2u
+\usepackage[a-2u]{pdfx}
+
+%% Character encoding: usually latin2, cp1250 or utf8:
+\usepackage[utf8]{inputenc}
+
+%% Prefer Latin Modern fonts
+\usepackage{lmodern}
+
+%% Further useful packages (included in most LaTeX distributions)
+\usepackage{amsmath}        % extensions for typesetting of math
+\usepackage{amsfonts}       % math fonts
+\usepackage{amsthm}         % theorems, definitions, etc.
+\usepackage{bbding}         % various symbols (squares, asterisks, scissors, ...)
+\usepackage{bm}             % boldface symbols (\bm)
+\usepackage{graphicx}       % embedding of pictures
+\usepackage{fancyvrb}       % improved verbatim environment
+\usepackage{natbib}         % citation style AUTHOR (YEAR), or AUTHOR [NUMBER]
+\usepackage[nottoc]{tocbibind} % makes sure that bibliography and the lists
+			    % of figures/tables are included in the table
+			    % of contents
+\usepackage{dcolumn}        % improved alignment of table columns
+\usepackage{booktabs}       % improved horizontal lines in tables
+\usepackage{paralist}       % improved enumerate and itemize
+\usepackage[usenames]{xcolor}  % typesetting in color
+%\usepackage{epstopdf} 
+\usepackage{mhchem} 
+\usepackage{chemfig} 
+\usepackage[obeyFinal]{easy-todo}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{subfig}
+%\usepackage{titlesec}  % possible modifications of sections/titles typesetting
+
+
+%% some hyphenation patterns
+\hyphenation{char-ged phos-pha-ti-dyl-eth-an-ol-a-mi-ne phos-pha-ti-dyl-se-ri-ne}
+\tolerance=2000
+
+
+%%% Basic information on the thesis
+
+% Thesis title in English (exactly as in the formal assignment)
+\def\ThesisTitle{Simulation of processes in cellular membranes}
+
+% Author of the thesis
+\def\ThesisAuthor{Josef Melcr}
+
+% Year when the thesis is submitted
+\def\YearSubmitted{2018}
+
+% Name of the department or institute, where the work was officially assigned
+% (according to the Organizational Structure of MFF UK in English,
+% or a full name of a department outside MFF)
+\def\Department{Institute of Organic Chemistry and Biochemistry v.v.i., AS CR}
+
+% Is it a department (katedra), or an institute (ústav)?
+\def\DeptType{Institute}
+
+% Thesis supervisor: name, surname and titles
+\def\Supervisor{prof. Pavel Jungwirth}
+
+% Supervisor's department (again according to Organizational structure of MFF)
+\def\SupervisorsDepartment{Department of physical and macromolecular chemistry}
+
+% Study programme and specialization
+\def\StudyProgramme{Physics}
+\def\StudyBranch{Biophysics, chemical and macromolecular physics}
+
+
+% 3 to 5 keywords (recommended), each enclosed in curly braces
+\def\Keywords{%
+ {molecular dynamics simulations}, {molecular modeling}, {polarizability},
+{biological membranes}, {phospholipid bilayers}, {phosphatidylcholine}
+{transmembrane potential},
+{sodium}, {potassium}, {calcium}
+}
+
+%% The hyperref package for clickable links in PDF and also for storing
+%% metadata to PDF (including the table of contents).
+%% Most settings are pre-set by the pdfx package.
+\hypersetup{unicode}
+\hypersetup{breaklinks=true}
+
+% Definitions of macros (see description inside)
+\include{macros}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page and various mandatory informational pages
+\begin{document}
+
+%%% Custom variables
+% width suitable for fitting into a column in 1-column page layout
+\newlength{\figwidth}
+\setlength{\figwidth}{9 cm} 
+\newlength{\figwidthsmall}
+\setlength{\figwidthsmall}{6 cm} 
+\newlength{\figwidthfull}
+\setlength{\figwidthfull}{14 cm} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{title_page}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Formal page about the defence
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This doctoral thesis was done at the Institute of Organic Chemistry and
+Biochemistry of the Czech Academy of Sciences during my Ph.D. study at
+the Charles University, Faculty of Mathematics and Physics, 
+between the years 2013 and 2018.
+
+\begin{itemize}
+% paper Transmembrane potential modeling, JCTC 2016
+\item[Ph.D. student:] 
+Mgr. Josef Melcr \\
+Institute of Organic Chemistry and Biochemistry of the CAS \\
+
+\item[Advisor:] 
+Prof. Pavel Jungwirth \\
+Institute of Organic Chemistry and Biochemistry of the CAS \\
+
+\item[Referees:] ~ \\
+Dr. Mounir Tarek, Ph.D. \\
+CNRS-University of Lorraine, France \\
+%\url{http://www.srsmc.univ-lorraine.fr/spip3011/?Tarek-Mounir}
+\item[~]  ~ \\ prof. RNDr. Michal Otyepka, Ph.D.  \\
+Plack\'{y} University Olomoc \\
+%\url{http://fch.upol.cz/en/department/staff/prof-rndr-michal-otyepka-ph-d/}
+\end{itemize}
+
+The defence of the thesis is held on Tuesday, 25 September 2018 at
+11:00 PM 
+
+continue HERE
+
+in front of the defence committee for the doctoral study branch 4F4
+Biophysics, Chemical and Macromolecular Physics at the Faculty of Mathe-
+matics and Physics of Charles University, Ke Karlovu 3, Praha 2, room M252.
+The thesis is available at the Student Affairs Department of the Faculty of
+Mathematics and Physics of Charles University, Ke Karlovu 3, Praha 2.
+Chairman of the defence committee:
+prof. RNDr. Ing. Jaroslav Burda, DrSc.
+Department of Chemical Physics and Optics
+Faculty of Mathematics and Physics of Charles University
+Ke Karlovu 3, 12116 Praha 2
+
+
+\newpage
+
+
+%%% A page with automatically generated table of contents of the doctoral thesis
+
+\tableofcontents
+
+%%% Each chapter is kept in a separate file
+\include{preface}
+\include{chap01}
+\include{chap02_methods}
+\include{chap03_results}
+
+\include{epilog}
+
+%%% Bibliography
+\include{bibliography}
+
+
+%%% Doctoral theses must contain a list of author's publications
+\chapwithtoc{List of publications}
+
+%%% Attachments to the doctoral thesis, if any. Each attachment must be
+%%% referred to at least once from the text of the thesis. Attachments
+%%% are numbered.
+%%%
+%%% The printed version should preferably contain attachments, which can be
+%%% read (additional tables and charts, supplementary text, examples of
+%%% program output, etc.). The electronic version is more suited for attachments
+%%% which will likely be used in an electronic form rather than read (program
+%%% source code, data files, interactive charts, etc.). Electronic attachments
+%%% should be uploaded to SIS and optionally also included in the thesis on a~CD/DVD.
+%%% Allowed file formats are specified in provision of the rector no. 72/2017.
+%\chapter{Attachments}
+
+\begin{itemize}
+% paper Transmembrane potential modeling, JCTC 2016
+\item[I] 
+Transmembrane Potential Modeling: Comparison between Methods of Constant Electric
+Field and Ion Imbalance. 
+Journal of Chemical Theory and Computation, 12(5), (2016). 
+Josef Melcr, Daniel Bonhenry, Štěpán Timr, and Pavel Jungwirth. 
+
+% paper NMRLipids II project -- lipid-ion interaction PCCP 2016
+\item[II] 
+Molecular electrometer and binding of cations to phospholipid bilayers. 
+Phys. Chem. Chem. Phys., (2016).
+Andrea Catte, Mykhailo Girych, Matti Javanainen, Claire Loison, Josef Melcr,
+Markus S. Miettinen, Luca Monticelli, Jukka Maatta, Vasily S. Oganesyan,
+O. H. Samuli Ollila, Joona Tynkkynen, and Sergey Vilov. 
+
+\item[III]
+Accurate Binding of Sodium and Calcium to a POPC Bilayer by Effective Inclusion of Electronic Polarization. (2018)
+The Journal of Physical Chemistry B, 122(16), (2018).
+Josef Melcr, Hector Martinez-Seara, Ricky Nencini, Jiří Kolafa, Pavel Jungwirth,
+and O. H. Samuli Ollila. 
+
+\item[IV]
+Head group and glycerol backbone structures,
+and cation binding in bilayers with PS lipids. Submitted (2018).
+Amelie Bacle, Pavel Buslaev, Lukasz Cwiklik, Fernando Favela, Tiago Ferreira,
+Patrick Fuchs, Ivan Gushchin, Matti Javanainen, Batuhan Kav, Jesper Madsen, 
+Josef Melcr, Markus Miettinen, Ricky Nencini,  Chris Papadopoulos, Thomas Piggot 
+and O. H. Samuli Ollila. 
+
+\end{itemize}
+
+\appendix
+
+\openright
+\end{document}
