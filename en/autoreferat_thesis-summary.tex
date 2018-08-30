@@ -198,56 +198,57 @@ Mathematics and Physics of Charles University.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Simulation of processes in cellular membranes}
+\chapter*{Simulation of processes in cellular membranes}
+\addcontentsline{toc}{chapter}{Simulation of processes in cellular membranes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-\section{Interactions of ions with phospholipid bilayers}
-
-\todo{Merge the introductino into a single paragraph, if possible.}
+\section*{Interactions of ions with phospholipid bilayers}
+\addcontentsline{toc}{section}{Interactions of ions with phospholipid bilayers}
 
 Cellular membranes are surrounded by 
 weak electrolytic solutions of \ce{KCl} on the intracellular side, 
 and of \ce{NaCl} on the extracellular side. 
 The biological relevance of these ions reaches from relatively simple osmotic effects to the complex processes in neural signalling. \citep{Knudsen_book2002} 
+Calcium is an important cation in biology, 
+which takes part in many signalling pathways and processes. 
 
-
-Interactions of cations with cellular membranes play a key role in many biological processes. 
-The binding of Na$^+$ and Ca$^{2+}$ to PC bilayers has been widely studied both in
-experiments~\citep{akutsu81,altenbach84,seelig90,cevc90,tocanne90,binder02,pabst07,uhrikova08}
-and simulations~\citep{magarkar2017, bockmann03,bockmann04,berkowitz12,melcrova16,javanainen17, catte16, nmrlipids_proj4}.
-The details of ion binding are, however, not fully consistent in the literature.
-The relative binding affinities of ions are generally agreed to
-follow the Hofmeister series~\citep{eisenberg79,cevc90,tocanne90,binder02,celma07,leontidis09,vacha09a,klasczyk10,harb13}, 
-however,
-there is no consensus on the quantitative aspects of the ion affinities. 
-
-Interpretations of spectroscopic methods, like nuclear magnetic resonance (NMR), 
+Interactions of cations like \ce{Na^+}, \ce{K^+} and \ce{Ca^{2+}} with cellular membranes 
+play a key role in many biological processes. 
+Although the binding of these cations to model biological membranes 
+has been widely studied both in
+experiments and simulations~\citep{catte16, nmrlipids_proj4},
+the details of the interactions are, however, not fully consistent in the literature.
+%there was no consensus on the binding of 
+%\ce{Na^+}, \ce{K^+}, and \ce{Ca^{2+}} cations
+%to biological membranes -- 
+%simulations and some experiments   \citep{berkowitz12, vacha09a, harb13}
+%do not reproduce other experiments \citep{roux90, pabst07, akutsu81}. 
+Interpretations of mostly spectroscopic methods, like nuclear magnetic resonance (NMR), 
 x-ray scattering, and infrared spectroscopy suggest that monovalent alkali cations (with the exception of Li$^+$) 
 exhibit negligible binding to PC lipid bilayers, 
 while multivalent cations interact more strongly 
 \citep{cevc90,tocanne90, hauser76,hauser78,herbette84,altenbach84,uhrikova08}.
-In particular, submolar concentrations of NaCl have a negligible effect on
-phospholipid infrared spectra~\citep{binder02},
-area per molecule~\citep{pabst07},
-dipole potential~\citep{clarke99},
-lateral diffusion~\citep{filippov09},
-and choline head group order parameters~\citep{akutsu81};
-
-Another view, emerging more recently, suggests much stronger interactions between phospholipids and monovalent cations. 
-For instance, submolar concentrations of \ce{NaCl} reduce rotational and translational dynamics of membrane-embedded fluorescent probes \citep{bockmann03,vacha09a,harb13}, 
-and changes in the hardness of bilayers are also reported from atomic force microscopy experiments \citep{manyes05,manyes06,fukuma07,ferber11,morata12}.
-In addition, atomistic molecular dynamics simulations consistently predict strong interactions of Na${^+}$ with phospholipids bilayers,
-which, however, depend on the employed model \citep{bockmann03,bockmann04,sachs04,berkowitz06,cordomi08,cordomi09,valley11,berkowitz12,catte16,nmrlipids_proj4,melcr18}.
+In contrast, much stronger interactions between monovalent cations and phospholipids are reported from 
+microscopy measurements \citep{harb13,manyes06,fukuma07,ferber11,morata12},
+and atomistic molecular dynamics (MD) simulations \citep{cordomi09,valley11,berkowitz12,catte16,nmrlipids_proj4,melcr18}.
+My work solves these apparent controversies 
+by embedding the electronic polarization into MD simulations,
+which is missing in the previous works. 
+Accounting for this effect generally improves the accuracy of MD simulations,
+and brings them to a \emph{quantitative} agreement 
+with the works that predict weaker binding 
+in a direct comparison using the concept of lipid electrometer from NMR.
 
 
 
 
 
 
+\todo{Continue here.}
 
 \todo{Following paragraphs are redundant -- make it compact.}
 
@@ -552,7 +553,8 @@ which is not restrained by an additional cation binding group like \ce{COO^-} in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Modeling of transmembrane potential}
+\section*{Modeling of transmembrane potential}
+\addcontentsline{toc}{section}{Modeling of transmembrane potential}
 
 The intracellular environment of cells contains a weak electrolytic solution of \ce{KCl}, 
 while there is a similarly weak solution of \ce{NaCl} on the extracellular side. 
