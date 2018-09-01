@@ -123,6 +123,8 @@
 \setlength{\figwidth}{9 cm} 
 \newlength{\figwidthsmall}
 \setlength{\figwidthsmall}{6 cm} 
+\newlength{\figwidthsmalltriple}
+\setlength{\figwidthsmalltriple}{4.55 cm} 
 \newlength{\figwidthfull}
 \setlength{\figwidthfull}{14 cm} 
 
@@ -236,18 +238,34 @@ In contrast, much stronger interactions between monovalent cations and phospholi
 microscopy measurements \citep{harb13,manyes06,fukuma07,ferber11,morata12},
 and atomistic molecular dynamics (MD) simulations \citep{cordomi09,valley11,berkowitz12,catte16,nmrlipids_proj4,melcr18}.
 My work solves this controversy
-by introducing a fundamental physics-based improvement into MD simulations,
-which brings them to a direct \emph{quantitative} agreement 
-with the works predicting weaker binding. 
+by introducing a fundamental physics-based improvement into MD simulations
+making them \emph{qunatitatively} agreeing with the works predicting the weaker binding. 
 
 
 
 
 
+\begin{figure}[tb!] 
+  \centering 
+  \includegraphics[width=\figwidth]{../img/ecc_popc/Order-parameters_form-factors_exp-L14-ECCL17_q80_sig89_POPC-struct.pdf} 
+  \caption{ \label{fig:simVSexpNOions} 
+    Top: X-ray scattering form factors from simulations with the Lipid14 \citep{dickson14} and 
+    the ECC-POPC \citep{melcr18} models compared with experiments~\citep{kucerka11} at 303~K. 
+    Middle: Order parameters of POPC head group, glycerol backbone and acyl chains  
+    from simulations with the Lipid14 and the ECC-POPC models 
+    compared with experiments \citep{ferreira13} at 300~K. 
+    The size of the markers for the head group order parameters correspond to 
+    the error estimate $\pm 0.02$ for experiments \citep{botan15,ollila16}, 
+    while the error estimate for simulations is $\pm 0.005$
+    (Bayesian estimate of 95\% confidence interval \citep{scipy}).
+    The size of the points for acyl chains are decreased by a factor of 3 to improve the clarity of the plot.
+    Open/closed symbols are used for palmitoyl/oleoyl chains of POPC. 
+    Bottom: The chemical structure of POPC and the labeling of the carbon segments. 
+  }  
+\end{figure} 
 
-\todo{Continue here.}
 
-\todo{Following paragraphs are redundant -- make it compact.}
+
 
 
 
@@ -273,155 +291,64 @@ none of the force fields examined in those works
 provided a sufficient accuracy for interpreting 
 the experimentally measured structural changes induced by salt concentrations
 and cation-lipid stoichiometries. 
-While there were several models
-that predicted realistic binding affinities of \ce{Na^+} to PC bilayers,
-all existing models overestimated the binding affinity of \ce{Ca^{2+}}
-unless ad hoc specific repulsive potentials between the cations and the bilayer were applied. \citep{catte16, nmrlipids_proj4}
-Thus,
-we identified the strong binding of \ce{Na^+} and \ce{Ca^{2+}} cations
-in existing simulation models as a computational artifact.  
-Such excessive amounts of cations 
-would form effectively positively charged membranes
-even at physiological concentrations
-affecting interactions with any charged molecules. 
-For instance,
-the total charge of proteins
-in prokaryotes and also eukaryotes 
-is mostly negative,
-\citep{link1997identifying, link1997comparing, urquhart1998comparison, schwartz2001whole, knight2004global}
-Thus,
-positively charged membranes would promote non-specific adsorption of proteins on their surface 
-contrary to experiment.  
-\citep{junkova2016, lingwood2010lipid, sekerevs2015song} 
 
-
-
-
-In our recent work~\citep{catte16}, we addressed the apparent controversies 
-using the molecular electrometer concept, 
-where the experimentally (by NMR) measured changes of certain head group order parameters 
-are related to the amount of charge bound to a bilayer. \citep{brown77,akutsu81,altenbach84,seelig87,scherer89}.
-This concept is introduced and further discussed in the following section~\ref{section:electrometer}. 
-We have shown that the response of the PC head group order parameters $\alpha$ and $\beta$ 
-to cations bound to the bilayer is qualitatively correct in MD simulations, 
-but several models grossly overestimate the affinity of \ce{Na^+} to such bilayers. 
-Moreover, we find that the interactions of \ce{Ca^{2+}} cations with PC bilayers
-in current simulation models are not accurate enough for interpreting NMR experiments. 
-We argued that the lack of electronic polarizability in the simulations 
-can be responsible for the disagreement. 
-Consequently, we developed a model of POPC, 
-which accounts for electronic polarization through electronic continuum correction, 
-and which yields accurate response of the head group order parameters to various monovalent and divalent cations. \citep{melcr18}
-This model was also extended to other lipids, namely POPE and POPS.
-Our work provides a simulation-based supporting evidence to the older view,
-which suggests that \ce{Na^+} and \ce{K^+} interact weakly, 
-while \ce{Ca^{2+}} specifically binds to phospholipid bilayers. 
-
-
-
-
-\begin{figure}[tb!] 
-  \centering 
-  \includegraphics[width=\figwidth]{../img/ecc_popc/Order-parameters_form-factors_exp-L14-ECCL17_q80_sig89_POPC-struct.pdf} 
-  \caption{ \label{fig:simVSexpNOions} 
-    Top: X-ray scattering form factors from simulations with the Lipid14 \citep{dickson14} and 
-    the ECC-POPC \citep{melcr18} models compared with experiments~\citep{kucerka11} at 303~K. 
-    Middle: Order parameters of POPC head group, glycerol backbone and acyl chains  
-    from simulations with the Lipid14 and the ECC-POPC models 
-    compared with experiments \citep{ferreira13} at 300~K. 
-    The size of the markers for the head group order parameters correspond to 
-    the error estimate $\pm 0.02$ for experiments \citep{botan15,ollila16}, 
-    while the error estimate for simulations is $\pm 0.005$
-    (Bayesian estimate of 95\% confidence interval \citep{scipy}).
-    The size of the points for acyl chains are decreased by a factor of 3 to improve the clarity of the plot.
-    Open/closed symbols are used for palmitoyl/oleoyl chains of POPC. 
-    Bottom: The chemical structure of POPC and the labeling of the carbon segments. 
-  }  
-\end{figure} 
-
-
-\todo{Connect with previous: in order to achieve that\ldots}
 
 A major improvement over currently available non-polarizable force fields
 was achieved by developing new models of phospholipids, 
-the so called ECC-lipids,
-which are described in section~\ref{section:ecc-lipids}
-and in the publication \citep{melcr18}. 
-In contrast to the models studied in the works \citep{catte16, nmrlipids_proj4},
-ECC-lipids account for electronic polarization
-via the electronic continuum correction,  
-which was introduced in section~\ref{section:ecc}. 
+the so called ECC-lipids.
+We developed models of POPC, POPE and POPS lipids,
+which account for electronic polarization through electronic continuum correction (ECC), 
+and which yield accurate response of the head group order parameters to various monovalent and divalent cations. \citep{melcr18}
 In short, 
 ECC is an implicit model of electronic polarizability,
 which can be straightforwardly implemented into current force fields 
-by scaling charges.  
-In section~\ref{section:ecc-lipids},
-we demonstrated on the cases of PC, PS, and PE phospholipids
-that it is sufficient to also scale the Lennard-Jones parameters $\sigma$ of the affected atoms
-to reach a structural agreement with x-ray scattering experiments. 
+by scaling charges
+without any extra computational costs compared to standard fixed-charge simulations. 
 Our new model, ECC-lipids,
 provides a proof of concept of the applicability of ECC
 to charged as well as neutral molecules. 
- 
+
 We compared X-ray scattering form factors and NMR order parameters of bilayers
 in pure water without any ions (or only counter ions)
 from simulations and experiments
 as the first step in the assessment of the quality of the model. 
 The experimental X-ray scattering form factors 
 of a bilayer are well reproduced for all lipids employing the presented ECC-lipids model 
-(see Figs.~\ref{fig:simVSexpNOions}, \ref{simVSexpNOions_POPE} and \ref{simVSexpNOions_POPS}). 
-
-The area per lipid is often used as a relatively simple structural parameter reporting on the bilayer properties and the packing of lipids. 
-In experiments, modeling is used on top of the scattering factors to obtain it \citep{kucerka14}. 
-From simulations, this property is easily extracted. 
-The area per lipid of POPC in simulation with ECC-lipids model is smaller by $\approx 1Å^2$ 
-than the experimental value derived from the SDP model \citep{kucerka14}. 
-The values of the area per lipid of the ECC-POPC model vary slightly 
-when simulated with different water models, however,
-they are still close to the experiment. \citep{melcr18}
-
-
+(see Fig.~\ref{fig:simVSexpNOions}). 
 The head group order parameters $\alpha$ and $\beta$ are highly relevant for this work,
-as they are being used in the electrometer concept (introduced in section~\ref{section:electrometer}). 
+as they are being used in the lipid electrometer concept. 
 For POPC in pure water, the order parameter $\beta$ agrees well with the experiment, 
 while the order parameter $\alpha$ is somewhat lower. 
-In the case of POPS, the situation is a bit more complicated
-compared to POPC as the order parameter $\alpha$ exhibits a notable forking (see Fig.~\ref{simVSexpNOions_POPS}).
-One of the order parameters of ECC-POPS, $\alpha_1$, agrees well with the experiment, 
-while the other, $\alpha_2$, adopts a higher value underestimating the experimentally reported forking. 
-There is only one order parameter $\beta$ in POPS, 
-which has a higher value closer to zero in the ECC-lipids model than in experiment. 
-Such a feature suggests that the model overestimates the orientational freedom of its head group. 
- 
 
 
 
+%\begin{figure}[tbp!] 
+%  \centering 
+%  \includegraphics[width=\figwidth]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_CaCl.pdf}
+%  \caption{\label{fig:delta_ordPar_CaCl} 
+%    Changes of the head group order parameters and P-N vector orientation of a POPC bilayer  
+%    as a function of the CaCl$_2$ concentration in bulk ($C_{ion}$) 
+%    from simulations at 313 K together with experimental data  
+%    (DPPC (323\,K) \citep{akutsu81} and POPC (313\,K) \citep{altenbach84}).  
+%    The error estimate for bulk concentrations is approximately 10\,mM. 
+%    The order of magnitude larger error in the
+%    simulation with Lipid14 and ECC-ions is due to unconverged bulk densities limited by the simulation box.  
+%    Simulation data with Lipid14 and Åqvist ion parameters at 298~K are taken directly from 
+%    Refs.~\citep{lipid14POPC0mMNaClfiles,lipid14POPC350mMCaClfiles,lipid14POPC350mMCaClfilesNC}. 
+%  } 
+%\end{figure} 
 
-\begin{figure}[tbp!] 
+
+\begin{figure}[tb] 
   \centering 
-  \includegraphics[width=\figwidth]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_CaCl.pdf}
-  \caption{\label{fig:delta_ordPar_CaCl} 
-    Changes of the head group order parameters and P-N vector orientation of a POPC bilayer  
-    as a function of the CaCl$_2$ concentration in bulk ($C_{ion}$) 
-    from simulations at 313 K together with experimental data  
-    (DPPC (323\,K) \citep{akutsu81} and POPC (313\,K) \citep{altenbach84}).  
-    The error estimate for bulk concentrations is approximately 10\,mM. 
-    The order of magnitude larger error in the
-    simulation with Lipid14 and ECC-ions is due to unconverged bulk densities limited by the simulation box.  
-    Simulation data with Lipid14 and Åqvist ion parameters at 298~K are taken directly from 
-    Refs.~\citep{lipid14POPC0mMNaClfiles,lipid14POPC350mMCaClfiles,lipid14POPC350mMCaClfilesNC}. 
-  } 
-\end{figure} 
-
-
-\begin{figure}[tbp!] 
-  \centering 
-  \includegraphics[width=\figwidthsmall]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPC_cacl.pdf} 
-  \includegraphics[width=\figwidthsmall]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPS_cacl.pdf} 
-  \caption{\label{fig:delta_ordPar_CaCl_PCPS} 
+  \subfloat[POPC bilayer]{\label{fig:delta_ordPar_CaCl} \includegraphics[width=\figwidthsmalltriple]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_CaCl.pdf} }
+  \subfloat[PC:PS (5:1) bilayer]{\label{fig:delta_ordPar_CaCl_PCPS} \includegraphics[width=\figwidthsmalltriple]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPC_cacl.pdf} }
+  \subfloat[PC:PS (5:1) bilayer]{ \includegraphics[width=\figwidthsmalltriple]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPS_cacl.pdf} }
+  \caption{ 
     Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
-    of POPC (left) and POPS (right) phospholipids in a POPC:POPS 5:1 bilayer as a function of \ce{CaCl2} concentration 
-    in bulk ($C_{ion}$) from simulations with different force fields and experiments at 298~K. \citep{roux90}
+    of POPC (left, middle) and POPS (right) phospholipids in phospholipid bilayers as a function of \ce{CaCl2} concentration 
+    in bulk ($C_{ion}$) from simulations with different force fields and experiments 
+    (DPPC (323\,K) \citep{akutsu81} and POPC (313\,K) \citep{altenbach84}, PC:PS \citep{roux90}).  
     The orientation of the \ce{COO^-} group is defined as 
     the connector from the $\beta$ carbon to the carbon in \ce{COO^-} (stars, bottom right). 
   } 
@@ -459,11 +386,13 @@ which achieves a \emph{quantitative} agreement with the changes induced by \ce{C
 
 
 
-\begin{figure}[htbp!] 
+\begin{figure}[tb] 
   \centering 
-  \includegraphics[width=\figwidth]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_concentrations-compar.pdf} 
-  \caption{\label{fig:cacl-dens} 
-    Number density profiles of \ce{Ca^{2+}} and \ce{Cl^-} along the normal of the neutral POPC bilayers starting at the centre 
+  %\includegraphics[width=\figwidth]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_concentrations-compar.pdf} 
+  \subfloat[POPC]{\label{fig:cacl-dens} \includegraphics[width=\figwidthsmall]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_concentrations-compar.pdf} }
+  \subfloat[POPC:POPS (5:1)]{ \label{fig:cacl-dens_PCPS} \includegraphics[width=\figwidthsmall]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf} }
+  \caption{ 
+    Number density profiles of \ce{Ca^{2+}} and \ce{Cl^-} along the normal of the phospholipid bilayers starting at the centre 
     for different concentrations of \ce{CaCl2} from simulations with ECC-lipids. 
     In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
     the density profiles of~\ce{Cl^-} ions are divided by 2, and 
@@ -472,19 +401,19 @@ which achieves a \emph{quantitative} agreement with the changes induced by \ce{C
 \end{figure} 
 
 
-\begin{figure}[htbp!] 
-  \centering 
-  \includegraphics[width=\figwidth]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf}
-  \caption{\label{fig:cacl-dens_PCPS} 
-    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along the normal of the membrane starting at the centre
-    for the negatively charged membrane with the composition 5\,PC:1\,PS
-    at various bulk concentrations of \ce{CaCl2} from simulations with ECC-lipids. 
-    All profiles contain \ce{Na^+} counterions and an additional concentration of \ce{CaCl2}. 
-    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
-    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
-    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
-    } 
-\end{figure} 
+%\begin{figure}[htbp!] 
+%  \centering 
+%  \includegraphics[width=\figwidth]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf}
+%  \caption{\label{fig:cacl-dens_PCPS} 
+%    Number density profiles of \ce{Ca^{2+}}, \ce{Na^{+}} and \ce{Cl^-} along the normal of the membrane starting at the centre
+%    for the negatively charged membrane with the composition 5\,PC:1\,PS
+%    at various bulk concentrations of \ce{CaCl2} from simulations with ECC-lipids. 
+%    All profiles contain \ce{Na^+} counterions and an additional concentration of \ce{CaCl2}. 
+%    In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
+%    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
+%    the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
+%    } 
+%\end{figure} 
  
 
 
@@ -493,18 +422,13 @@ which achieves a \emph{quantitative} agreement with the changes induced by \ce{C
 
 %%% Present the density profiles (different concentrations for both POPC and mixed)
 The increase in the amount of bound calcium cations from pure POPC to the mixed negatively charged bilayer containing POPS
-is well demonstrated using the relative surface excess, $\Gamma ^w _{Ca}$,
-summarized in Table~\ref{tab:binding}. 
+is well demonstrated using the relative surface excess, $\Gamma ^w _{Ca}$.
 Distributions of \ce{Ca^{2+}}, \ce{Na^+} counterions and also \ce{Cl^-} 
 are plotted in Fig.~\ref{fig:cacl-dens} for the neutral POPC bilayer, 
 and in Fig.~\ref{fig:cacl-dens_PCPS} for the negatively charged bilayer. 
-In contrast to \ce{KCl} or added concentrations of \ce{NaCl}, 
-\ce{Na^+} counterions are substituted with \ce{Ca^{2+}} even at low concentrations of \ce{CaCl2}. 
 The increasing concentration of \ce{CaCl2} and, hence, a higher amount of bound \ce{Ca^{2+}}
-also attracts \ce{Cl^-} anions to the bilayer 
+attracts \ce{Cl^-} anions to the bilayer 
 as can be seen from its growing density at the interface. 
-
-
 %%% discuss the table with Gammas and follow up with molecular details, where do cations bind? Support with the spatial density figure
 The density profiles of ions suggest that
 the dominant contribution to the binding of \ce{Ca^{2+}} to phospholipid bilayers
@@ -563,9 +487,7 @@ gives rise to a transmembrane potential.
 For instance, the concerted action of voltage-gated ion channels and pumps in neurons 
 modulates their transmembrane potential
 providing a fast signal transduction through the axons \citep{Knudsen_book2002, Storace2015, Sung2015}. 
-The common magnitude of the transmembrane potential in cells is in the range of 10--100~mV. 
-In experiment, the membrane potential can be measured using the patch clamp technique \citep{Bezanilla2008}
-and the more modern voltage-sensitive fluorescent probes \citep{Storace2015, Sung2015}. 
+A common magnitude of the transmembrane potential in cells is in the range of 10--100~mV. 
 
 The transmembrane potential in simulations can be modeled by several methods. \citep{Tieleman2001,Sin2015, Roux1997, sachs04_potential}.
 In particular, 
@@ -595,7 +517,7 @@ the structure of the bilayer is preserved even at high voltages at the time scal
 unlike that of water at the interface with the hydrophobic core of the bilayer
 underlining its importance in electroporation. \citep{bu2017mechanics}
 
-\begin{figure}[btp]
+\begin{figure}[bt!]
 \begin{center}
 \includegraphics[width = \figwidthfull]{../img/pot+field+chargedens_6plot_KCl-page001.png}
  \caption{The transmembrane potential (A,B), the electric field intensity (C,D), and the charge density (E,F) profiles for simulations of a POPC bilayer with 150\,mM concentration of \ce{KCl}. 
@@ -646,20 +568,20 @@ The voltage drop across the membrane is $499\,$mV for IIMB and $486\,$mV for CEF
 Transmembrane Potential Modeling: Comparison between Methods of Constant Electric
 Field and Ion Imbalance. 
 Journal of Chemical Theory and Computation, 12(5), (2016). 
-Josef Melcr, Daniel Bonhenry, Štěpán Timr, and Pavel Jungwirth. 
+\textbf{Josef Melcr}, Daniel Bonhenry, Štěpán Timr, and Pavel Jungwirth. 
 
 % paper NMRLipids II project -- lipid-ion interaction PCCP 2016
 \item[II] 
 Molecular electrometer and binding of cations to phospholipid bilayers. 
 Phys. Chem. Chem. Phys., (2016).
-Andrea Catte, Mykhailo Girych, Matti Javanainen, Claire Loison, Josef Melcr,
+Andrea Catte, Mykhailo Girych, Matti Javanainen, Claire Loison, \textbf{Josef Melcr},
 Markus S. Miettinen, Luca Monticelli, Jukka Maatta, Vasily S. Oganesyan,
 O. H. Samuli Ollila, Joona Tynkkynen, and Sergey Vilov. 
 
 \item[III]
 Accurate Binding of Sodium and Calcium to a POPC Bilayer by Effective Inclusion of Electronic Polarization. (2018)
 The Journal of Physical Chemistry B, 122(16), (2018).
-Josef Melcr, Hector Martinez-Seara, Ricky Nencini, Jiří Kolafa, Pavel Jungwirth,
+\textbf{Josef Melcr}, Hector Martinez-Seara, Ricky Nencini, Jiří Kolafa, Pavel Jungwirth,
 and O. H. Samuli Ollila. 
 
 \item[IV]
@@ -667,7 +589,7 @@ Head group and glycerol backbone structures,
 and cation binding in bilayers with PS lipids. Submitted (2018).
 Amelie Bacle, Pavel Buslaev, Lukasz Cwiklik, Fernando Favela, Tiago Ferreira,
 Patrick Fuchs, Ivan Gushchin, Matti Javanainen, Batuhan Kav, Jesper Madsen, 
-Josef Melcr, Markus Miettinen, Ricky Nencini,  Chris Papadopoulos, Thomas Piggot 
+\textbf{Josef Melcr}, Markus Miettinen, Ricky Nencini,  Chris Papadopoulos, Thomas Piggot 
 and O. H. Samuli Ollila. 
 
 \end{itemize}
