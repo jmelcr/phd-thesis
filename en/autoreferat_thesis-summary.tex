@@ -171,10 +171,10 @@ between the years 2013 and 2018.
 	\end{itemize}
 \end{itemize}
 
-The defence of the thesis is held 
+The defence of the thesis takes place
 in the lecture hall of the Institute of physics 
 of the Faculty of mathematics and physics in Prague
-on Tuesday, 25 September 2018 at 11 o'clock. 
+on Tuesday, 25 September 2018 at 11~am. 
 The thesis is available at the Student Affairs Department of the Faculty of
 Mathematics and Physics of Charles University. 
 
@@ -243,7 +243,7 @@ microscopy measurements \citep{harb13,manyes06,fukuma07,ferber11,morata12},
 and atomistic molecular dynamics (MD) simulations \citep{cordomi09,valley11,berkowitz12,catte16,nmrlipids_proj4,melcr18}.
 My work solves this controversy
 by introducing a fundamental physics-based improvement into MD simulations
-making them \emph{qunatitatively} agreeing with the works predicting the weaker binding. 
+making them for the first time \emph{quantitatively} agreeing with the works predicting the weaker binding. 
 
 
 
@@ -274,13 +274,13 @@ making them \emph{qunatitatively} agreeing with the works predicting the weaker 
 
 
 
-Ion binding in lipid bilayers can be experimentally quantified
-by measuring the changes of the head group order parameters in lipids.
-In the case of the head group order parameters $\alpha$ and $\beta$ in phosphatidylcholine
+Ion binding to lipid bilayers can be experimentally quantified
+by measuring the changes of the head group order parameters in the lipids using solid state NMR.
+In the case of the head group order parameters $S^\alpha$ and $S^\beta$ in phosphatidylcholine
 (see Fig.~\ref{fig:simVSexpNOions} for the definition of the order parameters)
 such changes are known under the term ''electrometer concept'' \citep{seelig87,catte16, ollila16}. 
 It is experimentally observed that the C-H bond
-order parameters of $\alpha$ and $\beta$ carbons in a PC lipid head group
+order parameters of $S^\alpha$ and $S^\beta$ carbons in a PC lipid head group
 are proportional to the amount of charge, positive or negative, bound per lipid~\citep{seelig87}.
 The change of the order parameters measured with varying concentrations of aqueous ions 
 can be then related to the amount of bound ions.
@@ -306,23 +306,24 @@ and which yield accurate response of the head group order parameters to various 
 In short, 
 ECC is an implicit model of electronic polarizability,
 which can be straightforwardly implemented into current force fields 
-by scaling charges
+by scaling charges. 
+Moreover, simulations with ECC-lipids, an \emph{implicitly polarizable} force field, come 
 without any extra computational costs compared to standard fixed-charge simulations. 
 Our new model, ECC-lipids,
 provides a proof of concept of the applicability of ECC
 to charged as well as neutral molecules. 
 
 We compared X-ray scattering form factors and NMR order parameters of bilayers
-in pure water without any ions (or only counter ions)
+in pure water without any ions (or only counterions)
 from simulations and experiments
 as the first step in the assessment of the quality of the model. 
 The experimental X-ray scattering form factors 
-of a bilayer are well reproduced for all lipids employing the presented ECC-lipids model 
-(see Fig.~\ref{fig:simVSexpNOions}). 
-The head group order parameters $\alpha$ and $\beta$ are highly relevant for this work,
+of a bilayer are well reproduced for all lipids employing the presented ECC-lipids model, 
+as shown in~Fig.~\ref{fig:simVSexpNOions} for POPC. 
+The head group order parameters $S^\alpha$ and $S^\beta$ are highly relevant for this work,
 as they are being used in the lipid electrometer concept. 
-For POPC in pure water, the order parameter $\beta$ agrees well with the experiment, 
-while the order parameter $\alpha$ is somewhat lower. 
+For POPC in pure water, the order parameter $S^\beta$ agrees well with the experiment, 
+while the order parameter $S^\alpha$ is somewhat lower. 
 
 
 
@@ -347,12 +348,14 @@ while the order parameter $\alpha$ is somewhat lower.
   \centering 
   \subfloat[POPC bilayer]{\label{fig:delta_ordPar_CaCl} \includegraphics[width=\figwidthsmalltriple]{../img/ecc_popc/OrdPars-A-B-PNvec_L14-ECC-lipids_CaCl.pdf} }
   \subfloat[PC:PS (5:1) bilayer]{\label{fig:delta_ordPar_CaCl_PCPS} \includegraphics[width=\figwidthsmalltriple]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPC_cacl.pdf} }
-  \subfloat[PC:PS (5:1) bilayer]{ \includegraphics[width=\figwidthsmalltriple]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPS_cacl.pdf} }
+  \subfloat[PC:PS (5:1) bilayer]{\label{fig:delta_ordPar_CaCl_PCPS2}  \includegraphics[width=\figwidthsmalltriple]{../img/ecc_pops/order_parameters_changes_ecc-lip_L14_A-B-PN-COO_POPS_cacl.pdf} }
   \caption{ 
-    Changes of the head group order parameters $\alpha$, $\beta$ and the orientations of the carboxylate group and the P-N vector  
-    of POPC (left, middle) and POPS (right) phospholipids in phospholipid bilayers as a function of \ce{CaCl2} concentration 
+    Changes of the head group order parameters $S^\alpha$ and $S^\beta$ and the orientations of the carboxylate group and the P-N vector  
+    of POPC (left, middle) and POPS (right) in phospholipid bilayers as a function of \ce{CaCl2} concentration 
     in bulk ($C_{ion}$) from simulations with different force fields and experiments 
-    (DPPC (323\,K) \citep{akutsu81} and POPC (313\,K) \citep{altenbach84}, PC:PS \citep{roux90}).  
+    (DPPC (323\,K) \citep{akutsu81}, POPC (313\,K) \citep{altenbach84}, PC:PS \citep{roux90}).  
+    Results from a pure POPC bilayer are shown in the left figure;
+    results from a mixed PC:PS (5:1) bilayer are shown in the middle and right figure.
     The orientation of the \ce{COO^-} group is defined as 
     the connector from the $\beta$ carbon to the carbon in \ce{COO^-} (stars, bottom right). 
   } 
@@ -366,9 +369,9 @@ while the order parameter $\alpha$ is somewhat lower.
 
 The changes of the head group order parameters $S^\alpha$ and $S^\beta$ from simulations and experiments 
 are shown in Fig.~\ref{fig:delta_ordPar_CaCl} for a neutral POPC bilayer, 
-and in Fig.~\ref{fig:delta_ordPar_CaCl_PCPS} for a negatively charged bilayer with the composition 5\,PC:1\,PS. 
+and in Figs.~\ref{fig:delta_ordPar_CaCl_PCPS} and \ref{fig:delta_ordPar_CaCl_PCPS2} for a negatively charged bilayer with the composition 5\,PC:1\,PS. 
 For a direct comparison and a connection to our works \citep{catte16, nmrlipids_proj4},
-we show simulation results from ECC-lipids and also from Lipid17 \citep{lipid17-future}. 
+we show simulation results from ECC-lipids and also from Lipid17, a standard non-polarizable fixed-charge force field \citep{lipid17-future}. 
 This also highlights the improvements in ECC-lipids over Lipid17 arising from the electronic polarization. 
 %Although Lipid17 already belongs to the top-performing models in terms of the responses of the head group order parameters in those studies,  
 %including electronic polarizability to form ECC-lipids improves the results even further.
@@ -396,10 +399,10 @@ which achieves a \emph{quantitative} agreement with the changes induced by \ce{C
   \subfloat[POPC]{\label{fig:cacl-dens} \includegraphics[width=\figwidthsmall]{../img/ecc_popc/density_profiles_ca_cl_wat_phos_concentrations-compar.pdf} }
   \subfloat[POPC:POPS (5:1)]{ \label{fig:cacl-dens_PCPS} \includegraphics[width=\figwidthsmall]{../img/ecc_pops/density_profiles_ca_na_cl_wat_phos_models-compar_1-3_CaCl2-series.pdf} }
   \caption{ 
-    Number density profiles of \ce{Ca^{2+}} and \ce{Cl^-} along the normal of the phospholipid bilayers starting at the centre 
+    Number density profiles of \ce{Ca^{2+}} and \ce{Na^{+}}, \ce{Cl^-} along the normal of the phospholipid bilayers starting at the centre 
     for different concentrations of \ce{CaCl2} from simulations with ECC-lipids. 
     In order to visualize the density profiles with a scale comparable to the profile of \ce{Ca^{2+}},  
-    the density profiles of~\ce{Cl^-} ions are divided by 2, and 
+    the density profiles of~\ce{Na^}+ and \ce{Cl^-} ions are divided by 2, and 
     the density profiles of phosphate groups and water are divided by 5 and 200, respectively.  
     } 
 \end{figure} 
@@ -455,7 +458,7 @@ of the \ce{COO^-} group from $62^\circ$ to $73^\circ$ (420~mM \ce{CaCl2})
 which was measured as the connector of the carbon atoms 
 forming the bond between the group and the $\beta$-carbon of the phospholipid. 
 The interactions of the carboxylate group in PS with calcium and other phosphate groups
-shed light into the qualitatively different response of the head group order parameters $\alpha$ and $\beta$ in PS compared to PC 
+shed light into the qualitatively different response of the head group order parameters $S^\alpha$ and $S^\beta$ in PS compared to PC 
 (see Figs.~\ref{fig:delta_ordPar_CaCl} and~\ref{fig:delta_ordPar_CaCl_PCPS}). 
 We find that the complex response of the head group order parameters of POPS 
 is affected by the conformational changes of the carboxylate group,
@@ -466,6 +469,16 @@ this is also very likely the reason,
 why the magnitude of the P-N vector change in POPS is diminished compared to POPC, 
 which is not restrained by an additional cation binding group like \ce{COO^-} in POPS. 
 
+
+In summary,
+treatment  of the electronic polarization 
+was shown to have a dramatically positive impact on the accuracy of the description of interactions
+between phospholipids and cations. 
+The presented application of ECC to lipids
+constitutes a pivotal work for its future adaptations 
+to also other compounds, especially charged and zwitterionic, 
+e.g., proteins or nucleic acids,
+for which we expect improvements in computational description in a similar range. 
 
 
 
